@@ -3,6 +3,10 @@
 hdd=""
 
 function userInputs() {
+ # load the german keyboard layout
+    echo "loading german keyboard layout...\n"
+    sleep 1
+     sudo loadkeys de-latin1
 
     # the harddrive select
     fdisk -l
@@ -14,10 +18,6 @@ function userInputs() {
 
 # do all the pre installation setup
 function preInstallation() {
-
-    # load the german keyboard layout
-    echo "loading german keyboard layout...\n"
-     sudo loadkeys de-latin1
 
     # check if the system is booted in EFI or BIOS mode
     echo "checking the system for bootmode\n"
