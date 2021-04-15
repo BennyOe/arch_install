@@ -102,9 +102,11 @@ read finish
 echo "setting fstab\n"
 genfstab -U /mnt >> /mnt/etc/fstab
 
-echo "chrooting in installation\n"
-sleep 2
-arch-chroot /mnt
+echo "chrooting in installation"
+echo "Press a key to continue..."
+read
+
+arch-chroot /mnt /bin/sh << EOF
 
 echo "setting time and date\n"
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
@@ -176,6 +178,7 @@ echo "rebooting the system. Please execute the gui.sh for XOrg and DWM\n"
 echo "press a key to continue...\n"
 read
 exit
+EOF
 reboot
 }
 
