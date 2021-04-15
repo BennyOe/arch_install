@@ -84,7 +84,7 @@ function formatDisk() {
     mkswap "${hdd}2"
     mkfs.ext4 "${hdd}3"
 
-    mount "${hdd}3 /mnt"
+    mount "${hdd}3" /mnt
     swapon "${hdd}2"
     read
 }
