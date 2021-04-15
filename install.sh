@@ -107,7 +107,7 @@ echo "Press a key to continue..."
 read
 
 #chroot
-arch-chroot /mnt /bin/sh << EOF
+cat <<EOF > /mnt/root/part2.sh
 echo "in chroot mode"
 read
 
@@ -181,6 +181,9 @@ read
 
 exit
 EOF
+
+arch-chroot /mnt /root/part2.sh
+
 # reboot
 echo "rebooting the system. Please execute the gui.sh for XOrg and DWM\n"
 echo "press a key to continue...\n"
