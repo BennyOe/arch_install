@@ -106,7 +106,10 @@ echo "chrooting in installation"
 echo "Press a key to continue..."
 read
 
+#chroot
 arch-chroot /mnt /bin/sh << EOF
+echo "in chroot mode"
+read
 
 echo "setting time and date\n"
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
@@ -154,16 +157,16 @@ passwd $username
 usermod -aG wheel,audio,video,optical,storage $username
 
 echo "installing additional packets\n"
-sleep 1
+read
 pacman -S --noconfirm sudo man
 
 echo "uncomment the wheel line\n"
-sleep 2
+read
 visudo
 
 # bootloader
-echo "setting up the bootloader\n"
-sleep 2
+printf "setting up the bootloader\n press a key to continue"
+read
 pacman -S --noconfirm grub efibootmgr dosfstools os-prober mtools
 mkdir /boot/EFI
 mount "${hdd}1" /boot/EFI
@@ -173,13 +176,16 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # network
 systemctl enable NetworkManager
 
+printf "exiting chroot\n press a key to continue"
+read
+
+exit
+EOF
 # reboot
 echo "rebooting the system. Please execute the gui.sh for XOrg and DWM\n"
 echo "press a key to continue...\n"
 read
-exit
-EOF
-reboot
+shutdown now
 }
 
 userInputs
