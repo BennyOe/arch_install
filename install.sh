@@ -86,6 +86,7 @@ function formatDisk() {
 
     mount "${hdd}3 /mnt"
     swapon "${hdd}2"
+    read
 }
 
 function installArch() {
