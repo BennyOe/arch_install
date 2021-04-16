@@ -1,197 +1,220 @@
 #!/bin/bash
 
-hdd=""
+#################
+#### Welcome ####
+#################
 
-function userInputs() {
  # load the german keyboard layout
-    echo "loading german keyboard layout...\n"
+printf "loading german keyboard layout...\n"
+sleep 1
+loadkeys de-latin1
+
+bootstrapper_dialog --title "Welcome" --msgbox "Welcome to the Arch installation.\n" 6 60
+
+
+#################
+### User Input###
+#################
+
+# the harddrive select
+devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
+device=$(dialog --stdout --menu "Select installation disk" 0 0 0 ${devicelist}) || exit 1
+
+# hostname
+hostname=$(dialog --stdout --inputbox "Enter hostname" 0 0) || exit 1
+clear
+: ${hostname:?"hostname cannot be empty"}
+
+# admin
+user=$(dialog --stdout --inputbox "Enter admin username" 0 0) || exit 1
+clear
+: ${user:?"user cannot be empty"}
+
+# password
+password=$(dialog --stdout --passwordbox "Enter admin password" 0 0) || exit 1
+clear
+: ${password:?"password cannot be empty"}
+password2=$(dialog --stdout --passwordbox "Enter admin password again" 0 0) || exit 1
+clear
+[[ "$password" == "$password2" ]] || ( printf "Passwords did not match"; exit 1; )
+
+clear
+
+# check if the system is booted in EFI or BIOS mode
+printf "checking the system for bootmode\n\n"
+sleep 1
+if [ -d "/sys/firmware/efi/efivars" ]; then
+    printf " the system is in EFI Mode\n"
+else
+    printf "the system is in BIOS Mode\n"
+    printf "this script is for EFI install only...\n"
     sleep 1
-     sudo loadkeys de-latin1
+    exit -1
+fi
 
-    # the harddrive select
-    fdisk -l
-    echo "\n"
-    echo "Select HDD to install Arch (/dev/sdX)"
-    read hdd
-}
+# check if the internet is working
+printf "checking the internet connection\n\n"
+sleep 1
+if ping -c 1 archlinux.org &>/dev/null; then 
+    printf "Internet connection working...\n"
+else 
+    printf "Internet connection not working\n"
+     # Wlan or Ethernet
+    printf "Do you use Wlan for the installation? [y]/n\n"
+    read wlan
 
-
-# do all the pre installation setup
-function preInstallation() {
-
-    # check if the system is booted in EFI or BIOS mode
-    echo "checking the system for bootmode\n"
-    if [ -d "/sys/firmware/efi/efivars" ]; then
-        echo " the system is in EFI Mode\n"
-    else
-        echo "the system is in BIOS Mode\n"
-        echo "this script is for EFI install only...\n"
-        sleep 1
-        exit -1
-    fi
-
-    # check if the internet is working
-    echo "checking the internet connection\n"
-    sleep 1
-    if ping -c 1 archlinux.org &>/dev/null; then 
-        echo "Internet connection working...\n"
-    else 
-        echo "Internet connection not working\n"
-         # Wlan or Ethernet
-        echo "Do you use Wlan for the installation? [y]/n\n"
-        read wlan
-
-        if [ $wlan=="y"]; then
-            iwctl device list
-            echo "pick device\n"
-            read device
-            iwctl station $device scan
-            iwctl station $device get-networks
-            echo "pick SSID\n"
-            read ssid
-            echo "enter password\n"
+    if [ $wlan=="y"]; then
+        iwctl device list
+        printf "pick device\n"
+        read device
+        iwctl station $device scan
+        iwctl station $device get-networks
+        printf "pick SSID\n"
+        read ssid
+        printf "enter password\n"
+        read pw
+        iwctl --passphrase=$pw station $device connect $ssid
+        while ! ping -c 1 archlinux.org &>/dev/null; 
+        do 
+            printf "connection unsuccessful...\n"
+            printf "enter password\n"
             read pw
             iwctl --passphrase=$pw station $device connect $ssid
-            while ! ping -c 1 archlinux.org &>/dev/null; 
-            do 
-                echo "connection unsuccessful...\n"
-                echo "enter password\n"
-                read pw
-                iwctl --passphrase=$pw station $device connect $ssid
-            done
-                echo "Internet connection working...\n"
-        else
-        echo "please check your connection...\n"
-        sleep 1
-        exit -1
-        fi
+        done
+            printf "Internet connection working...\n"
+    else
+    printf "please check your connection...\n"
+    sleep 1
+    exit -1
     fi
+fi
+clear
 
-    # update the system clock
-    echo "updating the system clock\n"
-    sleep 1
-    timedatectl set-ntp true
-    timedatectl status
-}
-
-function formatDisk() {
-    echo "Starting to partition the disk\n"
-    fdisk $hdd
-    # TODO sfdisk disk automation
-    sleep 1
-    echo "\n setting the filesystem\n"
-    mkfs.fat -F32 "${hdd}1"
-    mkswap "${hdd}2"
-    mkfs.ext4 "${hdd}3"
-
-    mount "${hdd}3" /mnt
-    swapon "${hdd}2"
-    read
-}
-
-function installArch() {
-echo "beginning with Arch installation\n"
+# update the system clock
+printf "updating the system clock\n"
 sleep 1
+timedatectl set-ntp true
+timedatectl status
+
+
+#################
+# Disk Partition#
+#################
+
+printf "Starting to partition the disk\n"
+sleep 1
+swap_size=$(free --mebi | awk '/Mem:/ {print $2}')
+swap_end=$(( $swap_size + 512 + 1 ))MiB
+
+parted --script "${device}" -- mklabel gpt \
+  mkpart ESP fat32 1Mib 512MiB \
+  set 1 boot on \
+  mkpart primary linux-swap 512MiB ${swap_end} \
+  mkpart primary ext4 ${swap_end} 100%
+
+part_boot="${device}1"
+part_swap="${device}2"
+part_root="${device}3"
+
+mkfs.vfat -F32 "${part_boot}"
+mkswap "${part_swap}"
+mkfs.ext4 "${part_root}"
+
+swapon "${part_swap}"
+
+######################
+#### Install Arch ####
+######################
+
+mount "${part_root}" /mnt
+mkdir /mnt/boot
+mount "${part_boot}" /mnt/boot
+
+printf "\n\n beginning with Arch installation\n press a key to continue\n"
+read
+clear
 pacstrap /mnt base linux linux-firmware base-devel vim networkmanager
 
 sleep 2
-echo "is everything finished?\n"
-read finish
-
+printf "\n\n everything is installed.\n configuring the system \n press a key to continue\n"
+read 
+clear
 #configure the system
-echo "setting fstab\n"
+printf "setting fstab\n"
 genfstab -U /mnt >> /mnt/etc/fstab
 
-echo "chrooting in installation"
-echo "Press a key to continue..."
+printf "\n\nchrooting in installation\n"
+printf "Press a key to continue..."
 read
 
-#chroot
-cat <<EOF > /mnt/root/part2.sh
-echo "in chroot mode"
-read
 
-echo "setting time and date\n"
+###############################
+#### Configure base system ####
+###############################
+arch-chroot /mnt /bin/bash <<EOF
+echo "Setting and generating locale"
+echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
+locale-gen
+
+export LANG=en_US.UTF-8
+echo "LANG=en_US.UTF-8" >> /etc/locale.conf
+echo "Setting time zone"
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc
 
-#localization
-echo "uncomment the language you like to have\n"
-read
-vim /etc/locale.gen
-locale-gen
-
-echo "setting locale.conf\n"
-touch /etc/locale.conf
-printf "LANG=en_US.UTF-8" > /etc/locale.conf
-
-echo "setting keyboard layout\n"
-sleep 1
-touch /etc/vconsole.conf
-printf "KEYMAP=de-latin1" > /etc/vconsole.conf
-
-# network configuration
-echo "name your computer\n"
-read computername
-touch /etc/hostname
-printf $computername > /etc/hostname
-
-echo "setting the hosts file\n"
-printf "127.0.0.1    localhost \n" >> /etc/hosts
-printf "::1    localhost \n" >> /etc/hosts
-printf "127.0.1.1    ${computername}.localdomain    ${computername}" >> /etc/hosts
-
-mkinitcpio -P
-
-# user management
-echo "set your root password\n"
-passwd
-
-echo "set username\n"
-read username
-useradd -m $username
-echo "set password for user ${username}\n"
-passwd $username
-
-# set the groups for the user
-usermod -aG wheel,audio,video,optical,storage $username
-
-echo "installing additional packets\n"
-read
-pacman -S --noconfirm sudo man
-
-echo "uncomment the wheel line\n"
-read
-visudo
-
-# bootloader
-printf "setting up the bootloader\n press a key to continue"
-read
-pacman -S --noconfirm grub efibootmgr dosfstools os-prober mtools
-mkdir /boot/EFI
-mount "${hdd}1" /boot/EFI
-grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
-grub-mkconfig -o /boot/grub/grub.cfg
-
-# network
+printf "setting keyboard layout\n"
+echo "KEYMAP=de-latin1" >> /etc/vconsole.conf
+echo "Setting hostname"
+echo $hostname > /etc/hostname
+sed -i "/localhost/s/$/ $hostname/" /etc/hosts
+echo "Installing wifi packages"
+pacman --noconfirm -S iw wpa_supplicant dialog wpa_actiond sudo man
+echo "Generating initramfs"
+sed -i 's/^HOOKS.*/HOOKS="base udev autodetect modconf block encrypt lvm2 filesystems keyboard fsck"/' /etc/mkinitcpio.conf
+echo "Setting root password"
+echo "root:${password}" | chpasswd
+printf "setting the hosts file\n"
+echo "127.0.0.1    localhost \n" >> /etc/hosts
+echo "::1    localhost \n" >> /etc/hosts
+echo "127.0.1.1    ${hostname}.localdomain    ${hostname}" >> /etc/hosts
 systemctl enable NetworkManager
+mkinitcpio -p linux
+EOF
+
+
+#########################
+#### User Management ####
+#########################
+
+arch-chroot /mnt useradd -mU -s /usr/bin/zsh -G wheel,uucp,video,audio,storage,games,input "$user"
+arch-chroot /mnt chsh -s /usr/bin/zsh
+
+echo "$user:$password" | chpasswd --root /mnt
+echo "root:$password" | chpasswd --root /mnt
+
+arch-chroot /mnt visudo << EOF
+:%s/^# %wheel ALL=(ALL) NO/%wheel ALL=(ALL) NO/g
+:wq
+EOF
+
+#############################
+#### Install boot loader ####
+#############################
+arch-chroot /mnt /bin/bash <<EOF
+    echo "Installing Grub boot loader"
+    pacman -S --noconfirm grub efibootmgr dosfstools os-prober mtools
+    mkdir /boot/EFI
+    mount "${part_boot}" /boot/EFI
+    grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
+    grub-mkconfig -o /boot/grub/grub.cfg
+EOF
 
 printf "exiting chroot\n press a key to continue"
 read
-
-exit
-EOF
-
-arch-chroot /mnt /root/part2.sh
+clear
 
 # reboot
-echo "rebooting the system. Please execute the gui.sh for XOrg and DWM\n"
-echo "press a key to continue...\n"
+printf "rebooting the system. Please execute the gui.sh for XOrg and DWM\n"
+printf "press a key to continue...\n"
 read
 shutdown now
-}
-
-userInputs
-preInstallation
-formatDisk
-installArch
