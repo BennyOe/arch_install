@@ -12,6 +12,7 @@ sleep 1
 loadkeys de-latin1
 
 bootstrapper_dialog --title "Welcome" --msgbox "Welcome to the Arch installation.\n" 6 60
+bootstrapper_dialog --title "Warning" --msgbox "!!!This script deletes the harddrive you selected without further warning!!!.\n" 6 60
 
 
 ####################
