@@ -190,12 +190,13 @@ EOF
 #########################
 #### User Management ####
 #########################
-
+echo "####################################### HERE #################################"
+sleep 5
 arch-chroot /mnt useradd -m -G wheel,uucp,video,audio,storage,games,input "$user"
-
+sleep 5
 echo "$user:$password" | chpasswd --root /mnt
 echo "root:$password" | chpasswd --root /mnt
-
+sleep 5
 arch-chroot /mnt visudo << EOF
 :%s/^# %wheel ALL=(ALL) NO/%wheel ALL=(ALL) NO/g
 :wq
@@ -208,7 +209,8 @@ arch-chroot /mnt /bin/bash <<EOF
     echo "Installing Grub boot loader"
     mkdir /boot/EFI
     mount $part_boot /boot/EFI
-    sleep 2
+    echo " ############################# mKDIR ###################"
+    sleep 5
     pacman -S --noconfirm grub efibootmgr dosfstools os-prober mtools
     grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
     grub-mkconfig -o /boot/grub/grub.cfg
