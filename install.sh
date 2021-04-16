@@ -46,7 +46,7 @@ clear
 printf "checking the system for bootmode\n\n"
 sleep 1
 if [ -d "/sys/firmware/efi/efivars" ]; then
-    printf " the system is in EFI Mode\n"
+    printf "the system is in EFI Mode\n"
     sleep 2
 else
     printf "the system is in BIOS Mode\n"
