@@ -223,6 +223,7 @@ EOF
 clear
 echo "Installing Grub boot loader"
 sleep 2
+if [ boot == "efi"]; then
 arch-chroot /mnt /bin/bash <<EOF
     mkdir /boot/EFI
     mount $part_boot /boot/EFI
@@ -230,6 +231,13 @@ arch-chroot /mnt /bin/bash <<EOF
     grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
     grub-mkconfig -o /boot/grub/grub.cfg
 EOF
+else
+arch-chroot /mnt /bin/bash <<EOF
+    pacman -S --noconfirm grub dosfstools os-prober mtools
+    grub-install --target=i386-pc $device
+    grub-mkconfig -o /boot/grub/grub.cfg
+EOF
+fi
 
 clear
 
