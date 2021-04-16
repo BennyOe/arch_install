@@ -48,7 +48,7 @@ printf "installing yay package manager\n"
 sleep 2
 git clone https://aur.archlinux.org/yay-git.git
 cd /home/$user/$appfolder/yay-git
-makepkg -si --noconfirm
+sudo -u $user makepkg -si --noconfirm
 sleep 5
 
 #####################
