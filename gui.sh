@@ -16,7 +16,7 @@ appfolder=$(dialog --stdout --inputbox "Enter application folder" 0 0) || exit 1
 clear
 : ${appfolder:?"appfolder cannot be empty"}
 
-appfolder=.$appfolder
+appfolder=".$appfolder"
 
 ###########################
 ### Graphical Interface ###
