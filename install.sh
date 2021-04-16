@@ -139,7 +139,7 @@ mount ${part_root} /mnt
 printf "\n\n beginning with Arch installation\n press a key to continue\n"
 read
 clear
-pacstrap /mnt base linux linux-firmware base-devel vim networkmanager git man 
+pacstrap /mnt base linux linux-firmware base-devel vim networkmanager git man bash
 
 sleep 2
 
