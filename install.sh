@@ -139,7 +139,7 @@ mount ${part_root} /mnt
 printf "\n\n beginning with Arch installation\n press a key to continue\n"
 read
 clear
-pacstrap /mnt base linux linux-firmware base-devel vim networkmanager
+pacstrap /mnt base linux linux-firmware base-devel vim networkmanager git man 
 
 sleep 2
 
@@ -175,7 +175,7 @@ echo "Setting hostname"
 echo $hostname > /etc/hostname
 sed -i "/localhost/s/$/ $hostname/" /etc/hosts
 echo "Installing wifi packages"
-pacman --noconfirm -S iw wpa_supplicant dialog wpa_actiond sudo man
+pacman --noconfirm -S iw wpa_supplicant dialog wpa_actiond sudo
 echo "Generating initramfs"
 sed -i 's/^HOOKS.*/HOOKS="base udev autodetect modconf block encrypt lvm2 filesystems keyboard fsck"/' /etc/mkinitcpio.conf
 echo "Setting root password"
