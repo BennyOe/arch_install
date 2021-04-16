@@ -129,8 +129,8 @@ swapon "${part_swap}"
 ######################
 
 mount ${part_root} /mnt
-mkdir /mnt/boot/EFI
-mount ${part_boot} /mnt/boot/EFI
+#mkdir /mnt/boot/EFI
+#mount ${part_boot} /mnt/boot/EFI
 
 printf "\n\n beginning with Arch installation\n press a key to continue\n"
 read
@@ -204,9 +204,10 @@ EOF
 #############################
 arch-chroot /mnt /bin/bash <<EOF
     echo "Installing Grub boot loader"
+    mkdir /boot/EFI
+    mount /dev/sda1 /boot/EFI
+    sleep 2
     pacman -S --noconfirm grub efibootmgr dosfstools os-prober mtools
-    #mkdir /boot/EFI
-    #mount ${part_boot} /boot/EFI
     grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
     grub-mkconfig -o /boot/grub/grub.cfg
 EOF
