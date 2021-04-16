@@ -42,6 +42,8 @@ cd /home/$user/$appfolder
 ### Yay Install ###
 ###################
 clear
+echo "/home/${user}/${appfolder}/"
+sleep 5
 printf "installing yay package manager\n"
 sleep 2
 git clone https://aur.archlinux.org/yay-git.git
