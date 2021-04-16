@@ -1,5 +1,13 @@
 #!/bin/bash
 
+#### TODO ####
+# xinitrc wird nicht gekürzt
+# libxft-bgra kann nicht installiert werden, da konflikt
+# script kann nur als sudo ausgeführt werden. Dann ist der home path aber falsch
+# bash profile wird nicht geschrieben
+
+
+
 pacman -Sy --noconfirm dialog
 
 #################
