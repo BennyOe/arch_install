@@ -114,7 +114,7 @@ swap_size=$(free --mebi | awk '/Mem:/ {print $2}')
 part_swap=""
 part_boot=""
 part_root=""
-if [ boot == "efi"]; then
+if [ boot == "efi" ]; then
     swap_end=$(( $swap_size + 512 + 1 ))MiB
     parted --script "${device}" -- mklabel gpt \
       mkpart ESP fat32 1Mib 512MiB \
@@ -129,7 +129,7 @@ if [ boot == "efi"]; then
     mkfs.vfat -F32 "${part_boot}"
 else
     swap_end=$(( $swap_size + 1 ))MiB
-    parted --script "${device}" \
+    parted --script "${device}" -- mklabel msdos \
       mkpart primary linux-swap 1MiB ${swap_end} \
       set 1 boot on \
       mkpart primary ext4 ${swap_end} 100%
@@ -223,7 +223,7 @@ EOF
 clear
 echo "Installing Grub boot loader"
 sleep 2
-if [ boot == "efi"]; then
+if [ boot == "efi" ]; then
 arch-chroot /mnt /bin/bash <<EOF
     mkdir /boot/EFI
     mount $part_boot /boot/EFI
