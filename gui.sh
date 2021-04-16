@@ -1,3 +1,4 @@
+#!/bin/bash
 
 ############### Graphical Interface ###########
 sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit picom nitrogen git 
