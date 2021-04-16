@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#TODO
+# User wird nicht geadded WWWAARRRUUMMM????
+# checken, ob beim mount im chroot auch die variable $part_boot gesetzt werden kann
+
 pacman -Sy --noconfirm dialog
 
 #################
@@ -138,13 +142,12 @@ clear
 pacstrap /mnt base linux linux-firmware base-devel vim networkmanager
 
 sleep 2
-printf "\n\n everything is installed.\n configuring the system \n press a key to continue\n"
-read 
-clear
+
 #configure the system
 printf "setting fstab\n"
 genfstab -U /mnt >> /mnt/etc/fstab
 
+printf "\n\n everything is installed.\n configuring the system \n press a key to continue\n"
 printf "\n\nchrooting in installation\n"
 printf "Press a key to continue..."
 read
@@ -188,8 +191,7 @@ EOF
 #### User Management ####
 #########################
 
-arch-chroot /mnt useradd -mU -s /usr/bin/zsh -G wheel,uucp,video,audio,storage,games,input "$user"
-arch-chroot /mnt chsh -s /usr/bin/zsh
+arch-chroot /mnt useradd -m -G wheel,uucp,video,audio,storage,games,input "$user"
 
 echo "$user:$password" | chpasswd --root /mnt
 echo "root:$password" | chpasswd --root /mnt
@@ -205,15 +207,13 @@ EOF
 arch-chroot /mnt /bin/bash <<EOF
     echo "Installing Grub boot loader"
     mkdir /boot/EFI
-    mount /dev/sda1 /boot/EFI
+    mount $part_boot /boot/EFI
     sleep 2
     pacman -S --noconfirm grub efibootmgr dosfstools os-prober mtools
     grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
     grub-mkconfig -o /boot/grub/grub.cfg
 EOF
 
-printf "exiting chroot\n press a key to continue"
-read
 clear
 
 # reboot
