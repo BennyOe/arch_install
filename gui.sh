@@ -1,10 +1,7 @@
 #!/bin/bash
 
 #### TODO ####
-# xinitrc wird nicht gekürzt
-# libxft-bgra kann nicht installiert werden, da konflikt
 # script kann nur als sudo ausgeführt werden. Dann ist der home path aber falsch
-# bash profile wird nicht geschrieben
 
 
 
@@ -55,19 +52,20 @@ printf "Modifying .xinitrc\”"
 sleep 2
 
 # copy default xinitrc
-cp /etc/X11/xinit/xinitrc ~/.xinitrc
+cp /etc/X11/xinit/xinitrc ~/.xinitrcTMP
 
 # delete last 5 lines of xinitrc
-head -n -5 ~/.xinitrc
+head -n -5 ~/.xinitrcTMP > .xinitrc
+rm ~/.xinitrcTMP
 
 # setting xinitrc up
-printf "nitrogen --restore & \npicom & \nexec dwm" >> ~/.xinitrc
+printf "nitrogen --restore & \npicom & \nexec dwm\n" >> ~/.xinitrc
 
 # start X at startup
 clear
 printf "Modifying .bash_profile\n"
 sleep 2
-printf "[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1" >> .bash_profile
+printf "[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1\n" >> ~/.bash_profile
 
 # keyboard layout for x
 clear
@@ -93,6 +91,9 @@ cd ~/$appfolder
 git clone https://github.com/BennyOe/dwm.git
 cd dwm
 sudo make clean install
+mkdir /home/$user/.dwm/
+touch autostart.sh
+chmod +x /home/$user/.dwm/autostart.sh
 
 # dwmblocks
 clear
@@ -102,6 +103,7 @@ cd ~/$appfolder
 git clone https://github.com/BennyOe/dwmblocks.git
 cd dwmblocks
 sudo make clean install
+printf "dwmblocks &\nnm-applet&\n" >> /home/$user/.dwm/autostart/autostart.sh
 
 #st
 clear
@@ -119,4 +121,7 @@ sudo make clean install
 clear
 printf "installing Yay Stuff...\n"
 sleep 2
-yay -S --noconfirm libxft-bgra nerd-fonts-jetbrains-mono pacman archlinux-contrib sysstat nerd-fonts-mononoki ttf-font-awesome
+# removing libxft beforehand
+sudo pacman -R libxft -d -d --noconfirm 
+sleep 2
+yay -S --noconfirm libxft-bgra nerd-fonts-jetbrains-mono pacman-contrib archlinux-contrib sysstat nerd-fonts-mononoki ttf-font-awesome dmenu network-manager-applet gnu-free-fonts
