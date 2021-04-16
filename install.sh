@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pacman -Sy --noconfirm dialog
+
 #################
 #### Welcome ####
 #################
