@@ -1,6 +1,6 @@
 ### Curl the scripts
-curl https://raw.githubusercontent.com/BennyOe/arch_install/main/install.sh > install.sh
-curl https://raw.githubusercontent.com/BennyOe/arch_install/main/gui.sh > gui.sh
+curl https://raw.githubusercontent.com/BennyOe/arch_install/BIOS/install.sh > install.sh
+curl https://raw.githubusercontent.com/BennyOe/arch_install/BIOS/gui.sh > gui.sh
 
 ### Install Arch Linux
 - install.sh installs the base arch system. The only thing you have to do manually ist in fdisk type the commands 
