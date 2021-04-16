@@ -5,7 +5,7 @@ curl https://raw.githubusercontent.com/BennyOe/arch_install/main/gui.sh > gui.sh
 ### Install Arch Linux
 - install.sh installs the base arch system. The only thing you have to do manually ist in fdisk type the commands 
 "g" 
-3x "n" with the sizes "+500M" "+<RAMSIZE>M" "<REST>"
+3x "n" with the sizes "+500M" "+<RAMSIZE>G" "<REST>"
 "t" with partition 1 set to "1" 
 "t" with partition 2 set to "19"
 "w" to write and quit.
