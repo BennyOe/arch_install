@@ -14,7 +14,7 @@ bootstrapper_dialog --title "Welcome" --msgbox "Welcome to the GUI Installation.
 # app folder
 appfolder=$(dialog --stdout --inputbox "Enter application folder" 0 0) || exit 1
 clear
-: ${hostname:?"appfolder cannot be empty"}
+: ${appfolder:?"appfolder cannot be empty"}
 
 appfolder=.$appfolder
 
