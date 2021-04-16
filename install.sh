@@ -45,14 +45,15 @@ clear
 # check if the system is booted in EFI or BIOS mode
 printf "checking the system for bootmode\n\n"
 sleep 1
+bootmode="efi"
 if [ -d "/sys/firmware/efi/efivars" ]; then
     printf "the system is in EFI Mode\n"
     sleep 2
 else
     printf "the system is in BIOS Mode\n"
-    printf "this script is for EFI install only...\n press a key to exit"
-    read
-    exit -1
+    efi=false
+    bootmode="bios"
+    sleep 2
 fi
 
 # check if the internet is working
@@ -110,19 +111,32 @@ clear
 printf "Starting to partition the disk\n"
 sleep 2
 swap_size=$(free --mebi | awk '/Mem:/ {print $2}')
-swap_end=$(( $swap_size + 512 + 1 ))MiB
+part_swap=""
+part_boot=""
+part_root=""
+if [ boot == "efi"]; then
+    swap_end=$(( $swap_size + 512 + 1 ))MiB
+    parted --script "${device}" -- mklabel gpt \
+      mkpart ESP fat32 1Mib 512MiB \
+      set 1 boot on \
+      mkpart primary linux-swap 512MiB ${swap_end} \
+      mkpart primary ext4 ${swap_end} 100%
 
-parted --script "${device}" -- mklabel gpt \
-  mkpart ESP fat32 1Mib 512MiB \
-  set 1 boot on \
-  mkpart primary linux-swap 512MiB ${swap_end} \
-  mkpart primary ext4 ${swap_end} 100%
+    part_boot="${device}1"
+    part_swap="${device}2"
+    part_root="${device}3"
 
-part_boot="${device}1"
-part_swap="${device}2"
-part_root="${device}3"
+    mkfs.vfat -F32 "${part_boot}"
+else
+    swap_end=$(( $swap_size + 1 ))MiB
+    parted --script "${device}" \
+      mkpart primary linux-swap 1MiB ${swap_end} \
+      set 1 boot on \
+      mkpart primary ext4 ${swap_end} 100%
 
-mkfs.vfat -F32 "${part_boot}"
+    part_swap="${device}1"
+    part_root="${device}2"
+fi
 mkswap "${part_swap}"
 mkfs.ext4 "${part_root}"
 
