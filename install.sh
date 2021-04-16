@@ -1,9 +1,5 @@
 #!/bin/bash
 
-#TODO
-# User wird nicht geadded WWWAARRRUUMMM????
-# checken, ob beim mount im chroot auch die variable $part_boot gesetzt werden kann
-
 pacman -Sy --noconfirm dialog
 
 #################
@@ -51,10 +47,11 @@ printf "checking the system for bootmode\n\n"
 sleep 1
 if [ -d "/sys/firmware/efi/efivars" ]; then
     printf " the system is in EFI Mode\n"
+    sleep 2
 else
     printf "the system is in BIOS Mode\n"
-    printf "this script is for EFI install only...\n"
-    sleep 1
+    printf "this script is for EFI install only...\n press a key to exit"
+    read
     exit -1
 fi
 
@@ -63,6 +60,7 @@ printf "checking the internet connection\n\n"
 sleep 1
 if ping -c 1 archlinux.org &>/dev/null; then 
     printf "Internet connection working...\n"
+    sleep 2
 else 
     printf "Internet connection not working\n"
      # Wlan or Ethernet
@@ -70,6 +68,7 @@ else
     read wlan
 
     if [ $wlan=="y"]; then
+        clear
         iwctl device list
         printf "pick device\n"
         read device
@@ -78,27 +77,28 @@ else
         printf "pick SSID\n"
         read ssid
         printf "enter password\n"
-        read pw
-        iwctl --passphrase=$pw station $device connect $ssid
+        read wlan_pw
+        iwctl --passphrase=$wlan_pw station $device connect $ssid
         while ! ping -c 1 archlinux.org &>/dev/null; 
         do 
             printf "connection unsuccessful...\n"
             printf "enter password\n"
-            read pw
+            read wlan_pw
             iwctl --passphrase=$pw station $device connect $ssid
         done
             printf "Internet connection working...\n"
     else
-    printf "please check your connection...\n"
-    sleep 1
+    printf "please check your connection...\n press a key to exit"
+    read
     exit -1
     fi
 fi
 clear
 
 # update the system clock
+clear
 printf "updating the system clock\n"
-sleep 1
+sleep 2
 timedatectl set-ntp true
 timedatectl status
 
@@ -106,9 +106,9 @@ timedatectl status
 #################
 # Disk Partition#
 #################
-
+clear
 printf "Starting to partition the disk\n"
-sleep 1
+sleep 2
 swap_size=$(free --mebi | awk '/Mem:/ {print $2}')
 swap_end=$(( $swap_size + 512 + 1 ))MiB
 
@@ -147,15 +147,17 @@ sleep 2
 printf "setting fstab\n"
 genfstab -U /mnt >> /mnt/etc/fstab
 
-printf "\n\n everything is installed.\n configuring the system \n press a key to continue\n"
-printf "\n\nchrooting in installation\n"
-printf "Press a key to continue..."
-read
-
+printf "\n\n everything is installed.\n"
+sleep 3
+clear
 
 ###############################
 #### Configure base system ####
 ###############################
+printf "\n\n Configure base system \n\n"
+printf "Press a key to continue..."
+read
+
 arch-chroot /mnt /bin/bash <<EOF
 echo "Setting and generating locale"
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
@@ -190,13 +192,12 @@ EOF
 #########################
 #### User Management ####
 #########################
-echo "####################################### HERE #################################"
-sleep 5
+clear
+echo "user setup"
+sleep 2
 arch-chroot /mnt useradd -m -G wheel,uucp,video,audio,storage,games,input "$user"
-sleep 5
 echo "$user:$password" | chpasswd --root /mnt
 echo "root:$password" | chpasswd --root /mnt
-sleep 5
 arch-chroot /mnt visudo << EOF
 :%s/^# %wheel ALL=(ALL) NO/%wheel ALL=(ALL) NO/g
 :wq
@@ -205,12 +206,12 @@ EOF
 #############################
 #### Install boot loader ####
 #############################
+clear
+echo "Installing Grub boot loader"
+sleep 2
 arch-chroot /mnt /bin/bash <<EOF
-    echo "Installing Grub boot loader"
     mkdir /boot/EFI
     mount $part_boot /boot/EFI
-    echo " ############################# mKDIR ###################"
-    sleep 5
     pacman -S --noconfirm grub efibootmgr dosfstools os-prober mtools
     grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
     grub-mkconfig -o /boot/grub/grub.cfg
