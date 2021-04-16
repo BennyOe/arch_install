@@ -14,9 +14,9 @@ loadkeys de-latin1
 bootstrapper_dialog --title "Welcome" --msgbox "Welcome to the Arch installation.\n" 6 60
 
 
-#################
-### User Input###
-#################
+####################
+#### User Input ####
+####################
 
 # the harddrive select
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
@@ -103,9 +103,9 @@ timedatectl set-ntp true
 timedatectl status
 
 
-#################
-# Disk Partition#
-#################
+########################
+#### Disk Partition ####
+########################
 clear
 printf "Starting to partition the disk\n"
 sleep 2
