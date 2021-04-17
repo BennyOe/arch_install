@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #### TODO ####
-# script kann nur als sudo ausgeführt werden. Dann ist der home path aber falsch
+# die letzten 5 zeilen werden nicht aus der .xinitrc entfernt
+# yay wird nicht installiert
 
 
 
@@ -38,10 +39,12 @@ mkdir ~/$appfolder
 ###################
 printf "installing yay package manager\n"
 sleep 2
-git clone https://aur.archlinux.org/yay-git.git
-cd ~/$appfolder/yay-git
+git clone https://aur.archlinux.org/yay.git
+cd ~/$appfolder/yay
 makepkg -si --noconfirm
 
+printf "finished installing yay\n\npress a key to continue..."
+read
 #####################
 ### Modifiy Files ###
 #####################
@@ -71,13 +74,13 @@ clear
 printf "setting german keyboard layout for X\n"
 sleep 2
 
-sudo printf "Section \"InputClass\"\n
+sudo bash -c "printf "Section \"InputClass\"\n
              Identifier \"system-keyboard\"\n
              MatchIsKeyboard \"on\"\n
              Option \"XkbLayout\" \"de\"\n
              Option \"XkbModel\" \"pc105\"\n
              Option \"XkbOptions\" \"grp:alt_shift_toggle\"\n
-             EndSection" >> /etc/X11/xorg.conf.d/00-keyboard.conf
+             EndSection" >> /etc/X11/xorg.conf.d/00-keyboard.conf"
 
 ########################
 ### Install Suckless ###
