@@ -132,5 +132,6 @@ printf "removing libxft\n"
 sudo pacman -Rs libxft -d -d --noconfirm 
 printf "######HERE#####"
 read
+sleep 5
 printf "installing libxft-bgra\n"
-yay -S libxft-bgra
+yes | yay -S --noconfirm libxft-bgra
