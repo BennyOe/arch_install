@@ -85,11 +85,12 @@ sudo mv ~/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
 # picom
 clear
 printf "Modifying picom.conf\n"
+mkdir ~/.config
 mkdir ~/.config/picom
 cp /etc/xdg/picom.conf ~/.config/picom/
 sed -i -e 's/#vsync = false/vsync = false/g' ~/.config/picom/picom.conf
 sed -i -e 's/vsync = true/#vsync = true/g' ~/.config/picom/picom.conf
-sleep 5
+sleep 20
 read
 
 ########################
