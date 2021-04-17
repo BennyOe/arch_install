@@ -83,10 +83,14 @@ printf "Section \"InputClass\"\n
 sudo mv ~/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
 
 # picom
+clear
+printf "Modifying picom.conf\n"
 mkdir ~/.config/picom
 cp /etc/xdg/picom.conf ~/.config/picom/
 sed -i -e 's/#vsync = false/vsync = false/g' ~/.config/picom/picom.conf
 sed -i -e 's/vsync = true/#vsync = true/g' ~/.config/picom/picom.conf
+sleep 5
+read
 
 ########################
 ### Install Suckless ###
@@ -144,8 +148,9 @@ yes | yay -S --noconfirm libxft-bgra
 ############################
 
 mkdir ~/Pictures
-git clone https://github.com/BennyOe/wallpaper.git ~/Pictures
-nitrogen --set-centered ~/Pictures/wallpaper/0257.jpg
+mkdir ~/Pictures/Wallpaper
+git clone https://github.com/BennyOe/wallpaper.git ~/Pictures/Wallpaper
+nitrogen --set-centered ~/Pictures/Wallpaper/0257.jpg
 
 
 
