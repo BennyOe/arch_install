@@ -159,7 +159,7 @@ printf "[xin_0]\n
         file=$HOME/Pictures/Wallpaper/0257.jpg\n
         mode=5\n
         bgcolor=#0" >> ~/.config/nitrogen/bg-saved.cfg
-nitrogen --set-centered ~/Pictures/Wallpaper/0257.jpg
+nitrogen --set-centered $HOME/Pictures/Wallpaper/0257.jpg
 
 
 
