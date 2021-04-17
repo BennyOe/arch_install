@@ -135,7 +135,7 @@ sudo make clean install
 clear
 printf "installing Yay Stuff...\n"
 sleep 2
-yay -S --noconfirm nerd-fonts-jetbrains-mono pacman-contrib archlinux-contrib sysstat nerd-fonts-mononoki ttf-font-awesome dmenu network-manager-applet gnu-free-fonts
+yay -S --noconfirm nerd-fonts-jetbrains-mono pacman-contrib archlinux-contrib sysstat nerd-fonts-mononoki ttf-font-awesome dmenu network-manager-applet gnu-free-fonts zsh
 # removing libxft beforehand
 clear
 printf "removing libxft\n"
