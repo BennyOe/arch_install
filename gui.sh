@@ -147,10 +147,12 @@ yes | yay -S --noconfirm libxft-bgra
 ############################
 ### Installing Wallpaper ###
 ############################
-
+clear
+printf "installing wallpapers"
 mkdir ~/Pictures
 mkdir ~/Pictures/Wallpaper
 git clone https://github.com/BennyOe/wallpaper.git ~/Pictures/Wallpaper
+sleep 2
 nitrogen --set-centered ~/Pictures/Wallpaper/0257.jpg
 
 
