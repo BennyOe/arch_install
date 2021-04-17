@@ -72,8 +72,6 @@ clear
 printf "setting german keyboard layout for X\n"
 sleep 2
 
-
-
 printf "Section \"InputClass\"\n
              Identifier \"system-keyboard\"\n
              MatchIsKeyboard \"on\"\n
@@ -83,6 +81,12 @@ printf "Section \"InputClass\"\n
              EndSection" >> ~/00-keyboard.conf
              
 sudo mv ~/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
+
+# picom
+mkdir ~/.config/picom
+cp /etc/xdg/picom.conf ~/.config/picom/
+sed -i -e 's/#vsync = false/vsync = false/g' ~/.config/picom/picom.conf
+sed -i -e 's/vsync = true/#vsync = true/g' ~/.config/picom/picom.conf
 
 ########################
 ### Install Suckless ###
@@ -133,4 +137,16 @@ sudo pacman -Rs libxft -d -d --noconfirm
 
 printf "installing libxft-bgra\n"
 yes | yay -S --noconfirm libxft-bgra
+
+
+############################
+### Installing Wallpaper ###
+############################
+
+mkdir ~/Pictures
+git clone https://github.com/BennyOe/wallpaper.git ~/Pictures
+nitrogen --set-centered ~/Pictures/wallpaper/0257.jpg
+
+
+
 
