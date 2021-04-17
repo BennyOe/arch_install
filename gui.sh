@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #### TODO ####
+# nitrogen config in .config/nitrogen erstellen
 
 
 
