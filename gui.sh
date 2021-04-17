@@ -38,6 +38,7 @@ mkdir ~/$appfolder
 ###################
 printf "installing yay package manager\n"
 sleep 2
+cd ~/$appfolder
 git clone https://aur.archlinux.org/yay.git
 cd ~/$appfolder/yay
 makepkg -si --noconfirm
