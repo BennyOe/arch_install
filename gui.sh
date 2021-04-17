@@ -32,7 +32,6 @@ sleep 2
 sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit picom nitrogen
 
 mkdir ~/$appfolder
-cd ~/$appfolder
 
 ###################
 ### Yay Install ###
@@ -40,7 +39,7 @@ cd ~/$appfolder
 printf "installing yay package manager\n"
 sleep 2
 git clone https://aur.archlinux.org/yay-git.git
-cd /home/$user/$appfolder/yay-git
+cd ~/$appfolder/yay-git
 makepkg -si --noconfirm
 
 #####################
@@ -52,7 +51,7 @@ printf "Modifying .xinitrc\”"
 sleep 2
 
 # copy default xinitrc
-cp /etc/X11/xinit/xinitrc /home/$user/.xinitrcTMP
+cp /etc/X11/xinit/xinitrc ~/.xinitrcTMP
 
 # delete last 5 lines of xinitrc
 head -n -5 ~/.xinitrcTMP > ~/.xinitrc
@@ -65,7 +64,7 @@ printf "nitrogen --restore & \npicom & \nexec dwm\n" >> ~/.xinitrc
 clear
 printf "Modifying .bash_profile\n"
 sleep 2
-printf "[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1\n" >> ~/.bash_profile
+printf "[[ \$(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1\n" >> ~/.bash_profile
 
 # keyboard layout for x
 clear
