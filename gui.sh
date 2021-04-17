@@ -1,8 +1,7 @@
 #!/bin/bash
 
 #### TODO ####
-# die letzten 5 zeilen werden nicht aus der .xinitrc entfernt
-# yay wird nicht installiert
+
 
 
 
@@ -74,13 +73,17 @@ clear
 printf "setting german keyboard layout for X\n"
 sleep 2
 
-sudo bash -c "printf "Section \"InputClass\"\n
+
+
+printf "Section \"InputClass\"\n
              Identifier \"system-keyboard\"\n
              MatchIsKeyboard \"on\"\n
              Option \"XkbLayout\" \"de\"\n
              Option \"XkbModel\" \"pc105\"\n
              Option \"XkbOptions\" \"grp:alt_shift_toggle\"\n
-             EndSection" >> /etc/X11/xorg.conf.d/00-keyboard.conf"
+             EndSection" >> ~/00-keyboard.conf
+             
+sudo mv ~/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
 
 ########################
 ### Install Suckless ###
@@ -94,7 +97,7 @@ git clone https://github.com/BennyOe/dwm.git
 cd dwm
 sudo make clean install
 mkdir ~/.dwm/
-touch autostart.sh
+touch ~/.dwm/autostart.sh
 chmod +x ~/.dwm/autostart.sh
 
 # dwmblocks
@@ -105,7 +108,7 @@ cd ~/$appfolder
 git clone https://github.com/BennyOe/dwmblocks.git
 cd dwmblocks
 sudo make clean install
-printf "dwmblocks &\nnm-applet&\n" >> ~/.dwm/autostart/autostart.sh
+printf "dwmblocks &\nnm-applet&\n" >> ~/.dwm/autostart.sh
 
 #st
 clear
