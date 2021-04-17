@@ -57,7 +57,7 @@ sleep 2
 cp /etc/X11/xinit/xinitrc ~/.xinitrcTMP
 
 # delete last 5 lines of xinitrc
-head -n -5 ~/.xinitrcTMP > ~/.xinitrc
+head -n -5 ~/.xinitrcTMP > ~/.xinitrcMOD ; mv ~/.xinitrcMOD ~/.xinitrc
 rm ~/.xinitrcTMP
 
 # setting xinitrc up
