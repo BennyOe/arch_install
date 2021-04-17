@@ -39,12 +39,10 @@ mkdir ~/$appfolder
 printf "installing yay package manager\n"
 sleep 2
 cd ~/$appfolder
-git clone https://aur.archlinux.org/yay.git
-cd ~/$appfolder/yay
+git clone https://aur.archlinux.org/yay-git.git
+cd ~/$appfolder/yay-git
 makepkg -si --noconfirm
 
-printf "finished installing yay\n\npress a key to continue..."
-read
 #####################
 ### Modifiy Files ###
 #####################
@@ -127,8 +125,12 @@ sudo make clean install
 clear
 printf "installing Yay Stuff...\n"
 sleep 2
-# removing libxft beforehand
-sudo pacman -R libxft -d -d --noconfirm 
-sleep 2
 yay -S --noconfirm nerd-fonts-jetbrains-mono pacman-contrib archlinux-contrib sysstat nerd-fonts-mononoki ttf-font-awesome dmenu network-manager-applet gnu-free-fonts
+# removing libxft beforehand
+clear
+printf "removing libxft\n"
+sudo pacman -Rs libxft -d -d --noconfirm 
+printf "######HERE#####"
+read
+printf "installing libxft-bgra\n"
 yay -S libxft-bgra
