@@ -154,6 +154,11 @@ mkdir ~/Pictures
 mkdir ~/Pictures/Wallpaper
 git clone https://github.com/BennyOe/wallpaper.git ~/Pictures/Wallpaper
 sleep 2
+mkdir ~/.config/nitrogen
+printf "[xin_0]\n
+        file=$HOME/Pictures/Wallpaper/0257.jpg\n
+        mode=5\n
+        bgcolor=#0" >> ~/.config/nitrogen/bg-saved.cfg
 nitrogen --set-centered ~/Pictures/Wallpaper/0257.jpg
 
 
