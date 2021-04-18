@@ -23,7 +23,7 @@ yay -S --noconfirm $appfolder
 ## Standard Apps #
 ##################
 
-yay -S --noconfirm pulseaudio pulseaudio-alsa pavucontrol signal-desktop discord_arch_electron brave-bin ranger redshift flameshot autorandr mailspring whatsapp-for-linux thunar xidlehook numlockx intellij-idea-ultimate-edition
+yay -S --noconfirm pulseaudio pulseaudio-alsa pavucontrol pa-applet-git signal-desktop discord_arch_electron brave-bin ranger redshift flameshot autorandr mailspring whatsapp-for-linux thunar xidlehook numlockx intellij-idea-ultimate-edition
 
 ##################
 ## Lightdm #######
