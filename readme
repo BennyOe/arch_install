@@ -7,3 +7,13 @@ curl https://raw.githubusercontent.com/BennyOe/arch_install/BIOS/gui.sh | bash
 
 ### Install XOrg and DWM
 gui.sh
+
+############
+### TODO ###
+############
+
+- lightdm
+- vim
+- zsh
+- apps.sh
+- 
