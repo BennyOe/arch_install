@@ -16,4 +16,4 @@ gui.sh
 - vim
 - zsh
 - apps.sh
-- slock
+- multilockscreen https://github.com/jeffmhubbard/multilockscreen
