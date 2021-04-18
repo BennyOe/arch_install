@@ -117,7 +117,7 @@ cd ~/$appfolder
 git clone https://github.com/BennyOe/dwmblocks.git
 cd dwmblocks
 sudo make clean install
-printf "dwmblocks &\nnm-applet&\n" >> ~/.dwm/autostart.sh
+printf "dwmblocks &\nnm-applet&\npa-applet&\npicom&\n" >> ~/.dwm/autostart.sh
 
 #st
 clear
@@ -135,7 +135,7 @@ sudo make clean install
 clear
 printf "installing Yay Stuff...\n"
 sleep 2
-yay -S --noconfirm nerd-fonts-jetbrains-mono pacman-contrib archlinux-contrib sysstat nerd-fonts-mononoki ttf-font-awesome dmenu network-manager-applet gnu-free-fonts zsh papirus-icon-theme gtk4
+yay -S --noconfirm nerd-fonts-jetbrains-mono pacman-contrib archlinux-contrib sysstat nerd-fonts-mononoki ttf-font-awesome dmenu network-manager-applet gnu-free-fonts zsh papirus-icon-theme gtk4 arc-gtk-theme lxappearance
 # removing libxft beforehand
 clear
 printf "removing libxft\n"
