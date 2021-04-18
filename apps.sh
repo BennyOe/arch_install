@@ -30,3 +30,17 @@ yay -S --noconfirm pulseaudio pavucontrol signal-desktop discord_arch_electron b
 ##################
 
 yay -S --noconfirm lightdm lightdm-mini-greeter
+
+##################
+###### ZSH #######
+##################
+
+# oh my zsh
+yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# powerlevel 10k
+yay -S --noconfirm zsh-theme-powerlevel10k-git
+echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+
+# lsd
+pacman -S lsd
