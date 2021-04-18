@@ -24,3 +24,9 @@ yay -S --noconfirm $appfolder
 ##################
 
 yay -S --noconfirm pulseaudio pavucontrol signal-desktop discord_arch_electron brave-bin ranger redshift flameshot autorandr mailspring whatsapp-for-linux thunar xidlehook numlockx intellij-idea-ultimate-edition
+
+##################
+## Lightdm #######
+##################
+
+yay -S --noconfirm lightdm lightdm-mini-greeter
