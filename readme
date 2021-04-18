@@ -16,3 +16,5 @@ gui.sh
 - vim
 - apps.sh
 - multilockscreen https://github.com/jeffmhubbard/multilockscreen
+- function for yay package update
+- color for systray in dwm
