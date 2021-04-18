@@ -60,7 +60,7 @@ head -n -5 ~/.xinitrcTMP > ~/.xinitrcMOD ; mv ~/.xinitrcMOD ~/.xinitrc
 rm ~/.xinitrcTMP
 
 # setting xinitrc up
-printf "nitrogen --restore & \npicom & \nexec dwm\n" >> ~/.xinitrc
+printf "exec dwm\n" >> ~/.xinitrc
 
 # start X at startup
 clear
@@ -117,7 +117,7 @@ cd ~/$appfolder
 git clone https://github.com/BennyOe/dwmblocks.git
 cd dwmblocks
 sudo make clean install
-printf "dwmblocks &\nnm-applet&\npa-applet&\npicom&\n" >> ~/.dwm/autostart.sh
+printf "dwmblocks &\nnm-applet&\npa-applet&\npicom&\nnitrogen --restore&\n" >> ~/.dwm/autostart.sh
 
 #st
 clear
