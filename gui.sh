@@ -30,7 +30,7 @@ appfolder=".$appfolder"
 ###########################
 printf "installing graphical interface\n"
 sleep 2
-sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit picom nitrogen
+sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit picom nitrogen rofi dunst
 
 mkdir ~/$appfolder
 
