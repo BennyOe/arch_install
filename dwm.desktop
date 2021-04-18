@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=dwm
+Comment=Dynamic Tiling Window Manager
+Exec=dwm
+Type=Application
+
