@@ -23,7 +23,7 @@ yay -S --noconfirm $appfolder
 ## Standard Apps #
 ##################
 
-yay -S --noconfirm pulseaudio pulseaudio-alsa pavucontrol pa-applet-git signal-desktop discord_arch_electron brave-bin ranger redshift flameshot autorandr mailspring whatsapp-for-linux thunar xidlehook numlockx intellij-idea-ultimate-edition
+yay -S --noconfirm pulseaudio pulseaudio-alsa pavucontrol pa-applet-git signal-desktop discord_arch_electron brave-bin ranger redshift flameshot autorandr mailspring whatsapp-for-linux thunar xidlehook numlockx intellij-idea-ultimate-edition zathura htop vlc
 
 ##################
 ## Lightdm #######
@@ -55,3 +55,9 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 ###### VIM #######
 ##################
 yay -S --noconfirm neovim-nightly-bin
+
+##################
+##### Spotify ####
+##################
+yay -S --noconfirm spotifyd spotify-tui
+
