@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ ! $(pgrep "spotifyd") ]; then
+  spotifyd
+fi
+killall spotifyd
+spotifyd
+spt
