@@ -1,6 +1,6 @@
 ### Curl the scripts
-curl https://raw.githubusercontent.com/BennyOe/arch_install/BIOS/install.sh | bash
-curl https://raw.githubusercontent.com/BennyOe/arch_install/BIOS/gui.sh | bash
+curl -sL https://git.io/JOWEH | bash
+curl -sL https://git.io/JOBJn | bash
 
 ### Install Arch Linux
 
@@ -13,7 +13,7 @@ gui.sh
 ############
 
 - lightdm styling
-- vim
+- vim in lua
 - apps.sh
 - multilockscreen https://github.com/jeffmhubbard/multilockscreen
 - clone initial dotfiles and symlink
@@ -21,12 +21,5 @@ gui.sh
 ############
 ### Push ###
 ############
-- zshrc
-- picom.conf
-- dwm
-- rofi config
-- benni.rasi
-- autostart
-- dunst
 
 
