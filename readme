@@ -16,7 +16,6 @@ gui.sh
 - vim
 - apps.sh
 - multilockscreen https://github.com/jeffmhubbard/multilockscreen
-- shutdown script
 - clone initial dotfiles and symlink
 
 ############
@@ -27,4 +26,7 @@ gui.sh
 - dwm
 - rofi config
 - benni.rasi
+- autostart
+- dunst
+
 
