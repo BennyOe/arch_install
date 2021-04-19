@@ -17,6 +17,7 @@ gui.sh
 - apps.sh
 - multilockscreen https://github.com/jeffmhubbard/multilockscreen
 - shutdown script
+- clone initial dotfiles and symlink
 
 ############
 ### Push ###
@@ -24,3 +25,6 @@ gui.sh
 - zshrc
 - picom.conf
 - dwm
+- rofi config
+- benni.rasi
+
