@@ -51,7 +51,7 @@ if [ -d "/sys/firmware/efi/efivars" ]; then
 else
     printf "the system is in BIOS Mode\n"
     printf "this script is for EFI install only...\n press a key to exit"
-    read
+    read < /dev/tty
     exit -1
 fi
 
@@ -89,7 +89,7 @@ else
             printf "Internet connection working...\n"
     else
     printf "please check your connection...\n press a key to exit"
-    read
+    read < /dev/tty
     exit -1
     fi
 fi
@@ -137,7 +137,7 @@ mount ${part_root} /mnt
 #mount ${part_boot} /mnt/boot/EFI
 
 printf "\n\n beginning with Arch installation\n press a key to continue\n"
-read
+read < /dev/tty
 clear
 pacstrap /mnt base linux linux-firmware base-devel vim networkmanager git man bash
 
@@ -156,7 +156,7 @@ clear
 ###############################
 printf "\n\n Configure base system \n\n"
 printf "Press a key to continue..."
-read
+read < /dev/tty
 
 arch-chroot /mnt /bin/bash <<EOF
 echo "Setting and generating locale"
@@ -226,5 +226,5 @@ sleep 5
 # reboot
 printf "rebooting the system. Please execute the gui.sh for XOrg and DWM\n"
 printf "press a key to continue...\n"
-read
+read < /dev/tty
 reboot
