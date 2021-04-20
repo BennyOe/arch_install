@@ -23,7 +23,7 @@ yay -S --noconfirm $appfolder
 clear
 printf "Installing default apps\n"
 sleep 2
-yay -S --noconfirm pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix signal-desktop discord_arch_electron brave-bin ranger redshift flameshot autorandr mailspring whatsapp-for-linux thunar xidlehook numlockx intellij-idea-ultimate-edition zathura htop vlc neofetch nodejs
+yay -S --noconfirm pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix signal-desktop discord_arch_electron brave-bin ranger redshift flameshot autorandr mailspring whatsapp-for-linux thunar xidlehook numlockx intellij-idea-ultimate-edition zathura htop vlc neofetch nodejs npm python-pynvim
 
 ##################
 ## Lightdm #######
@@ -114,21 +114,26 @@ chmod +x ~/.dotfiles/autostart.sh
 ln -sv ~/.dotfiles/autostart.sh ~/.dwm/
 
 mkdir ~/.config/dunst
+rm ~/.config/dunst/dunstrc
 ln -sv ~/.dotfiles/dunstrc ~/.config/dunst/ 
 
 sudo ln -sv ~/.dotfiles/dwm.desktop /usr/share/xsessions
 
-mkdir ~/.config/picom
+mkdir ~/.config/picom/
+rm ~/.config/picom/picom.conf
 ln -sv ~/.dotfiles/picom.conf ~/.config/picom/ 
 
+rm -rf ~/.config/nvim
 mkdir ~/.config/nvim
 ln -sv ~/.dotfiles/nvim/coc-settings.json ~/.config/nvim/ 
 ln -sv ~/.dotfiles/nvim/init.vim ~/.config/nvim/ 
 
+rm -rf ~/.config/ranger
 mkdir ~/.config/ranger
 ln -sv ~/.dotfiles/ranger/rc.conf ~/.config/ranger/ 
 ln -sv ~/.dotfiles/ranger/rifle.conf ~/.config/ranger/ 
 
+rm -rf ~/.config/rofi
 mkdir ~/.config/rofi
 mkdir ~/.config/rofi/themes
 ln -sv ~/.dotfiles/rofi/config ~/.config/rofi/ 
