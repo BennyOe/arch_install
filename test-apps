@@ -90,9 +90,11 @@ sleep 2
 
 cd ~/.dotfiles
 
+rm ~/.zshrc
 ln -sv ~/.dotfiles/.zshrc ~ 
+rm ~/.vimrc
 ln -sv ~/.dotfiles/.vimrc ~ 
-ln -sv ~/.dotfiles/.zshrc ~
+rm ~/.dwm/autostart.sh
 ln -sv ~/.dotfiles/autostart.sh ~/.dwm/
 mkdir ~/.config/dunst
 ln -sv ~/.dotfiles/dunstrc ~/.config/dunst/ 
@@ -109,7 +111,7 @@ mkdir ~/.config/rofi
 mkdir ~/.config/rofi/themes
 ln -sv ~/.dotfiles/rofi/config ~/.config/rofi/ 
 ln -sv ~/.dotfiles/rofi/themes/onedark.rasi ~/.config/rofi/themes/ 
-
+mkdir ~/.local/bin
 ln -sv ~/.dotfiles/scripts/pdfshrink ~/.local/bin/ 
 ln -sv ~/.dotfiles/scripts/launchspt ~/.local/bin/ 
 ln -sv ~/.dotfiles/scripts/rofi-power-menu ~/.local/bin/ 
