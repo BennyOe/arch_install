@@ -31,6 +31,7 @@ dialog --msgbox "Your Application Folder is ~/${appfolder}" 0 0
 ###########################
 ### Graphical Interface ###
 ###########################
+clear
 printf "installing graphical interface\n"
 sleep 5
 sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit picom nitrogen rofi dunst
