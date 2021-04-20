@@ -10,17 +10,18 @@ bootstrapper_dialog --title "Welcome" --msgbox "Welcome to the Apps Installation
 ##################
 # app folder
 appfolder=$(dialog --stdout --inputbox "Enter additional apps" 0 0) || exit 1
+
 clear
+printf "Installing user apps\n"
+sleep 2
 
 yay -S --noconfirm $appfolder
-clear
-printf "Installing user apps"
-sleep 2
+
 ##################
 ## Standard Apps #
 ##################
 clear
-printf "Installing standard apps"
+printf "Installing default apps\n"
 sleep 2
 yay -S --noconfirm pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix signal-desktop discord_arch_electron brave-bin ranger redshift flameshot autorandr mailspring whatsapp-for-linux thunar xidlehook numlockx intellij-idea-ultimate-edition zathura htop vlc neofetch
 
@@ -28,7 +29,7 @@ yay -S --noconfirm pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix 
 ## Lightdm #######
 ##################
 clear
-printf "Installing lightdm"
+printf "Installing lightdm\n"
 sleep 2
 
 yay -S --noconfirm lightdm lightdm-mini-greeter
@@ -37,7 +38,7 @@ yay -S --noconfirm lightdm lightdm-mini-greeter
 ###### ZSH #######
 ##################
 clear
-printf "Installing zsh"
+printf "Installing zsh\n"
 sleep 2
 
 # oh my zsh
@@ -66,7 +67,7 @@ cp ~/.bash_profile ~/.zprofile
 ###### VIM #######
 ##################
 clear
-printf "Installing vim"
+printf "Installing vim\n"
 sleep 2
 
 yay -S --noconfirm neovim-nightly-bin
@@ -79,7 +80,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 ##### Spotify ####
 ##################
 clear
-printf "Installing spotify-tui"
+printf "Installing spotify-tui\n"
 sleep 2
 
 yay -S --noconfirm spotifyd spotify-tui
@@ -88,7 +89,7 @@ yay -S --noconfirm spotifyd spotify-tui
 #### Dot Files ###
 ##################
 clear
-printf "Installing dot files"
+printf "Installing dot files\n"
 sleep 2
 
 git clone https://github.com/BennyOe/initial_dotfiles ~/.dotfiles
@@ -97,7 +98,7 @@ git clone https://github.com/BennyOe/initial_dotfiles ~/.dotfiles
 #### Symlinks ####
 ##################
 clear
-printf "Setting symlinks"
+printf "Setting symlinks\n"
 sleep 2
 
 cd ~/.dotfiles
@@ -142,12 +143,8 @@ ln -sv ~/.dotfiles/scripts/rofi-power-menu ~/.local/bin/
 chmod +x ~/.dotfiles/scripts/rofi-power-menu
 
 clear
-printf "Installation finished.\n"
+printf "Installation finished successfully\n"
 printf "rebooting the system.\n"
 printf "press a key to continue...\n"
 read < /dev/tty
 reboot
-
-
-
-
