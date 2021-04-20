@@ -241,7 +241,7 @@ done
 
 # reboot
 clear
-printf "rebooting the system."
+printf "rebooting the system...\n"
 printf "press a key to continue...\n"
 read < /dev/tty
 reboot
