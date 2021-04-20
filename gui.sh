@@ -3,7 +3,8 @@
 #### TODO ####
 # nitrogen config in .config/nitrogen erstellen
 
-
+# remove the script from .bashrc
+sed '$d' ~/.bashrc
 
 
 sudo pacman -Sy --noconfirm dialog
