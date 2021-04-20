@@ -136,27 +136,25 @@ mount ${part_root} /mnt
 #mkdir /mnt/boot/EFI
 #mount ${part_boot} /mnt/boot/EFI
 
-printf "\n\n beginning with Arch installation\n press a key to continue\n"
-read < /dev/tty
 clear
-pacstrap /mnt base linux linux-firmware base-devel vim networkmanager git man bash
+printf "\n\n beginning with Arch installation"
+sleep 5
 
-sleep 2
+pacstrap /mnt base linux linux-firmware base-devel vim networkmanager git man bash
 
 #configure the system
 printf "setting fstab\n"
 genfstab -U /mnt >> /mnt/etc/fstab
 
-printf "\n\n everything is installed.\n"
-sleep 3
 clear
+printf "\n Arch is installed.\n\n"
+sleep 5
 
 ###############################
 #### Configure base system ####
 ###############################
 printf "\n\n Configure base system \n\n"
-printf "Press a key to continue..."
-read < /dev/tty
+sleep 5
 
 arch-chroot /mnt /bin/bash <<EOF
 echo "Setting and generating locale"
@@ -194,7 +192,7 @@ EOF
 #########################
 clear
 echo "user setup"
-sleep 2
+sleep 5
 arch-chroot /mnt useradd -m -G wheel,uucp,video,audio,storage,games,input "$user"
 echo "$user:$password" | chpasswd --root /mnt
 echo "root:$password" | chpasswd --root /mnt
@@ -208,7 +206,7 @@ EOF
 #############################
 clear
 echo "Installing Grub boot loader"
-sleep 2
+sleep 5
 arch-chroot /mnt /bin/bash <<EOF
     mkdir /boot/EFI
     mount $part_boot /boot/EFI
@@ -219,18 +217,17 @@ EOF
 
 clear
 printf "Installation finished"
-sleep 2
-printf "Would you like to install the window manager? [Y/n]"
+sleep 5
 
 while true
 do
- read -r -p "Are You Sure? [Y/n] " input < /dev/tty
+ read -r -p "Would you like to install the window manager? [Y/n] " input < /dev/tty
  
  case $input in
      [yY][eE][sS]|[yY])
  printf "curl -sL https://git.io/JOBJn | bash" >> /mnt/home/$user/.bashrc
  echo "setup the GUI install script"
-sleep 5
+sleep 2
  break
  ;;
      [nN][oO]|[nN])
@@ -242,13 +239,9 @@ sleep 5
  esac
 done
 
-
-clear
-echo "rebooting the system...\nplease press a key to continue..."
-read < /dev/tty
-
 # reboot
-printf "rebooting the system. Please execute the gui.sh for XOrg and DWM\n"
+clear
+printf "rebooting the system."
 printf "press a key to continue...\n"
 read < /dev/tty
 reboot
