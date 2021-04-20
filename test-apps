@@ -90,50 +90,8 @@ git clone https://github.com/BennyOe/initial_dotfiles ~/.dotfiles
 ##################
 #### Symlinks ####
 ##################
-clear
-printf "Setting symlinks"
-sleep 2
-
-cd ~/.dotfiles
-
-rm ~/.zshrc
-ln -sv ~/.dotfiles/.zshrc ~ 
-
-rm ~/.vimrc
-ln -sv ~/.dotfiles/.vimrc ~
-
-rm ~/.dwm/autostart.sh
-chmod +x ~/.dotfiles/autostart.sh
-ln -sv ~/.dotfiles/autostart.sh ~/.dwm/
-
-mkdir ~/.config/dunst
-ln -sv ~/.dotfiles/dunstrc ~/.config/dunst/ 
-
-sudo ln -sv ~/.dotfiles/dwm.desktop /usr/share/xsessions
-
-mkdir ~/.config/picom
-ln -sv ~/.dotfiles/picom.conf ~/.config/picom/ 
-
-mkdir ~/.config/nvim
-ln -sv ~/.dotfiles/nvim/coc-settings.json ~/.config/nvim/ 
-ln -sv ~/.dotfiles/nvim/init.vim ~/.config/nvim/ 
-
-mkdir ~/.config/ranger
-ln -sv ~/.dotfiles/ranger/rc.conf ~/.config/ranger/ 
-ln -sv ~/.dotfiles/ranger/rifle.conf ~/.config/ranger/ 
-
-mkdir ~/.config/rofi
-mkdir ~/.config/rofi/themes
-ln -sv ~/.dotfiles/rofi/config ~/.config/rofi/ 
-ln -sv ~/.dotfiles/rofi/themes/onedark.rasi ~/.config/rofi/themes/ 
-
-mkdir ~/.local/bin
-ln -sv ~/.dotfiles/scripts/pdfshrink ~/.local/bin/ 
-chmod +x ~/.dotfiles/scripts/pdfshrink
-ln -sv ~/.dotfiles/scripts/launchspt ~/.local/bin/ 
-chmod +x ~/.dotfiles/scripts/launchspt
-ln -sv ~/.dotfiles/scripts/rofi-power-menu ~/.local/bin/ 
-chmod +x ~/.dotfiles/scripts/rofi-power-menu
+chmod +x ~/.dotfiles/setsymlinks.sh
+sh ~/.dotfiles/symlinks.sh
 
 clear
 printf "Installation finished.\n"
