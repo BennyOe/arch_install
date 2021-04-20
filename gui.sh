@@ -25,7 +25,7 @@ clear
 
 appfolder=".$appfolder"
 
-dialog --msgbox "Yout Application Folder is ~/${appfolder}" 0 0
+dialog --msgbox "Your Application Folder is ~/${appfolder}" 0 0
 
 
 ###########################
