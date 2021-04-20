@@ -25,12 +25,14 @@ clear
 
 appfolder=".$appfolder"
 
+dialog --msgbox "Yout Application Folder is ~/${appfolder}" 0 0
+
 
 ###########################
 ### Graphical Interface ###
 ###########################
 printf "installing graphical interface\n"
-sleep 2
+sleep 5
 sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit picom nitrogen rofi dunst
 
 mkdir ~/$appfolder
@@ -39,7 +41,7 @@ mkdir ~/$appfolder
 ### Yay Install ###
 ###################
 printf "installing yay package manager\n"
-sleep 2
+sleep 5
 cd ~/$appfolder
 git clone https://aur.archlinux.org/yay-git.git
 cd ~/$appfolder/yay-git
@@ -50,8 +52,8 @@ makepkg -si --noconfirm
 #####################
 # Xinitrc
 clear
-printf "Modifying .xinitrc\”"
-sleep 2
+printf "Modifying .xinitrc"
+sleep 5
 
 # copy default xinitrc
 cp /etc/X11/xinit/xinitrc ~/.xinitrcTMP
@@ -70,7 +72,6 @@ sleep 2
 printf "[[ \$(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1\n" >> ~/.bash_profile
 
 # keyboard layout for x
-clear
 printf "setting german keyboard layout for X\n"
 sleep 2
 
@@ -85,7 +86,6 @@ printf "Section \"InputClass\"\n
 sudo mv ~/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
 
 # picom
-clear
 printf "Modifying picom.conf\n"
 mkdir ~/.config
 mkdir ~/.config/picom
@@ -93,7 +93,6 @@ cp /etc/xdg/picom.conf ~/.config/picom/
 sed -i -e 's/#vsync = false/vsync = false/g' ~/.config/picom/picom.conf
 sed -i -e 's/vsync = true/#vsync = true/g' ~/.config/picom/picom.conf
 sleep 2
-read < /dev/tty
 
 ########################
 ### Install Suckless ###
@@ -162,16 +161,19 @@ printf "[xin_0]\n
         bgcolor=#0" >> ~/.config/nitrogen/bg-saved.cfg
 nitrogen --set-centered $HOME/Pictures/Wallpaper/0257.jpg
 
+############################
+### Install apps script ####
+############################
+
 clear
 printf "Installation finished"
-sleep 2
-printf "Would you like to install the default apps? [Y/n]"
+sleep 5
 
 #https://git.io/JORTc
 
 while true
 do
- read -r -p "Are You Sure? [Y/n] " input < /dev/tty
+ read -r -p "Would you like to install the default apps? [Y/n] " input < /dev/tty
  
  case $input in
      [yY][eE][sS]|[yY])
@@ -187,9 +189,9 @@ do
  esac
 done
 
-
+# reboot
 clear
-echo "rebooting the system...\nplease press a key to continue..."
+printf "rebooting the system...\nplease press a key to continue..."
 read < /dev/tty
 
-
+reboot
