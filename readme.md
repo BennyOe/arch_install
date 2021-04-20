@@ -43,7 +43,6 @@ curl -sL https://git.io/JORTc | bash
 - default programs
 - bluetooth
 - replace test-apps with apps link
-- remove encrypt hooks
 
 ############
 ### Push ###
