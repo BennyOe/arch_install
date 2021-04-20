@@ -166,14 +166,18 @@ clear
 printf "Installation finished"
 printf "Would you like to install the default apps? [Y/n]"
 
+#https://git.io/JORTc
+
 while true; do
     read -p yn < /dev/tty
     case $yn in
-        [Yy]* ) curl -sL https://git.io/JORTc | bash; break;;
+        [Yy]* ) curl -sL https://raw.githubusercontent.com/BennyOe/arch_install/main/test-apps | bash; break;;
         [Nn]* ) exit;;
         * ) echo "Please answer yes or no.";;
     esac
 done
+
+
 
 
 
