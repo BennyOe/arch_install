@@ -216,7 +216,7 @@ arch-chroot /mnt /bin/bash <<EOF
 EOF
 
 clear
-printf "Installation finished"
+printf "Installation finished successfully\n\n"
 sleep 5
 
 while true
