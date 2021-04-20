@@ -42,6 +42,7 @@ curl -sL https://git.io/JORTc | bash
 - xidlehook
 - default programs
 - bluetooth
+- replace test-apps with apps link
 
 ############
 ### Push ###
