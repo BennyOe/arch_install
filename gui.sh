@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#### TODO ####
-# nitrogen config in .config/nitrogen erstellen
-
 # remove the script from .bashrc
 sed -i '$d' ~/.bashrc
 
