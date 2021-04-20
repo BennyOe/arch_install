@@ -219,19 +219,33 @@ EOF
 
 clear
 printf "Installation finished"
+sleep 2
 printf "Would you like to install the window manager? [Y/n]"
 
-while true; do
-    read -p yn < /dev/tty
-    case $yn in
-        [Yy]* ) printf "curl -sL https://git.io/JOBJn | bash" >> /mnt/home/$user/.bashrc; break;;
-        [Nn]* ) break;;
-        * ) echo "Please answer yes or no.";;
-    esac
+while true
+do
+ read -r -p "Are You Sure? [Y/n] " input < /dev/tty
+ 
+ case $input in
+     [yY][eE][sS]|[yY])
+ printf "curl -sL https://git.io/JOBJn | bash" >> /mnt/home/$user/.bashrc
+ echo "setup the GUI install script"
+sleep 5
+ break
+ ;;
+     [nN][oO]|[nN])
+ break
+        ;;
+     *)
+ echo "Invalid input..."
+ ;;
+ esac
 done
 
-echo "setup the GUI install script"
-sleep 5
+
+clear
+echo "rebooting the system...\nplease press a key to continue..."
+read < /dev/tty
 
 # reboot
 printf "rebooting the system. Please execute the gui.sh for XOrg and DWM\n"
