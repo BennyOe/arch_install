@@ -92,7 +92,7 @@ mkdir ~/.config/picom
 cp /etc/xdg/picom.conf ~/.config/picom/
 sed -i -e 's/#vsync = false/vsync = false/g' ~/.config/picom/picom.conf
 sed -i -e 's/vsync = true/#vsync = true/g' ~/.config/picom/picom.conf
-sleep 20
+sleep 2
 read
 
 ########################
