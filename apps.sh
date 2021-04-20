@@ -92,7 +92,7 @@ clear
 printf "Installing dot files\n"
 sleep 2
 
-git clone https://github.com/BennyOe/initial_dotfiles ~/.dotfiles
+git clone https://github.com/BennyOe/.dotfiles ~/.dotfiles
 
 ##################
 #### Symlinks ####
