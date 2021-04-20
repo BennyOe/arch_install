@@ -175,7 +175,7 @@ sed -i "/localhost/s/$/ $hostname/" /etc/hosts
 echo "Installing wifi packages"
 pacman --noconfirm -S iw wpa_supplicant dialog wpa_actiond sudo
 echo "Generating initramfs"
-sed -i 's/^HOOKS.*/HOOKS="base udev autodetect modconf block encrypt lvm2 filesystems keyboard fsck"/' /etc/mkinitcpio.conf
+sed -i 's/^HOOKS.*/HOOKS="base udev autodetect modconf block filesystems keyboard fsck"/' /etc/mkinitcpio.conf
 echo "Setting root password"
 echo "root:${password}" | chpasswd
 printf "setting the hosts file\n"
