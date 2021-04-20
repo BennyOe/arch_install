@@ -164,20 +164,32 @@ nitrogen --set-centered $HOME/Pictures/Wallpaper/0257.jpg
 
 clear
 printf "Installation finished"
+sleep 2
 printf "Would you like to install the default apps? [Y/n]"
 
 #https://git.io/JORTc
 
-while true; do
-    read -p yn < /dev/tty
-    case $yn in
-        [Yy]* ) curl -sL https://raw.githubusercontent.com/BennyOe/arch_install/main/test-apps | bash; break;;
-        [Nn]* ) exit;;
-        * ) echo "Please answer yes or no.";;
-    esac
+while true
+do
+ read -r -p "Are You Sure? [Y/n] " input < /dev/tty
+ 
+ case $input in
+     [yY][eE][sS]|[yY])
+ curl -sL https://raw.githubusercontent.com/BennyOe/arch_install/main/test-apps | bash
+ break
+ ;;
+     [nN][oO]|[nN])
+ break
+        ;;
+     *)
+ echo "Invalid input..."
+ ;;
+ esac
 done
 
 
-
+clear
+echo "rebooting the system...\nplease press a key to continue..."
+read < /dev/tty
 
 
