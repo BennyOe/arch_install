@@ -162,6 +162,15 @@ printf "[xin_0]\n
         bgcolor=#0" >> ~/.config/nitrogen/bg-saved.cfg
 nitrogen --set-centered $HOME/Pictures/Wallpaper/0257.jpg
 
+clear
+printf "Installation finished"
+printf "Would you like to install the default apps? [Y/n]"
+
+select yn in "y" "n"
+case $yn in
+    y ) curl -sL https://git.io/JORTc | bash;;
+    n ) exit;;
+esac
 
 
 
