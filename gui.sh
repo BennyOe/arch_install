@@ -166,11 +166,14 @@ clear
 printf "Installation finished"
 printf "Would you like to install the default apps? [Y/n]"
 
-select yn in "y" "n"
-case $yn in
-    y ) curl -sL https://git.io/JORTc | bash;;
-    n ) exit;;
-esac
+while true; do
+    read -p yn < /dev/tty
+    case $yn in
+        [Yy]* ) curl -sL https://git.io/JORTc | bash; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 
 
 
