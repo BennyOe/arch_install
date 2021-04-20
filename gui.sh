@@ -167,7 +167,7 @@ nitrogen --set-centered $HOME/Pictures/Wallpaper/0257.jpg
 ############################
 
 clear
-printf "Installation finished"
+printf "Installation finished successfully\n\n"
 sleep 5
 
 #https://git.io/JORTc
