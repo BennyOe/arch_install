@@ -31,11 +31,7 @@ yay -S --noconfirm pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix 
 ##################
 ## Lightdm #######
 ##################
-clear
-printf "Installing lightdm"
-sleep 2
 
-yay -S --noconfirm lightdm lightdm-mini-greeter
 
 ##################
 ###### ZSH #######
@@ -75,8 +71,6 @@ yay -S --noconfirm neovim-nightly-bin
 clear
 printf "Installing spotify-tui"
 sleep 2
-
-yay -S --noconfirm spotifyd spotify-tui
 
 ##################
 #### Dot Files ###
