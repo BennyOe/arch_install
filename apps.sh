@@ -12,15 +12,14 @@ bootstrapper_dialog --title "Welcome" --msgbox "Welcome to the Apps Installation
 ##################
 ### User Input ###
 ##################
-clear
-printf "Installing user apps"
-sleep 2
 # app folder
 appfolder=$(dialog --stdout --inputbox "Enter additional apps" 0 0) || exit 1
 clear
 
 yay -S --noconfirm $appfolder
-
+clear
+printf "Installing user apps"
+sleep 2
 ##################
 ## Standard Apps #
 ##################
