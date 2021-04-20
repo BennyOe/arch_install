@@ -186,9 +186,6 @@ echo "::1    localhost \n" >> /etc/hosts
 echo "127.0.1.1    ${hostname}.localdomain    ${hostname}" >> /etc/hosts
 systemctl enable NetworkManager
 mkinitcpio -p linux
-
-#setup the GUI install script
-printf "curl -sL https://git.io/JOBJn | bash" >> $user/.bashrc
 EOF
 
 
@@ -222,6 +219,9 @@ EOF
 
 clear
 
+echo "setup the GUI install script"
+printf "curl -sL https://git.io/JOBJn | bash" >> /mnt/home/$user/.bashrc
+sleep 5
 
 # reboot
 printf "rebooting the system. Please execute the gui.sh for XOrg and DWM\n"
