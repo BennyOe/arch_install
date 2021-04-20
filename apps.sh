@@ -125,7 +125,7 @@ clear
 printf "Installation finished."
 printf "rebooting the system."
 printf "press a key to continue...\n"
-read
+read < /dev/tty
 reboot
 
 
