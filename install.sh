@@ -188,7 +188,7 @@ systemctl enable NetworkManager
 mkinitcpio -p linux
 
 #setup the GUI install script
-printf "curl -sL https://git.io/JOBJn | bash" >> ~/.bashrc
+printf "curl -sL https://git.io/JOBJn | bash" >> $user/.bashrc
 EOF
 
 
@@ -227,4 +227,4 @@ clear
 printf "rebooting the system. Please execute the gui.sh for XOrg and DWM\n"
 printf "press a key to continue...\n"
 read
-shutdown now
+reboot
