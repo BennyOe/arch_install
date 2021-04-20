@@ -32,18 +32,16 @@ curl -sL https://git.io/JORTc | bash
 ############
 
 - lightdm styling
-- vim in lua
-- apps.sh
 - select videodrivers
 - multilockscreen https://github.com/jeffmhubbard/multilockscreen
-- clone initial dotfiles and symlink
 - autorandr
 - libinputgestures
 - remap lctrl to esc
 - english keyboard
 - brightness controls
 - xidlehook
-- defaul programs
+- default programs
+- bluetooth
 
 ############
 ### Push ###
