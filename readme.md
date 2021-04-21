@@ -32,7 +32,6 @@ curl -sL https://git.io/JORTc | bash
 ############
 
 - lightdm styling
-- select videodrivers
 - multilockscreen https://github.com/jeffmhubbard/multilockscreen
 - autorandr
 - libinputgestures
