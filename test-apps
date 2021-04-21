@@ -92,7 +92,7 @@ git clone https://github.com/BennyOe/.dotfiles ~/.dotfiles
 #### Symlinks ####
 ##################
 chmod +x ~/.dotfiles/setsymlinks.sh
-source ~/.dotfiles/symlinks.sh
+source ~/.dotfiles/setsymlinks.sh
 
 clear
 printf "Installation finished.\n"
