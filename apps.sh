@@ -20,7 +20,8 @@ options=(1 "signal-desktop" on    # any option can be set to default to "on"
          7 "whatsapp-for-linux" on
          8 "xidlehook" on
          9 "intellij-idea-ultimate-edition" on
-         10 "vlc" on      
+         10 "vlc" on  
+         11 "spotify-tui" on
          )
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
@@ -56,6 +57,9 @@ do
             ;;
         10)
             optionalApps+=(vlc)
+            ;;
+        11)
+            optionalApps+=(spotifyd spotify-tui)
             ;;
     esac
 done
@@ -130,15 +134,6 @@ yay -S --noconfirm neovim-nightly-bin
 #Vim-Plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-##################
-##### Spotify ####
-##################
-clear
-printf "Installing spotify-tui\n"
-sleep 2
-
-yay -S --noconfirm spotifyd spotify-tui
 
 ##################
 #### Dot Files ###
