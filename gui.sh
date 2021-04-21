@@ -67,7 +67,7 @@ exec 3>&1
 ###########################
 clear
 printf "installing graphical interface\n"
-sleep 5
+sleep 2
 sudo pacman -S --noconfirm $graphicsdriver xorg xorg-xinit picom nitrogen rofi dunst
 
 mkdir ~/$appfolder
@@ -76,7 +76,7 @@ mkdir ~/$appfolder
 ### Yay Install ###
 ###################
 printf "installing yay package manager\n"
-sleep 5
+sleep 2
 cd ~/$appfolder
 git clone https://aur.archlinux.org/yay-git.git
 cd ~/$appfolder/yay-git
@@ -88,7 +88,7 @@ makepkg -si --noconfirm
 # Xinitrc
 clear
 printf "Modifying .xinitrc"
-sleep 5
+sleep 2
 
 # copy default xinitrc
 cp /etc/X11/xinit/xinitrc ~/.xinitrcTMP
