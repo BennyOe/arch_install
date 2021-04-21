@@ -12,7 +12,7 @@ sleep 1
 loadkeys de-latin1
 
 bootstrapper_dialog --title "Welcome" --msgbox "Welcome to the Arch installation.\n" 6 60
-dialog --stdout --msgbox "Welcome to the Arch installation.\n This script will install the base Arch system" 0 0
+dialog --stdout --msgbox "Welcome to the Arch installation.\nThis script will install the base Arch system" 0 0
 dialog --stdout --msgbox "!!!This script deletes the harddrive you select without further warning!!!" 0 0
 
 ####################
