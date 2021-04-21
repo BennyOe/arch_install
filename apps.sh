@@ -60,15 +60,15 @@ do
     esac
 done
 
-yay -S --noconfirm ${optionalApps[*]}
-
-# app folder
+# user apps
 userApps=$(dialog --stdout --inputbox "Enter additional apps (space seperated)" 0 0) || exit 1
 
 clear
 printf "Installing user apps\n"
 sleep 2
 
+
+yay -S --noconfirm ${optionalApps[*]}
 yay -S --noconfirm ${userApps[*]}
 
 ##################
