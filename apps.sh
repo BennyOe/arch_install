@@ -94,12 +94,12 @@ printf "Installing dot files\n"
 sleep 2
 
 git clone https://github.com/BennyOe/.dotfiles ~/.dotfiles
-
+sleep 1
 ##################
 #### Symlinks ####
 ##################
 chmod +x ~/.dotfiles/setsymlinks.sh
-source ~/.dotfiles/symlinks.sh
+source ~/.dotfiles/setsymlinks.sh
 
 
 clear
