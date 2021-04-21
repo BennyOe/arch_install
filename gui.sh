@@ -10,6 +10,7 @@ sudo pacman -Sy --noconfirm dialog
 #### Welcome ####
 #################
 bootstrapper_dialog --title "Welcome" --msgbox "Welcome to the GUI Installation.\n" 6 60
+dialog --stdout --msgbox "Welcome to the GUI installation.\n This script will install X and DWM" 0 0
 
 ##################
 ### User Input ###
