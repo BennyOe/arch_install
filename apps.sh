@@ -99,7 +99,7 @@ git clone https://github.com/BennyOe/.dotfiles ~/.dotfiles
 #### Symlinks ####
 ##################
 chmod +x ~/.dotfiles/setsymlinks.sh
-sh ~/.dotfiles/symlinks.sh
+source ~/.dotfiles/symlinks.sh
 
 
 clear
