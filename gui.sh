@@ -24,6 +24,42 @@ appfolder=".$appfolder"
 
 dialog --msgbox "Your Application Folder is ~/${appfolder}" 0 0
 
+# Graphics Card selection
+graphicsdriver=""
+exec 3>&1
+       selection=$(dialog \
+         --title "Graphics driver" \
+         --clear \
+         --menu "Please select:" 0 0 4 \
+         "1" "Free Graphics Driver" \
+         "2" "NVIDIA" \
+         "3" "AMD" \
+         "4" "Virtual Machine" \
+         2>&1 1>&3)
+      case $selection in
+        0 )
+          clear
+          echo "Program terminated."
+          ;;
+        1 )
+            graphicsdriver= "xf86-video-intel"
+            echo "${graphicsdriver}"
+          ;;
+        2 )
+            graphicsdriver= "nvidia"
+            echo "${graphicsdriver}"
+          ;;  
+        3 )
+            graphicsdriver= "xf86-video-amdgpu"
+            echo "${graphicsdriver}"
+          ;;
+        4 )
+            graphicsdriver= "xf86-video-fbdev"
+            echo "${graphicsdriver}"
+          ;;
+      esac
+
+
 
 ###########################
 ### Graphical Interface ###
@@ -31,7 +67,7 @@ dialog --msgbox "Your Application Folder is ~/${appfolder}" 0 0
 clear
 printf "installing graphical interface\n"
 sleep 5
-sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit picom nitrogen rofi dunst
+sudo pacman -S --noconfirm $graphicsdriver xorg xorg-xinit picom nitrogen rofi dunst
 
 mkdir ~/$appfolder
 
