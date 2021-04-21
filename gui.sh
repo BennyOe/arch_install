@@ -204,15 +204,13 @@ clear
 printf "Installation finished successfully\n\n"
 sleep 5
 
-#https://git.io/JORTc
-
 while true
 do
  read -r -p "Would you like to install the default apps? [Y/n] " input < /dev/tty
  
  case $input in
      [yY][eE][sS]|[yY])
- curl -sL https://raw.githubusercontent.com/BennyOe/arch_install/main/test-apps | bash
+ curl -sL https://git.io/JORTc | bash
  break
  ;;
      [nN][oO]|[nN])
