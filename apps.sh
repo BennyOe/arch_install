@@ -9,22 +9,76 @@ dialog --stdout --msgbox "Welcome to the Apps installation.\nThis script will in
 ##################
 ### User Input ###
 ##################
+optionalApps=()
+cmd=(dialog --separate-output --checklist "Select apps to install:" 22 76 16)
+options=(1 "signal-desktop" on    # any option can be set to default to "on"
+         2 "discord_arch_electron" on
+         3 "brave-bin" on
+         4 "flameshot" on
+         5 "autorandr" on
+         6 "mailspring" on
+         7 "whatsapp-for-linux" on
+         8 "xidlehook" on
+         9 "intellij-idea-ultimate-edition" on
+         10 "vlc" on      
+         )
+choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
+clear
+for choice in $choices
+do
+    case $choice in
+        1)
+            optionalApps+=(signal-desktop)
+            ;;
+        2)
+            optionalApps+=(discord_arch_electron)
+            ;;
+        3)
+            optionalApps+=(brave-bin)
+            ;;
+        4)
+            optionalApps+=(flameshot)
+            ;;
+        5)
+            optionalApps+=(autorandr)
+            ;;
+        6)
+            optionalApps+=(mailspring)
+            ;;
+        7)
+            optionalApps+=(whatsapp-for-linux)
+            ;;
+        8)
+            optionalApps+=(xidlehook)
+            ;;
+        9)
+            optionalApps+=(intellij-idea-ultimate-edition)
+            ;;
+        10)
+            optionalApps+=(vlc)
+            ;;
+    esac
+done
+
+yay -S --noconfirm ${optionalApps[*]}
+
 # app folder
-appfolder=$(dialog --stdout --inputbox "Enter additional apps" 0 0) || exit 1
+userApps=$(dialog --stdout --inputbox "Enter additional apps (space seperated)" 0 0) || exit 1
 
 clear
 printf "Installing user apps\n"
 sleep 2
 
-yay -S --noconfirm $appfolder
+yay -S --noconfirm ${userApps[*]}
 
 ##################
 ## Standard Apps #
 ##################
+essentialApps=(pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix ranger redshift thunar numlockx zathura htop-vim-git neofetch nodejs npm python-pynvim xarchiver unzip)
 clear
 printf "Installing default apps\n"
 sleep 2
-yay -S --noconfirm pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix signal-desktop discord_arch_electron brave-bin ranger redshift flameshot autorandr mailspring whatsapp-for-linux thunar xidlehook numlockx intellij-idea-ultimate-edition zathura htop vlc neofetch nodejs npm python-pynvim
+yay -S --noconfirm  ${essentialApps[*]}
 
 ##################
 ## Lightdm #######
