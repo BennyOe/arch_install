@@ -43,19 +43,19 @@ exec 3>&1
           echo "Program terminated."
           ;;
         1 )
-            graphicsdriver= "xf86-video-intel"
+            graphicsdriver="xf86-video-intel"
             echo "${graphicsdriver}"
           ;;
         2 )
-            graphicsdriver= "nvidia"
+            graphicsdriver="nvidia"
             echo "${graphicsdriver}"
           ;;  
         3 )
-            graphicsdriver= "xf86-video-amdgpu"
+            graphicsdriver="xf86-video-amdgpu"
             echo "${graphicsdriver}"
           ;;
         4 )
-            graphicsdriver= "xf86-video-fbdev"
+            graphicsdriver="xf86-video-fbdev"
             echo "${graphicsdriver}"
           ;;
       esac
