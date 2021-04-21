@@ -39,9 +39,7 @@ curl -sL https://git.io/JORTc | bash
 - english keyboard
 - brightness controls
 - xidlehook
-- default programs
 - bluetooth
-- replace test-apps with apps link
 
 ############
 ### Push ###
