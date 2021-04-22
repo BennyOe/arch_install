@@ -137,7 +137,7 @@ printf "Starting to partition the disk\n"
 sleep 2
 echo $dualboot
 read < /dev/tty
-if [$dualboot == 'false']
+if [$dualboot == 'false'];
 then
 echo "Ich bin Linuxboot"
 read < /dev/tty
@@ -161,7 +161,7 @@ mkfs.ext4 "${part_root}"
 swapon "${part_swap}"
 fi
 
-if [$dualboot == 'true']
+if [$dualboot == 'true'];
 then
 echo "Ich bin im Dualboot"
 read < /dev/tty
