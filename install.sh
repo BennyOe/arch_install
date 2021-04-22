@@ -24,7 +24,7 @@ devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
 device=$(dialog --stdout --menu "Select installation disk" 0 0 0 ${devicelist}) || exit 1
 
 # Dual Boot
-dualboot=""
+dualboot=0
 exec 3>&1
        selection=$(dialog \
          --title "Dual Boot" \
@@ -39,11 +39,11 @@ exec 3>&1
           echo "Program terminated."
           ;;
         1 )
-            dualboot="false"
+            dualboot=0
             echo "${dualboot}"
           ;;
         2 )
-            dualboot="true"
+            dualboot=1
             echo "${dualboot}"
           ;;  
       esac
@@ -137,7 +137,7 @@ printf "Starting to partition the disk\n"
 sleep 2
 echo $dualboot
 read < /dev/tty
-if [$dualboot == 'false'];
+if [$dualboot -eq 0];
 then
 echo "Ich bin Linuxboot"
 read < /dev/tty
@@ -161,7 +161,7 @@ mkfs.ext4 "${part_root}"
 swapon "${part_swap}"
 fi
 
-if [$dualboot == 'true'];
+if [$dualboot -eq 1];
 then
 echo "Ich bin im Dualboot"
 read < /dev/tty
