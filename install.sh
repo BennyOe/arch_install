@@ -137,8 +137,7 @@ printf "Starting to partition the disk\n"
 sleep 2
 echo $dualboot
 read < /dev/tty
-if [$dualboot -eq 0];
-then
+if [ $dualboot -eq 0 ]; then
 echo "Ich bin Linuxboot"
 read < /dev/tty
 swap_size=$(free --mebi | awk '/Mem:/ {print $2}')
@@ -159,10 +158,9 @@ mkswap "${part_swap}"
 mkfs.ext4 "${part_root}"
 
 swapon "${part_swap}"
-fi
 
-if [$dualboot -eq 1];
-then
+else
+
 echo "Ich bin im Dualboot"
 read < /dev/tty
 startSector=$(parted /dev/sda <<< 'unit MiB print' | awk 'FNR==14 {print $3}')
