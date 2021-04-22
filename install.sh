@@ -23,6 +23,31 @@ dialog --stdout --msgbox "!!!This script deletes the harddrive you select withou
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
 device=$(dialog --stdout --menu "Select installation disk" 0 0 0 ${devicelist}) || exit 1
 
+# Dual Boot
+dualboot=""
+exec 3>&1
+       selection=$(dialog \
+         --title "Dual Boot" \
+         --clear \
+         --menu "Please select:" 0 0 4 \
+         "1" "Only Linux" \
+         "2" "Windows Dual Boot" \
+         2>&1 1>&3)
+      case $selection in
+        0 )
+          clear
+          echo "Program terminated."
+          ;;
+        1 )
+            dualboot="false"
+            echo "${dualboot}"
+          ;;
+        2 )
+            dualboot="true"
+            echo "${dualboot}"
+          ;;  
+      esac
+
 # hostname
 hostname=$(dialog --stdout --inputbox "Enter hostname" 0 0) || exit 1
 clear
@@ -110,6 +135,8 @@ timedatectl status
 clear
 printf "Starting to partition the disk\n"
 sleep 2
+if [$dualboot == 'false']
+then
 swap_size=$(free --mebi | awk '/Mem:/ {print $2}')
 swap_end=$(( $swap_size + 512 + 1 ))MiB
 
@@ -128,7 +155,39 @@ mkswap "${part_swap}"
 mkfs.ext4 "${part_root}"
 
 swapon "${part_swap}"
+fi
 
+if [$dualboot == 'true']
+then
+
+startSector=$(parted /dev/sda <<< 'unit MiB print' | awk 'FNR==14 {print $3}')
+startSector=${startSector::-3}
+startSector=$((startSector + 1))
+
+endSector=$(parted /dev/sda <<< 'unit MiB print' | awk 'FNR==15 {print $2}')
+endSector=${endSector::-3}
+endSector=$((endSector - 1))
+
+
+clear
+printf "Starting to partition the disk\n"
+sleep 2
+swap_size=$(free --mebi | awk '/Mem:/ {print $2}')
+swap_end=$(( $swap_size + ${startSector} ))MiB
+
+parted --script /dev/sda -- mkpart primary linux-swap ${startSector}MiB ${swap_end} \
+  mkpart primary ext4 ${swap_end} ${endSector}MiB
+
+part_boot="${device}1"
+part_swap="${device}5"
+part_root="${device}6"
+
+
+mkswap "${part_swap}"
+mkfs.ext4 "${part_root}"
+
+swapon "${part_swap}"
+fi
 ######################
 #### Install Arch ####
 ######################
