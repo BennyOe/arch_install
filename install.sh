@@ -81,6 +81,7 @@ else
     exit -1
 fi
 
+clear
 # check if the internet is working
 printf "checking the internet connection\n\n"
 sleep 1
