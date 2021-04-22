@@ -136,11 +136,8 @@ timedatectl status
 clear
 printf "Starting to partition the disk\n"
 sleep 2
-echo $dualboot
-read < /dev/tty
+
 if [ $dualboot -eq 0 ]; then
-echo "Ich bin Linuxboot"
-read < /dev/tty
 swap_size=$(free --mebi | awk '/Mem:/ {print $2}')
 swap_end=$(( $swap_size + 512 + 1 ))MiB
 
@@ -161,9 +158,6 @@ mkfs.ext4 "${part_root}"
 swapon "${part_swap}"
 
 else
-
-echo "Ich bin im Dualboot"
-read < /dev/tty
 startSector=$(parted /dev/sda <<< 'unit MiB print' | awk 'FNR==14 {print $3}')
 startSector=${startSector::-3}
 startSector=$((startSector + 1))
@@ -179,12 +173,6 @@ sleep 2
 swap_size=$(free --mebi | awk '/Mem:/ {print $2}')
 swap_end=$(( $swap_size + ${startSector} ))MiB
 
-echo "Start MiB ${startSector}"
-echo "End MiB ${endSector}"
-echo "swap size ${swap_size}"
-echo "swap end ${swap_end}"
-read < /dev/tty
-
 parted --script /dev/sda -- mkpart primary linux-swap ${startSector}MiB ${swap_end} \
   mkpart primary ext4 ${swap_end} ${endSector}MiB
 
@@ -197,9 +185,6 @@ mkswap "${part_swap}"
 mkfs.ext4 "${part_root}"
 
 swapon "${part_swap}"
-read < /dev/tty
-fdisk $device -l
-read < /dev/tty
 fi
 ######################
 #### Install Arch ####
