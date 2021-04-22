@@ -1,0 +1,44 @@
+#############################
+#### Install boot loader ####
+#############################
+clear
+echo "Installing Grub boot loader"
+sleep 5
+arch-chroot /mnt /bin/bash <<EOF
+    mkdir /boot/EFI
+    mount /dev/sda1 /boot/EFI
+    pacman -S --noconfirm grub efibootmgr dosfstools os-prober mtools
+    grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
+    grub-mkconfig -o /boot/grub/grub.cfg
+EOF
+
+clear
+printf "Installation finished successfully\n\n"
+sleep 5
+
+while true
+do
+ read -r -p "Would you like to install the window manager? [Y/n] " input < /dev/tty
+ 
+ case $input in
+     [yY][eE][sS]|[yY])
+ printf "curl -sL https://git.io/JOBJn | bash" >> /mnt/home/$user/.bashrc
+ echo "setup the GUI install script"
+sleep 2
+ break
+ ;;
+     [nN][oO]|[nN])
+ break
+        ;;
+     *)
+ echo "Invalid input..."
+ ;;
+ esac
+done
+
+# reboot
+clear
+printf "rebooting the system...\n"
+printf "press a key to continue...\n"
+read < /dev/tty
+reboot
