@@ -11,13 +11,13 @@ This script is meant to be for my specific fully configured Arch Installation wi
 - Dotfiles https://github.com/BennyOe/.dotfiles
 - Wallpaper https://github.com/BennyOe/wallpaper
 
-### Install Arch Linux
+#### Install Arch Linux
 curl -sL https://git.io/JOWEH | bash
 
-### Install XOrg and DWM
+#### Install XOrg and DWM
 curl -sL https://git.io/JOBJn | bash
 
-### Install additional apps
+#### Install additional apps
 curl -sL https://git.io/JORTc | bash
 
 ## Dual Boot Installation
