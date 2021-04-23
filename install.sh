@@ -195,7 +195,7 @@ mount ${part_root} /mnt
 #mount ${part_boot} /mnt/boot/EFI
 
 clear
-printf "\n\n beginning with Arch installation"
+printf "beginning with Arch installation\n"
 sleep 5
 
 pacstrap /mnt base linux linux-firmware base-devel vim networkmanager git man bash
@@ -263,7 +263,7 @@ EOF
 #### Install boot loader ####
 #############################
 clear
-echo "Installing Grub boot loader"
+echo "Installing Grub boot loader\n"
 sleep 5
 arch-chroot /mnt /bin/bash <<EOF
     mkdir /boot/EFI
