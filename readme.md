@@ -4,6 +4,13 @@ This is a install script for Arch Linux with Suckless DWM as window manager.
 # Installation
 This script is meant to be for my specific fully configured Arch Installation with DWM DWM-Blocks and all the apps I need. The color scheme is Onedark. The Keyboard layout and the timezone is set to german. To Install just boot from the latest Arch ISO http://archlinux.org and execute the first command below. The other scripts will execute automatically.
 
+### Repositories that are used for the installation
+- Suckless DWM https://github.com/BennyOe/dwm
+- DWM Clocks https://github.com/BennyOe/dwmblocks
+- Suckless Simple Terminal https://github.com/papitz/SimpleTerminal
+- Dotfiles https://github.com/BennyOe/.dotfiles
+- Wallpaper https://github.com/BennyOe/wallpaper
+
 ### Install Arch Linux
 curl -sL https://git.io/JOWEH | bash
 
