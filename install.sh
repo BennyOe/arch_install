@@ -94,7 +94,7 @@ else
     printf "Do you use Wlan for the installation? [y]/n\n"
     read wlan
 
-    if [ $wlan=="y"]; then
+    if [ $wlan=="y" ]; then
         clear
         iwctl device list
         printf "pick device\n"
