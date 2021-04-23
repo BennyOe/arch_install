@@ -20,7 +20,7 @@ curl -sL https://git.io/JOWEH | bash
 #### Install XOrg, DWM & Applications
 curl -sL https://git.io/JOBJn | bash
 
-## Dual Boot Installation
+## Dual Boot Installation (Optional)
 - Install Windows 
 - Resize Windows partition for the Linux install
 - Install Arch with this script
