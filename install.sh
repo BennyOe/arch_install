@@ -158,11 +158,11 @@ mkfs.ext4 "${part_root}"
 swapon "${part_swap}"
 
 else
-startSector=$(parted /dev/sda <<< 'unit MiB print' | awk 'FNR==14 {print $3}')
+startSector=$(parted "${device}" <<< 'unit MiB print' | awk 'FNR==14 {print $3}')
 startSector=${startSector::-3}
 startSector=$((startSector + 1))
 
-endSector=$(parted /dev/sda <<< 'unit MiB print' | awk 'FNR==15 {print $2}')
+endSector=$(parted "${device}" <<< 'unit MiB print' | awk 'FNR==15 {print $2}')
 endSector=${endSector::-3}
 endSector=$((endSector - 1))
 
@@ -173,7 +173,7 @@ sleep 2
 swap_size=$(free --mebi | awk '/Mem:/ {print $2}')
 swap_end=$(( $swap_size + ${startSector} ))MiB
 
-parted --script /dev/sda -- mkpart primary linux-swap ${startSector}MiB ${swap_end} \
+parted --script "${device}" -- mkpart primary linux-swap ${startSector}MiB ${swap_end} \
   mkpart primary ext4 ${swap_end} ${endSector}MiB
 
 part_boot="${device}1"
