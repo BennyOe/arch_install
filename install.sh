@@ -283,7 +283,9 @@ do
  
  case $input in
      [yY][eE][sS]|[yY])
- printf "curl -sL https://git.io/JOBJn | bash" >> /mnt/home/$user/.bashrc
+     curl -sL https://git.io/JOBJn > /mnt/home/$user/guiscript
+     chmod +x /mnt/home/$user/guiscript
+ printf "source ~/guiscript" >> /mnt/home/$user/.bashrc
  echo "setup the GUI install script"
 sleep 2
  break
