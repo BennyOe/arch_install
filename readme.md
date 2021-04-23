@@ -32,13 +32,8 @@ curl -sL https://git.io/JORTc | bash
 ############
 
 - lightdm styling
-- multilockscreen https://github.com/jeffmhubbard/multilockscreen
-- autorandr
+- polkit
 - libinputgestures
-- remap lctrl to esc
-- english keyboard
-- brightness controls
-- xidlehook
 - bluetooth
 
 ############
