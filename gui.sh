@@ -226,5 +226,5 @@ done
 clear
 printf "rebooting the system...\nplease press a key to continue..."
 read < /dev/tty
-
+rm -f ~/guiscript
 reboot
