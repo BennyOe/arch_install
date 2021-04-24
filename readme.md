@@ -14,7 +14,8 @@ This script is meant to be for my specific fully configured Arch Installation wi
 - Dotfiles https://github.com/BennyOe/.dotfiles
 - Wallpaper https://github.com/BennyOe/wallpaper
 
-#### Install Arch Linux
+### Install Arch Linux
+------------------
 ------ WLAN ------
 - iwctl device list
 - iwctl station <device> scan
@@ -38,13 +39,20 @@ to fetch and execute the script run the command:
 
 # Installed Applications 
 ### Base install
-    iw wpa_supplicant dialog wpa_actiond sudo grub efibootmgr dosfstools os-prober mtools base linux linux-firmware base-devel vim networkmanager git man bash
+    iw wpa_supplicant dialog wpa_actiond sudo grub efibootmgr dosfstools os-prober mtools base linux linux-firmware 
+    base-devel vim networkmanager git man bash
 
 ### GUI install
-    $graphicsdriver xorg xorg-xinit picom nitrogen rofi dunst yay nerd-fonts-jetbrains-mono pacman-contrib archlinux-contrib sysstat ttf-font-awesome dmenu network-manager-applet gnu-free-fonts zsh papirus-icon-theme gtk4 arc-gtk-theme lxappearance libxft-bgra lsd pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix ranger redshift thunar numlockx zathura htop-vim-git neofetch nodejs npm python-pynvim xarchiver unzip lightdm lightdm-mini-greeter zsh-theme-powerlevel10k-git neovim-nightly-bin zsh oh-my-zsh zsh-autosuggestions zsh-syntax-highlighting vim-plug
+    $graphicsdriver xorg xorg-xinit picom nitrogen rofi dunst yay nerd-fonts-jetbrains-mono pacman-contrib 
+    archlinux-contrib sysstat ttf-font-awesome dmenu network-manager-applet gnu-free-fonts zsh papirus-icon-theme 
+    gtk4 arc-gtk-theme lxappearance libxft-bgra lsd pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix 
+    ranger redshift thunar numlockx zathura htop-vim-git neofetch nodejs npm python-pynvim xarchiver unzip lightdm 
+    lightdm-mini-greeter zsh-theme-powerlevel10k-git neovim-nightly-bin zsh oh-my-zsh zsh-autosuggestions 
+    zsh-syntax-highlighting vim-plug
     
 ##### Optional
-    signal-desktop discord_arch_electron brave-bin flameshot autorandr mailspring whatsapp-for-linux xidlehook intellij-idea-ultimate-edition vlc spotify-tui
+    signal-desktop discord_arch_electron brave-bin flameshot autorandr mailspring whatsapp-for-linux xidlehook 
+    intellij-idea-ultimate-edition vlc spotify-tui
 
 
 ############
