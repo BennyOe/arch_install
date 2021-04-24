@@ -1,5 +1,36 @@
 #!/bin/bash
 
+###########################
+### Internet Connection ###
+###########################
+printf "checking the internet connection\n\n"
+sleep 1
+if ping -c 1 archlinux.org &>/dev/null; then 
+    printf "Internet connection working...\n"
+    sleep 2
+else 
+    printf "Internet connection not working\n"
+     # Wlan or Ethernet
+    printf "Do you use Wlan for the installation? [y]/n\n"
+    read wlan
+
+    if [ $wlan=="y" ]; then
+        clear
+        nmtui
+        while ! ping -c 1 archlinux.org &>/dev/null; 
+        do 
+            printf "connection unsuccessful...\n"
+            nmtui
+        done
+            printf "Internet connection working...\n"
+    else
+    printf "please check your connection...\n press a key to exit"
+    read < /dev/tty
+    exit -1
+    fi
+fi
+clear
+
 # remove the script from .bashrc
 sed -i '$d' ~/.bashrc
 
@@ -118,47 +149,6 @@ done
 # user apps
 userApps=$(dialog --stdout --inputbox "Enter additional apps (space seperated)" 0 0) || exit 1
 
-###########################
-### Internet Connection ###
-###########################
-printf "checking the internet connection\n\n"
-sleep 1
-if ping -c 1 archlinux.org &>/dev/null; then 
-    printf "Internet connection working...\n"
-    sleep 2
-else 
-    printf "Internet connection not working\n"
-     # Wlan or Ethernet
-    printf "Do you use Wlan for the installation? [y]/n\n"
-    read wlan
-
-    if [ $wlan=="y" ]; then
-        clear
-        iwctl device list
-        printf "pick device\n"
-        read device
-        iwctl station $device scan
-        iwctl station $device get-networks
-        printf "pick SSID\n"
-        read ssid
-        printf "enter password\n"
-        read wlan_pw
-        iwctl --passphrase=$wlan_pw station $device connect $ssid
-        while ! ping -c 1 archlinux.org &>/dev/null; 
-        do 
-            printf "connection unsuccessful...\n"
-            printf "enter password\n"
-            read wlan_pw
-            iwctl --passphrase=$pw station $device connect $ssid
-        done
-            printf "Internet connection working...\n"
-    else
-    printf "please check your connection...\n press a key to exit"
-    read < /dev/tty
-    exit -1
-    fi
-fi
-clear
 
 ###########################
 ### Graphical Interface ###
