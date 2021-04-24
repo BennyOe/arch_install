@@ -4,7 +4,7 @@ This is a install script for Arch Linux with Suckless DWM as window manager.
 ![image](https://user-images.githubusercontent.com/45036971/115892305-52037380-a457-11eb-8ccf-3f60da59f79b.png)
 
 
-# Installation
+# General
 This script is meant to be for my specific fully configured Arch Installation with DWM DWM-Blocks and all the apps I need. The color scheme is Onedark. The Keyboard layout and the timezone is set to german. To Install just boot from the latest Arch ISO http://archlinux.org and execute the first command below. The other scripts will execute automatically.
 
 ### Repositories that are used for the installation
@@ -16,7 +16,15 @@ This script is meant to be for my specific fully configured Arch Installation wi
 
 -----------------
 
-### Install Arch Linux
+# Installation
+------------------
+-------------------
+#### Dual Boot Installation (Optional)
+- Install Windows 
+- Resize Windows partition for the Linux install
+- Install Arch with this script
+- DO NOT CREATE ADDITIONAL PARTITIONS BEFORE INSTALLING ARCH!!!
+
 ------------------
 #### WLAN
     iwctl device list
@@ -24,24 +32,19 @@ This script is meant to be for my specific fully configured Arch Installation wi
     iwctl station <device> get-networks
     iwctl station <device> connect <SSID>
 ------------------
+#### Run the script
 to fetch and execute the script run the command:
     
     curl -sL https://git.io/JOWEH | bash
 
 #### Install XOrg, DWM & Applications
     curl -sL https://git.io/JOBJn | bash
-
-
--------------------
-### Dual Boot Installation (Optional)
-- Install Windows 
-- Resize Windows partition for the Linux install
-- Install Arch with this script
-- DO NOT CREATE ADDITIONAL PARTITIONS BEFORE INSTALLING ARCH!!!
-
+    
 -------------------
 
 # Key Bindings
+
+------------------
 
 # Installed Applications 
 ### Base install
