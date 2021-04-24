@@ -322,6 +322,10 @@ sleep 2
 
 yay -S --noconfirm lightdm lightdm-mini-greeter
 
+if [ $graphicsdriver!="xf86-video-fbdev" ]; then
+systemctl enable lightdm
+fi
+
 ##################
 ###### ZSH #######
 ##################
