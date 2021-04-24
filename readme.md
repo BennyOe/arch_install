@@ -59,6 +59,12 @@ On Surface devices run this command to install the Surface kernel
 
     curl -sL https://git.io/JO9G5 | bash
     
+Set the resolution of the device in the ~/.dwm/autostart.sh
+
+    xrandr -s 1920x1080
+    
+
+    
 -------------------
 
 # Key Bindings
