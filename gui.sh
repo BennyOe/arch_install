@@ -320,7 +320,7 @@ clear
 printf "Installing lightdm\n"
 sleep 2
 
-yay -S --noconfirm lightdm lightdm-mini-greeter
+yay -S --noconfirm lightdm lightdm-mini-greeter lightdm-gtk-greeter
 
 if [ $graphicsdriver!="xf86-video-fbdev" ]; then
 systemctl enable lightdm
