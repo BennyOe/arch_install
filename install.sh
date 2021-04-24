@@ -224,7 +224,8 @@ sleep 5
 ###############################
 #### Configure base system ####
 ###############################
-printf "\n\n Configure base system \n\n"
+clear
+printf "Configure base system \n\n"
 sleep 5
 
 arch-chroot /mnt /bin/bash <<EOF
@@ -238,6 +239,7 @@ echo "Setting time zone"
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc
 
+clear
 printf "setting keyboard layout\n"
 echo "KEYMAP=de-latin1" >> /etc/vconsole.conf
 echo "Setting hostname"
@@ -262,7 +264,7 @@ EOF
 #### User Management ####
 #########################
 clear
-echo "user setup"
+printf "user setup\n"
 sleep 5
 arch-chroot /mnt useradd -m -G wheel,uucp,video,audio,storage,games,input "$user"
 echo "$user:$password" | chpasswd --root /mnt
@@ -276,7 +278,7 @@ EOF
 #### Install boot loader ####
 #############################
 clear
-echo "Installing Grub boot loader\n"
+printf "Installing Grub boot loader\n"
 sleep 5
 arch-chroot /mnt /bin/bash <<EOF
     mkdir /boot/EFI
@@ -299,7 +301,8 @@ do
      curl -sL https://git.io/JOBJn > /mnt/home/$user/guiscript
      chmod +x /mnt/home/$user/guiscript
  printf "source ~/guiscript" >> /mnt/home/$user/.bashrc
- echo "setup the GUI install script"
+ clear
+ printf "setup the GUI install script\n"
 sleep 2
  break
  ;;
