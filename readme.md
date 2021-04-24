@@ -15,10 +15,18 @@ This script is meant to be for my specific fully configured Arch Installation wi
 - Wallpaper https://github.com/BennyOe/wallpaper
 
 #### Install Arch Linux
-curl -sL https://git.io/JOWEH | bash
+------ WLAN ------
+- iwctl device list
+- iwctl station <device> scan
+- iwctl station <device> get-networks
+- iwctl station <device> connect <SSID>
+------------------
+to fetch and execute the script run the command:
+    
+    curl -sL https://git.io/JOWEH | bash
 
 #### Install XOrg, DWM & Applications
-curl -sL https://git.io/JOBJn | bash
+    curl -sL https://git.io/JOBJn | bash
 
 ## Dual Boot Installation (Optional)
 - Install Windows 
