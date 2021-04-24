@@ -17,21 +17,19 @@ This script is meant to be for my specific fully configured Arch Installation wi
 -----------------
 
 # Installation
-------------------
--------------------
+
 #### Dual Boot Installation (Optional)
 - Install Windows 
 - Resize Windows partition for the Linux install
 - Install Arch with this script
 - DO NOT CREATE ADDITIONAL PARTITIONS BEFORE INSTALLING ARCH!!!
 
-------------------
 #### WLAN
     iwctl device list
     iwctl station <device> scan
     iwctl station <device> get-networks
     iwctl station <device> connect <SSID>
-------------------
+
 #### Run the script
 to fetch and execute the script run the command:
     
