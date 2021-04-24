@@ -67,8 +67,8 @@ to fetch and execute the script run the command:
 ############
 
 - lightdm styling
-- polkit
 - libinputgestures
 - bluetooth
+- Grub Styling and silencing
 
 
