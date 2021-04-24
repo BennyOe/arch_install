@@ -14,6 +14,8 @@ This script is meant to be for my specific fully configured Arch Installation wi
 - Dotfiles https://github.com/BennyOe/.dotfiles
 - Wallpaper https://github.com/BennyOe/wallpaper
 
+-----------------
+
 ### Install Arch Linux
 ------------------
 ------ WLAN ------
@@ -29,11 +31,15 @@ to fetch and execute the script run the command:
 #### Install XOrg, DWM & Applications
     curl -sL https://git.io/JOBJn | bash
 
-## Dual Boot Installation (Optional)
+
+-------------------
+### Dual Boot Installation (Optional)
 - Install Windows 
 - Resize Windows partition for the Linux install
 - Install Arch with this script
 - DO NOT CREATE ADDITIONAL PARTITIONS BEFORE INSTALLING ARCH!!!
+
+-------------------
 
 # Key Bindings
 
