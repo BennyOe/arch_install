@@ -61,7 +61,7 @@ On Surface devices run this command to install the Surface kernel
     
 Set the resolution and scale of the device in the ~/.dwm/autostart.sh
 
-    xrandr -s 1920x1080 --scale eDP1 0.6
+    xrandr -s 1920x1080 --output eDP1 --scale 0.6
     
 
     
