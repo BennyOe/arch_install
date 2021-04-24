@@ -92,25 +92,25 @@ else
     printf "Internet connection not working\n"
      # Wlan or Ethernet
     printf "Do you use Wlan for the installation? [y]/n\n"
-    read wlan
+    read wlan < /dev/tty
 
     if [ $wlan=="y" ]; then
         clear
         iwctl device list
         printf "pick device\n"
-        read device
+        read device < /dev/tty
         iwctl station $device scan
         iwctl station $device get-networks
         printf "pick SSID\n"
-        read ssid
+        read ssid < /dev/tty
         printf "enter password\n"
-        read wlan_pw
+        read wlan_pw < /dev/tty
         iwctl --passphrase=$wlan_pw station $device connect $ssid
         while ! ping -c 1 archlinux.org &>/dev/null; 
         do 
             printf "connection unsuccessful...\n"
             printf "enter password\n"
-            read wlan_pw
+            read wlan_pw < /dev/tty
             iwctl --passphrase=$pw station $device connect $ssid
         done
             printf "Internet connection working...\n"
