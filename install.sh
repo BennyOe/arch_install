@@ -211,7 +211,7 @@ clear
 printf "beginning with Arch installation\n"
 sleep 5
 
-pacstrap /mnt base linux linux-firmware base-devel vim networkmanager git man bash  wireless_tools wpa_supplicant dialog
+pacstrap /mnt base linux linux-firmware base-devel vim networkmanager git man bash  wireless_tools wpa_supplicant dialog iwd
 
 #configure the system
 printf "setting fstab\n"
