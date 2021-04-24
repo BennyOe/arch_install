@@ -30,12 +30,13 @@ This script is meant to be for my specific fully configured Arch Installation wi
     iwctl station <device> get-networks
     iwctl station <device> connect <SSID>
 
-#### Run the script
+#### Run the base install script
 to fetch and execute the script run the command:
     
     curl -sL https://git.io/JOWEH | bash
 
 #### Install XOrg, DWM & Applications
+This script gets called automatically after the base install script. 
     curl -sL https://git.io/JOBJn | bash
     
 -------------------
