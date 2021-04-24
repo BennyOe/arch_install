@@ -175,7 +175,7 @@ swap_end=$(( $swap_size + ${startSector} ))MiB
 
 parted --script "${device}" -- mkpart primary linux-swap ${startSector}MiB ${swap_end} \
   mkpart primary ext4 ${swap_end} ${endSector}MiB
-if [[ "${device}" == "/dev/nvme0n1"* ]]; then
+if [[ "${device}" == "/dev/nvme"* ]]; then
 part_boot="${device}p1"
 part_swap="${device}p5"
 part_root="${device}p6"
