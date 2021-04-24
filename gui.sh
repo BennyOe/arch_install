@@ -383,6 +383,11 @@ sleep 1
 chmod +x ~/.dotfiles/setsymlinks.sh
 source ~/.dotfiles/setsymlinks.sh
 
+# sudo promt for password
+su
+visudo
+:%s/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g
+:wq
 
 clear
 printf "Installation finished successfully\n"
