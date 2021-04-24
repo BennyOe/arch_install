@@ -9,7 +9,7 @@ This script is meant to be for my specific fully configured Arch Installation wi
 
 ### Repositories that are used for the installation
 - Suckless DWM https://github.com/BennyOe/dwm
-- DWM Clocks https://github.com/BennyOe/dwmblocks
+- DWM Blocks https://github.com/BennyOe/dwmblocks
 - Suckless Simple Terminal https://github.com/papitz/SimpleTerminal
 - Dotfiles https://github.com/BennyOe/.dotfiles
 - Wallpaper https://github.com/BennyOe/wallpaper
