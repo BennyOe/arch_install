@@ -37,6 +37,7 @@ to fetch and execute the script run the command:
 
 #### Install XOrg, DWM & Applications
 This script gets called automatically after the base install script. 
+
     curl -sL https://git.io/JOBJn | bash
     
 -------------------
