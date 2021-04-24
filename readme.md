@@ -45,6 +45,18 @@ This script gets called automatically after the base install script.
 
     curl -sL https://git.io/JOBJn | bash
     
+# Post installation
+To change that the sudo command promt for a password run the commands
+
+    su
+    visudo
+    uncomment the line XXXXX
+    comment the line XXXX
+
+On Surface devices run this command to install the Surface kernel
+
+    curl -sL https://git.io/JO9G5 | bash
+    
 -------------------
 
 # Key Bindings
