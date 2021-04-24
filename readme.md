@@ -18,11 +18,11 @@ This script is meant to be for my specific fully configured Arch Installation wi
 
 ### Install Arch Linux
 ------------------
------- WLAN ------
-- iwctl device list
-- iwctl station <device> scan
-- iwctl station <device> get-networks
-- iwctl station <device> connect <SSID>
+#### WLAN
+    iwctl device list
+    iwctl station <device> scan
+    iwctl station <device> get-networks
+    iwctl station <device> connect <SSID>
 ------------------
 to fetch and execute the script run the command:
     
