@@ -30,6 +30,8 @@ The patches applied in the Suckless programms can be found in the depending repo
 - DO NOT CREATE ADDITIONAL PARTITIONS BEFORE INSTALLING ARCH!!!
 
 #### WLAN
+if running a device with WLAN run these commands to connect to the internet
+
     iwctl device list
     iwctl station <device> scan
     iwctl station <device> get-networks
