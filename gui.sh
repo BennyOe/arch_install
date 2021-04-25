@@ -252,13 +252,13 @@ cd SimpleTerminal
 sudo make clean install
 
 #########################
-### Install Yay Stuff ###
+## Install System Apps ##
 #########################
 # install packages
 clear
 printf "installing Yay Stuff...\n"
 sleep 2
-yay -S --noconfirm nerd-fonts-jetbrains-mono pacman-contrib archlinux-contrib sysstat ttf-font-awesome dmenu network-manager-applet gnu-free-fonts zsh papirus-icon-theme gtk4 arc-gtk-theme lxappearance
+yay -S --noconfirm nerd-fonts-jetbrains-mono pacman-contrib archlinux-contrib sysstat ttf-font-awesome ttf-symbola dmenu network-manager-applet gnu-free-fonts zsh papirus-icon-theme gtk4 arc-gtk-theme lxappearance
 # removing libxft beforehand
 clear
 printf "removing libxft\n"
