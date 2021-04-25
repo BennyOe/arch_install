@@ -52,8 +52,8 @@ To change that the sudo command promt for a password run the commands
 
     su
     visudo
-    uncomment the line XXXXX
-    comment the line XXXX
+    uncomment the line %wheel ALL=(ALL) ALL
+    comment the line %wheel ALL=(ALL) NOPASSWD: ALL
 
 On Surface devices run this command to install the Surface kernel
 
