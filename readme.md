@@ -54,6 +54,8 @@ To change that the sudo command promt for a password run the commands
     visudo
     uncomment the line %wheel ALL=(ALL) ALL
     comment the line %wheel ALL=(ALL) NOPASSWD: ALL
+    
+## Surface
 
 On Surface devices run this command to install the Surface kernel
 
@@ -61,7 +63,8 @@ On Surface devices run this command to install the Surface kernel
     
 Set the resolution and scale of the device in the ~/.dwm/autostart.sh
 
-    xrandr -s 1920x1080 --output eDP1 --scale 0.6
+    xrandr -s 2736x1824 
+    xrandr --output eDP1 --scale 0.6
     
 For autorandr:
 1. Set the desired screen layout with arandr or xrandr
