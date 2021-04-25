@@ -383,15 +383,6 @@ sleep 1
 chmod +x ~/.dotfiles/setsymlinks.sh
 source ~/.dotfiles/setsymlinks.sh
 
-# sudo promt for password
-clear
-printf "entering su mode\n"
-sleep 1
-sudo vim /etc/sudoers
-:%s/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g
-:%s/^%wheel ALL=(ALL) NO/# %wheel ALL=(ALL) NO/g
-:wq
-
 clear
 printf "Installation finished successfully\n"
 printf "rebooting the system.\n"
