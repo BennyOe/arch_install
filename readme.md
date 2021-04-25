@@ -73,15 +73,16 @@ For autorandr:
 -------------------
 
 # Key Bindings
+
+#### Basic controls
+
  Key           | Action       
  ------------- | -------------:
  mod + space   |  Rofi App launcher
 mod + return     | terminal      
 mod + b   | togglebar
-#### Basic controls
-mod + space             Rofi App launcher
-mod + return            terminal
-mod + b                 togglebar
+
+
 mod + j                 focus stack down
 mod + k                 focus stack up
 mod + up                increase master count
