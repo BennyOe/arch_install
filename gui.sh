@@ -387,13 +387,10 @@ source ~/.dotfiles/setsymlinks.sh
 clear
 printf "entering su mode\n"
 sleep 1
-su
-read < /dev/tty
-visudo
+sudo vim /etc/sudoers
 :%s/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g
 :%s/^%wheel ALL=(ALL) NO/# %wheel ALL=(ALL) NO/g
 :wq
-read < /dev/tty
 
 clear
 printf "Installation finished successfully\n"
