@@ -106,6 +106,7 @@ else
         printf "enter password\n"
         read wlan_pw < /dev/tty
         iwctl --passphrase=$wlan_pw station $device connect $ssid
+        sleep 2
         while ! ping -c 1 archlinux.org &>/dev/null; 
         do 
             printf "connection unsuccessful...\n"
