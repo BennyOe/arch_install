@@ -384,10 +384,14 @@ chmod +x ~/.dotfiles/setsymlinks.sh
 source ~/.dotfiles/setsymlinks.sh
 
 # sudo promt for password
+clear
+printf "entering su mode\n"
+sleep 1
 su
 read < /dev/tty
 visudo
 :%s/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g
+:%s/^%wheel ALL=(ALL) NO/# %wheel ALL=(ALL) NO/g
 :wq
 read < /dev/tty
 
