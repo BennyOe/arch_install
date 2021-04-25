@@ -323,7 +323,7 @@ sleep 2
 yay -S --noconfirm lightdm lightdm-mini-greeter lightdm-gtk-greeter
 
 if [ $graphicsdriver!="xf86-video-fbdev" ]; then
-systemctl enable lightdm
+sudo systemctl enable lightdm
 fi
 
 ##################
@@ -385,9 +385,11 @@ source ~/.dotfiles/setsymlinks.sh
 
 # sudo promt for password
 su
+read < /dev/tty
 visudo
 :%s/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g
 :wq
+read < /dev/tty
 
 clear
 printf "Installation finished successfully\n"
