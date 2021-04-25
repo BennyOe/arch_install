@@ -307,7 +307,7 @@ yay -S --noconfirm ${userApps[*]}
 ##################
 ## Standard Apps #
 ##################
-essentialApps=(pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix ranger redshift thunar numlockx zathura htop-vim-git neofetch nodejs npm python-pynvim xarchiver unzip)
+essentialApps=(pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix ranger redshift thunar thunar-volman numlockx zathura htop-vim-git neofetch nodejs npm python-pynvim xarchiver unzip)
 clear
 printf "Installing default apps\n"
 sleep 2
