@@ -74,6 +74,82 @@ For autorandr:
 
 # Key Bindings
 
+modifier                     key        function
+mod1Mask,                     space,  spawn,
+MODKEY,                       Return, spawn,
+MODKEY,                       b,      togglebar,
+MODKEY,                       j,      focusstack,
+MODKEY,                       k,      focusstack,
+MODKEY,                       Up,     incnmaster,
+MODKEY,                       Down,   incnmaster,
+MODKEY,                       h,      setmfact,
+MODKEY,                       l,      setmfact,
+MODKEY|ShiftMask,             j,      movestack,
+MODKEY|ShiftMask,             k,      movestack,
+MODKEY|ShiftMask,             Return, zoom,
+MODKEY,                       Tab,    view,
+MODKEY,                       q,      killclient,
+
+* Layout manipulation *
+MODKEY|ControlMask,           comma,  cyclelayout,
+MODKEY|ControlMask,           period, cyclelayout,
+
+* Switch to specific layouts *
+MODKEY,                       m,      setlayout,
+MODKEY,                       f,      fullscreen,
+MODKEY,                       space,  setlayout,
+MODKEY|ShiftMask,             space,  togglefloating,
+MODKEY,                       0,      view,
+MODKEY|ShiftMask,             0,      tag,
+
+* switching between monitors *
+MODKEY,                       comma,  focusmon,
+MODKEY,                       period, focusmon,
+MODKEY|ControlMask,           Left,   tagmon,
+MODKEY|ControlMask,           Right,  tagmon,
+
+* Gaps *
+MODKEY,                       y,      incrgaps,
+MODKEY|ShiftMask,             y,      incrgaps,
+MODKEY|ControlMask,           y,      togglegaps,
+MODKEY|Mod1Mask,              y,      defaultgaps,
+
+* Scratchpads *
+MODKEY,                       p,      togglescratch,
+MODKEY,                       minus, scratchpad_show,
+MODKEY|ShiftMask,             minus, scratchpad_hide,
+MODKEY,                       equal,scratchpad_remove,
+
+* Tags *
+AGKEYS(                        1,
+AGKEYS(                        2,
+AGKEYS(                        3,
+AGKEYS(                        4,
+AGKEYS(                        5,
+AGKEYS(                        6,
+AGKEYS(                        7,
+AGKEYS(                        8,
+AGKEYS(                        9,
+MODKEY,                       BackSpace,   spawn,
+MODKEY|ShiftMask,             BackSpace,   quit,
+MODKEY|ShiftMask,             r,           quit,
+
+* Apps *
+MODKEY,                       c,     spawn,
+MODKEY,                       x,     spawn,
+MODKEY,                       e,     spawn,
+MODKEY|ControlMask,           l,     spawn,
+MODKEY|ShiftMask,             c,     spawn,
+MODKEY|ShiftMask,             t,     spawn,
+MODKEY|ControlMask,           t,     spawn,
+MODKEY|ControlMask,           m,     spawn,
+MODKEY|ShiftMask,             m,     spawn,
+MODKEY|ShiftMask,             s,     spawn,
+MODKEY|ControlMask,           e,     spawn,
+MODKEY|ControlMask,           d,     spawn,
+
+
+
 ------------------
 
 # Installed Applications 
