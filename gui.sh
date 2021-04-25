@@ -126,7 +126,7 @@ do
             optionalApps+=(autorandr)
             ;;
         6)
-            optionalApps+=(mailspring)
+            optionalApps+=(mailspring libsecret gnome-keyring)
             ;;
         7)
             optionalApps+=(whatsapp-for-linux)
@@ -258,7 +258,7 @@ sudo make clean install
 clear
 printf "installing Yay Stuff...\n"
 sleep 2
-yay -S --noconfirm nerd-fonts-jetbrains-mono pacman-contrib archlinux-contrib sysstat ttf-font-awesome ttf-symbola dmenu network-manager-applet gnu-free-fonts zsh papirus-icon-theme gtk4 arc-gtk-theme arandr lxappearance timeshift grub-customizer libsecret
+yay -S --noconfirm nerd-fonts-jetbrains-mono pacman-contrib archlinux-contrib sysstat ttf-font-awesome ttf-symbola dmenu network-manager-applet gnu-free-fonts zsh papirus-icon-theme gtk4 arc-gtk-theme arandr lxappearance timeshift grub-customizer
 # removing libxft beforehand
 clear
 printf "removing libxft\n"
