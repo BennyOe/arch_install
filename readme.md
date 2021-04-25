@@ -102,5 +102,6 @@ For autorandr:
 - libinputgestures
 - bluetooth
 - Grub Styling and silencing
+- promt for password when executing sudo app with rofi
 
 
