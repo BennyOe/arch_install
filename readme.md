@@ -73,11 +73,11 @@ For autorandr:
 -------------------
 
 # Key Bindings
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+ Key           | Action       
+ ------------- | -------------:
+ mod + space   |  Rofi App launcher
+mod + return     | terminal      
+mod + b   | togglebar
 #### Basic controls
 mod + space             Rofi App launcher
 mod + return            terminal
