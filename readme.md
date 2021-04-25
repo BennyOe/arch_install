@@ -63,7 +63,9 @@ Set the resolution and scale of the device in the ~/.dwm/autostart.sh
 
     xrandr -s 1920x1080 --output eDP1 --scale 0.6
     
-
+For autorandr:
+1. Set the desired screen layout with arandr or xrandr
+2. Save the config with `autorandr -s <PROFILENAME>`
     
 -------------------
 
