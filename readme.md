@@ -55,6 +55,11 @@ To change that the sudo command promt for a password run the commands
     uncomment the line %wheel ALL=(ALL) ALL
     comment the line %wheel ALL=(ALL) NOPASSWD: ALL
     
+#### Intellij and java applications
+to get java swing or java fx applications working add this line to your /etc/profile
+
+     export _JAVA_AWT_WM_NONREPARENTING=1
+    
 ## Surface
 
 On Surface devices run this command to install the Surface kernel
