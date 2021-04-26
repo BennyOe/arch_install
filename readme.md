@@ -76,24 +76,22 @@ For autorandr:
 
 #### Basic controls
 
- Key           | Action       
- ------------- | -------------:
- mod + space   |  Rofi App launcher
-mod + return     | terminal      
-mod + b   | togglebar
-
-
-mod + j                 focus stack down
-mod + k                 focus stack up
-mod + up                increase master count
-mod + down              decrease master count
-mod + l                 increase master size
-mod + h                 decrease master size
-mod + shift + j         move window stack up
-mod + shift +k          move window stack down
-mod + shift + return    toggle master window
-mod + tab               cycle through tags
-mod + q                 kill window
+ Key                        | Action       
+ -------------------------  | -------------:
+mod + space                 |       Rofi App launcher
+mod + return                |       terminal      
+mod + b                     |       togglebar
+mod + j                     |       focus stack down
+mod + k                     |       focus stack up
+mod + up                    |       increase master count
+mod + down                  |       decrease master count
+mod + l                     |       increase master size
+mod + h                     |       decrease master size
+mod + shift + j             |       move window stack up
+mod + shift +k              |       move window stack down
+mod + shift + return        |       toggle master window
+mod + tab                   |       cycle through tags
+mod + q                     |       kill window
 
 
 #### Layout manipulation
