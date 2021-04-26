@@ -2,7 +2,7 @@
 ###########################
 #### Array Definitions #####
 ###########################
-systemApps=(nerd-fonts-jetbrains-mono pacman-contrib archlinux-contrib sysstat ttf-font-awesome ttf-symbola dmenu network-manager-applet gnu-free-fonts zsh papirus-icon-theme gtk4 arc-gtk-theme arandr lxappearance timeshift grub-customizer polkit polkit-dumb-agent-git lxqt-policykit feh bluez bluez-utils blueman)
+systemApps=(nerd-fonts-jetbrains-mono pacman-contrib archlinux-contrib sysstat ttf-font-awesome ttf-symbola dmenu network-manager-applet gnu-free-fonts zsh papirus-icon-theme gtk4 arc-gtk-theme arandr lxappearance timeshift grub-customizer polkit lxqt-policykit feh bluez bluez-utils blueman)
 essentialApps=(pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix ranger redshift thunar thunar-volman numlockx zathura htop-vim-git neofetch nodejs npm python-pynvim xarchiver unzip ueberzug)
 ###########################
 ### Internet Connection ###
