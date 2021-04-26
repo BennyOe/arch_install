@@ -64,7 +64,7 @@ On Surface devices run this command to install the Surface kernel
 Set the resolution and scale of the device in the ~/.dwm/autostart.sh
 
     xrandr -s 2736x1824 
-    xrandr --output eDP1 --scale 0.6
+    xrandr --output eDP1 --scale 0.7
     
 For autorandr:
 1. Set the desired screen layout with arandr or xrandr
