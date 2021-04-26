@@ -1,5 +1,9 @@
 #!/bin/bash
-
+###########################
+#### Array Definitions #####
+###########################
+systemApps=(nerd-fonts-jetbrains-mono pacman-contrib archlinux-contrib sysstat ttf-font-awesome ttf-symbola dmenu network-manager-applet gnu-free-fonts zsh papirus-icon-theme gtk4 arc-gtk-theme arandr lxappearance timeshift grub-customizer polkit-dumb-agent-git feh)
+essentialApps=(pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix ranger redshift thunar thunar-volman numlockx zathura htop-vim-git neofetch nodejs npm python-pynvim xarchiver unzip w3m)
 ###########################
 ### Internet Connection ###
 ###########################
@@ -258,7 +262,7 @@ sudo make clean install
 clear
 printf "installing Yay Stuff...\n"
 sleep 2
-yay -S --noconfirm nerd-fonts-jetbrains-mono pacman-contrib archlinux-contrib sysstat ttf-font-awesome ttf-symbola dmenu network-manager-applet gnu-free-fonts zsh papirus-icon-theme gtk4 arc-gtk-theme arandr lxappearance timeshift grub-customizer polkit-dumb-agent-git feh
+yay -S --noconfirm ${systemApps[*]}
 # removing libxft beforehand
 clear
 printf "removing libxft\n"
@@ -307,7 +311,7 @@ yay -S --noconfirm ${userApps[*]}
 ##################
 ## Standard Apps #
 ##################
-essentialApps=(pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix ranger redshift thunar thunar-volman numlockx zathura htop-vim-git neofetch nodejs npm python-pynvim xarchiver unzip)
+
 clear
 printf "Installing default apps\n"
 sleep 2
