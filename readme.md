@@ -102,58 +102,67 @@ mod + ctrl + comma         |        cyclelayout -
 mod + ctrl + period        |        cyclelayout +
 
 #### Switch to specific layouts 
-MODKEY,                       m,      setlayout,
-MODKEY,                       f,      fullscreen,
-MODKEY,                       space,  setlayout,
-MODKEY|ShiftMask,             space,  togglefloating,
-MODKEY,                       0,      view,
-MODKEY|ShiftMask,             0,      tag,
+
+Key                        | Action       
+ ------------------------- | -------------:
+mod + m                    |         set master layout
+mod + f                    |         fullscreen
+mod + space                |         toggle last layout
+mod + shift +space         |         togglefloating
+mod + 0                    |         view all tags
+mod + shift + 0            |         move window to all tags
 
 #### switching between monitors 
-MODKEY,                       comma,  focusmon,
-MODKEY,                       period, focusmon,
-MODKEY|ControlMask,           Left,   tagmon,
-MODKEY|ControlMask,           Right,  tagmon,
+
+Key                        | Action       
+ ------------------------- | -------------:
+mod + comma                |        focus prev monitor
+mod + period               |        focus next monitor 
+mod + ctrl + left          |        tag to prev monitor
+mod + ctrl + right         |        tag to next monitor
 
 #### Gaps
-MODKEY,                       y,      incrgaps,
-MODKEY|ShiftMask,             y,      incrgaps,
-MODKEY|ControlMask,           y,      togglegaps,
-MODKEY|Mod1Mask,              y,      defaultgaps,
+
+Key                        | Action       
+ ------------------------- | -------------:
+mod + y                    |        increase gaps
+mod + shift + y            |        decreaase gaps
+mod + ctrl y               |        toggle gaps
+mod + alt + y              |        default gaps
 
 #### Scratchpads
-MODKEY,                       p,      togglescratch,
-MODKEY,                       minus, scratchpad_show,
-MODKEY|ShiftMask,             minus, scratchpad_hide,
-MODKEY,                       equal,scratchpad_remove,
+
+Key                        | Action       
+ ------------------------- | -------------:
+mod + p                    |       togglescratch
+mod + minus                |       scratchpad show
+mod + shift + minus        |       scratchpad hide
+mod + =                    |       scratchpad remove
 
 #### Tags
-AGKEYS(                        1,
-AGKEYS(                        2,
-AGKEYS(                        3,
-AGKEYS(                        4,
-AGKEYS(                        5,
-AGKEYS(                        6,
-AGKEYS(                        7,
-AGKEYS(                        8,
-AGKEYS(                        9,
-MODKEY,                       BackSpace,   spawn,
-MODKEY|ShiftMask,             BackSpace,   quit,
-MODKEY|ShiftMask,             r,           quit,
+
+Key                        | Action       
+ ------------------------- | -------------:
+mod + backspace            |        shutdown menu
+mod + shift + backspace    |        quit dwm
+mod + shift + r            |        reload dwm
 
 #### Apps
-MODKEY,                       c,     spawn,
-MODKEY,                       x,     spawn,
-MODKEY,                       e,     spawn,
-MODKEY|ControlMask,           l,     spawn,
-MODKEY|ShiftMask,             c,     spawn,
-MODKEY|ShiftMask,             t,     spawn,
-MODKEY|ControlMask,           t,     spawn,
-MODKEY|ControlMask,           m,     spawn,
-MODKEY|ShiftMask,             m,     spawn,
-MODKEY|ShiftMask,             s,     spawn,
-MODKEY|ControlMask,           e,     spawn,
-MODKEY|ControlMask,           d,     spawn,
+
+Key                        | Action       
+ ------------------------- | -------------:
+mod + c                    |        brave browser
+mod + x                    |        ranger
+mod + e                    |        thunar
+mod + ctrl + l             |        multilockscreen
+mod + shift + c            |        discord signal whatsapp
+mod + shift + t            |        kill picom
+mod + ctrl + t             |        start picom
+mod + ctrl + m             |        pavucontrol
+mod + shift + m            |        mailspring
+mod + shift + s            |        flameshot
+mod + ctrl + e             |        english keyboard
+mod + ctrl + d             |        german keyboard
 
 
 
