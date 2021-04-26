@@ -140,7 +140,7 @@ do
             optionalApps+=(xidlehook)
             ;;
         9)
-            optionalApps+=(intellij-idea-ultimate-edition)
+            optionalApps+=(intellij-idea-ultimate-edition jre-openjdk)
             ;;
         10)
             optionalApps+=(vlc)
