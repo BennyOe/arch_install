@@ -95,8 +95,11 @@ mod + q                     |       kill window
 
 
 #### Layout manipulation
-MODKEY|ControlMask,           comma,  cyclelayout,
-MODKEY|ControlMask,           period, cyclelayout,
+
+Key                        | Action       
+ ------------------------- | -------------:
+mod + ctrl + comma         |        cyclelayout -
+mod + ctrl + period        |        cyclelayout +
 
 #### Switch to specific layouts 
 MODKEY,                       m,      setlayout,
@@ -181,7 +184,7 @@ MODKEY|ControlMask,           d,     spawn,
 - lightdm styling
 - libinputgestures
 - bluetooth
-- Grub Styling and silencing
 - promt for password when executing sudo app with rofi
+- fake fullscreen fixen
 
 
