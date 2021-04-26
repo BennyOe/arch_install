@@ -180,11 +180,4 @@ MODKEY|ControlMask,           d,     spawn,
 ############
 ### TODO ###
 ############
-
-- lightdm styling
-- libinputgestures
-- bluetooth
-- promt for password when executing sudo app with rofi
 - fake fullscreen fixen
-
-
