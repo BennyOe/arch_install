@@ -14,6 +14,7 @@ To Install just boot from the latest Arch ISO http://archlinux.org and execute t
 The patches applied to the Suckless programms can be found in the depending repositories below.
 
 A big shout out to the wonderful people who are doing such great work to explain linux stuff to the masses.
+
 Derek Taylor (Distrotube)
 https://www.youtube.com/channel/UCVls1GmFKf6WlTraIb_IaJg
 
