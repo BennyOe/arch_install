@@ -207,4 +207,4 @@ mod + ctrl + d             |        german keyboard
 ############
 ### TODO ###
 ############
-- fake fullscreen fixen
+- dwm fake fullscreen fix
