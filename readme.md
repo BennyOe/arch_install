@@ -8,7 +8,7 @@ This is a install script for Arch Linux with Suckless DWM as window manager.
 
 
 # General
-This script is meant to be for my specific fully configured Arch Installation with DWM DWM-Blocks and all the apps I need. The color scheme is Onedark. The Keyboard layout and the timezone is set to german. To Install just boot from the latest Arch ISO http://archlinux.org and execute the first command below. The other scripts will execute automatically.
+This script is for my specific fully configured Arch Installation with DWM DWM-Blocks and all the apps I need. During the installation there are several options you can choose to customize the installation to your needs. The color scheme is Onedark. The Keyboard layout and the timezone is set to german (you can change this in install.sh ~line 12 and gui.sh ~line 209 . To Install just boot from the latest Arch ISO http://archlinux.org and execute the first command below. The other scripts will execute automatically.
 
 The patches applied in the Suckless programms can be found in the depending repositories below.
 
@@ -43,7 +43,7 @@ to fetch and execute the script run the command:
     curl -sL https://git.io/JOWEH | bash
 
 #### Install XOrg, DWM & Applications
-This script gets called automatically after the base install script. 
+This script gets called automatically after the base install script. If you wish to execute manually, please run
 
     curl -sL https://git.io/JOBJn | bash
     
@@ -56,7 +56,7 @@ To change that the sudo command promt for a password run the commands
     comment the line %wheel ALL=(ALL) NOPASSWD: ALL
     
 #### Intellij and java applications
-to get java swing or java fx applications working add this line to your /etc/profile
+to get java swing or java fx applications working in dwm add this line to your /etc/profile
 
      export _JAVA_AWT_WM_NONREPARENTING=1
     
