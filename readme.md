@@ -193,14 +193,15 @@ mod + ctrl + d             |        german keyboard
 ### GUI install
     $graphicsdriver xorg xorg-xinit picom nitrogen rofi dunst yay nerd-fonts-jetbrains-mono pacman-contrib 
     archlinux-contrib sysstat ttf-font-awesome dmenu network-manager-applet gnu-free-fonts zsh papirus-icon-theme 
-    gtk4 arc-gtk-theme lxappearance libxft-bgra lsd pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix 
-    ranger redshift thunar numlockx zathura htop-vim-git neofetch nodejs npm python-pynvim xarchiver unzip lightdm 
-    lightdm-mini-greeter zsh-theme-powerlevel10k-git neovim-nightly-bin zsh oh-my-zsh zsh-autosuggestions 
+    gtk4 arc-gtk-theme lxappearance timeshift grub-customizer polkit polkit-gnome feh bluez bluez-utils blueman
+    viewnior xcape multilockscreen libxft-bgra lsd pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix 
+    ranger redshift thunar numlockx zathura htop-vim-git neofetch nodejs npm python-pynvim xarchiver unzip ueberzug
+    lightdm lightdm-mini-greeter zsh-theme-powerlevel10k-git neovim-nightly-bin zsh oh-my-zsh zsh-autosuggestions 
     zsh-syntax-highlighting vim-plug
     
 ##### Optional
     signal-desktop discord_arch_electron brave-bin flameshot autorandr mailspring whatsapp-for-linux xidlehook 
-    intellij-idea-ultimate-edition vlc spotify-tui
+    intellij-idea-ultimate-edition jre-openjdk vlc spotify-tui
 
 
 ############
