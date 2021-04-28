@@ -282,9 +282,6 @@ clear
 printf "Installing Grub boot loader\n"
 sleep 5
 
-curl -L https://github.com/BennyOe/arch_install/blob/main/xenlism-grub-arch-2k.tar.xz?raw=true > /mnt/tmp/grubtheme.tar.xz
-    tar xvf /mnt/tmp/grubtheme.tar.xz --directory /mnt/tmp
-
 arch-chroot /mnt /bin/bash <<EOF
     mkdir /boot/EFI
     mount $part_boot /boot/EFI
@@ -293,6 +290,8 @@ arch-chroot /mnt /bin/bash <<EOF
 
     clear 
     printf "setting grub theme...\n"
+    curl -sL https://github.com/BennyOe/arch_install/blob/main/xenlism-grub-arch-2k.tar.xz?raw=true > /tmp/grubtheme.tar.xz
+    tar xvf /mnt/tmp/grubtheme.tar.xz --directory /tmp
     chmod +x /tmp/xenlism-grub-arch-2k/install.sh
     source /tmp/xenlism-grub-arch-2k/install.sh
   read < /dev/tty
