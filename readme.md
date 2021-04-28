@@ -214,4 +214,6 @@ mod + ctrl + d             |        german keyboard
 ### TODO ###
 ############
 - dwm fake fullscreen fix
-- mailspring 
+- nvme with bios
+- test nvme dualboot
+- 
