@@ -76,6 +76,7 @@ if [ -d "/sys/firmware/efi/efivars" ]; then
     printf "the system is in EFI Mode\n"
     sleep 2
 else
+        echo $dualboot
     if [ $dualboot -eq 1 ]; then
         printf "Dualboot not supported in bios mode\n"
         exit 1
