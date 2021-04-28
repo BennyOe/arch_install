@@ -290,9 +290,10 @@ arch-chroot /mnt /bin/bash <<EOF
     clear 
     printf "setting grub theme...\n"
     sleep 5
-    curl -L https://github.com/BennyOe/arch_install/blob/main/xenlism-grub-arch-2k.tar.gz?raw=true | tar xvz
-    chmod +x xenlism-grub-arch-2k/install.sh
-    sudo source xenlism-grub-arch-2k/install.sh
+    curl -L https://github.com/BennyOe/arch_install/blob/main/xenlism-grub-arch-2k.tar.gz?raw=true > /tmp/
+    tar xvz /tmp/xenlism-grub-arch-2k.tar.gz
+    chmod +x /tmp/xenlism-grub-arch-2k/install.sh
+    source /tmp/xenlism-grub-arch-2k/install.sh
   read < /dev/tty
     rm -rf xenlism-grub-arch-2k
     grub-mkconfig -o /boot/grub/grub.cfg
