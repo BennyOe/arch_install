@@ -99,7 +99,7 @@ else
     printf "Do you use Wlan for the installation? [y]/n\n"
     read wlan < /dev/tty
 
-    if [ $wlan=="y" ]; then
+    if [ $wlan == "y" ]; then
         clear
         iwctl device list
         printf "pick device\n"
@@ -306,7 +306,7 @@ clear
 printf "Installing Grub boot loader\n"
 sleep 5
 
-if [ $bootmode=="efi" ]; then
+if [ $bootmode == "efi" ]; then
     arch-chroot /mnt /bin/bash <<EOF
     mkdir /boot/EFI
     mount $part_boot /boot/EFI
