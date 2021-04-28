@@ -318,9 +318,7 @@ if [ $bootmode == "efi" ]; then
     tar xvf /tmp/grubtheme.tar.xz --directory /tmp
     chmod +x /tmp/xenlism-grub-arch-2k/install.sh
     cd /tmp/xenlism-grub-arch-2k/
-    source ./install.sh
-  read < /dev/tty
-    
+    source ./install.sh    
     rm -rf /tmp/xenlism-grub-arch-2k
     grub-mkconfig -o /boot/grub/grub.cfg
 EOF
