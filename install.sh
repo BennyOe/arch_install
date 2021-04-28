@@ -31,7 +31,7 @@ selection=$(dialog \
         --clear \
         --menu "Please select:" 0 0 4 \
         "1" "Only Linux" \
-        "2" "Windows Dual Boot" \
+        "2" "Windows Dual Boot (only with EFI)" \
     2>&1 1>&3)
 case $selection in
     0 )
