@@ -215,5 +215,5 @@ mod + ctrl + d             |        german keyboard
 ############
 - dwm fake fullscreen fix
 - nvme with bios
-- test nvme dualboot
-- 
+- dual with bios
+- english keyboard layout
