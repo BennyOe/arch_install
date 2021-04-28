@@ -6,7 +6,7 @@ pacman -Sy --noconfirm dialog
 #### Welcome ####
 #################
 
- # load the german keyboard layout
+# load the german keyboard layout
 printf "loading german keyboard layout...\n"
 sleep 1
 loadkeys de-latin1
@@ -26,27 +26,27 @@ device=$(dialog --stdout --menu "Select installation disk" 0 0 0 ${devicelist}) 
 # Dual Boot
 dualboot=0
 exec 3>&1
-       selection=$(dialog \
-         --title "Dual Boot" \
-         --clear \
-         --menu "Please select:" 0 0 4 \
-         "1" "Only Linux" \
-         "2" "Windows Dual Boot" \
-         2>&1 1>&3)
-      case $selection in
-        0 )
-          clear
-          echo "Program terminated."
-          ;;
-        1 )
-            dualboot=0
-            echo "${dualboot}"
-          ;;
-        2 )
-            dualboot=1
-            echo "${dualboot}"
-          ;;  
-      esac
+selection=$(dialog \
+        --title "Dual Boot" \
+        --clear \
+        --menu "Please select:" 0 0 4 \
+        "1" "Only Linux" \
+        "2" "Windows Dual Boot" \
+    2>&1 1>&3)
+case $selection in
+    0 )
+        clear
+        echo "Program terminated."
+        ;;
+    1 )
+        dualboot=0
+        echo "${dualboot}"
+        ;;
+    2 )
+        dualboot=1
+        echo "${dualboot}"
+        ;;
+esac
 
 # hostname
 hostname=$(dialog --stdout --inputbox "Enter hostname" 0 0) || exit 1
@@ -85,12 +85,12 @@ clear
 # check if the internet is working
 printf "checking the internet connection\n\n"
 sleep 1
-if ping -c 1 archlinux.org &>/dev/null; then 
+if ping -c 1 archlinux.org &>/dev/null; then
     printf "Internet connection working...\n"
     sleep 2
-else 
+else
     printf "Internet connection not working\n"
-     # Wlan or Ethernet
+    # Wlan or Ethernet
     printf "Do you use Wlan for the installation? [y]/n\n"
     read wlan < /dev/tty
 
@@ -107,18 +107,18 @@ else
         read wlan_pw < /dev/tty
         iwctl --passphrase=$wlan_pw station $device connect $ssid
         sleep 2
-        while ! ping -c 1 archlinux.org &>/dev/null; 
-        do 
+        while ! ping -c 1 archlinux.org &>/dev/null;
+        do
             printf "connection unsuccessful...\n"
             printf "enter password\n"
             read wlan_pw < /dev/tty
             iwctl --passphrase=$pw station $device connect $ssid
         done
-            printf "Internet connection working...\n"
+        printf "Internet connection working...\n"
     else
-    printf "please check your connection...\n press a key to exit"
-    read < /dev/tty
-    exit -1
+        printf "please check your connection...\n press a key to exit"
+        read < /dev/tty
+        exit -1
     fi
 fi
 clear
@@ -139,66 +139,66 @@ printf "Starting to partition the disk\n"
 sleep 2
 
 if [ $dualboot -eq 0 ]; then
-swap_size=$(free --mebi | awk '/Mem:/ {print $2}')
-swap_end=$(( $swap_size + 512 + 1 ))MiB
+    swap_size=$(free --mebi | awk '/Mem:/ {print $2}')
+    swap_end=$(( $swap_size + 512 + 1 ))MiB
 
-parted --script "${device}" -- mklabel gpt \
-  mkpart ESP fat32 1Mib 512MiB \
-  set 1 boot on \
-  mkpart primary linux-swap 512MiB ${swap_end} \
-  mkpart primary ext4 ${swap_end} 100%
+    parted --script "${device}" -- mklabel gpt \
+        mkpart ESP fat32 1Mib 512MiB \
+        set 1 boot on \
+        mkpart primary linux-swap 512MiB ${swap_end} \
+        mkpart primary ext4 ${swap_end} 100%
 
-if [[ "${device}" == "/dev/nvme"* ]]; then
-part_boot="${device}p1"
-part_swap="${device}p2"
-part_root="${device}p3"
+    if [[ "${device}" == "/dev/nvme"* ]]; then
+        part_boot="${device}p1"
+        part_swap="${device}p2"
+        part_root="${device}p3"
 
-else
-part_boot="${device}1"
-part_swap="${device}2"
-part_root="${device}3"
-fi
+    else
+        part_boot="${device}1"
+        part_swap="${device}2"
+        part_root="${device}3"
+    fi
 
-mkfs.vfat -F32 "${part_boot}"
-mkswap "${part_swap}"
-mkfs.ext4 "${part_root}"
+    mkfs.vfat -F32 "${part_boot}"
+    mkswap "${part_swap}"
+    mkfs.ext4 "${part_root}"
 
-swapon "${part_swap}"
-
-else
-startSector=$(parted "${device}" <<< 'unit MiB print' | awk 'FNR==14 {print $3}')
-startSector=${startSector::-3}
-startSector=$((startSector + 1))
-
-endSector=$(parted "${device}" <<< 'unit MiB print' | awk 'FNR==15 {print $2}')
-endSector=${endSector::-3}
-endSector=$((endSector - 1))
-
-
-clear
-printf "Starting to partition the disk\n"
-sleep 2
-swap_size=$(free --mebi | awk '/Mem:/ {print $2}')
-swap_end=$(( $swap_size + ${startSector} ))MiB
-
-parted --script "${device}" -- mkpart primary linux-swap ${startSector}MiB ${swap_end} \
-  mkpart primary ext4 ${swap_end} ${endSector}MiB
-
-if [[ "${device}" == "/dev/nvme"* ]]; then
-part_boot="${device}p1"
-part_swap="${device}p5"
-part_root="${device}p6"
+    swapon "${part_swap}"
 
 else
-part_boot="${device}1"
-part_swap="${device}5"
-part_root="${device}6"
-fi
+    startSector=$(parted "${device}" <<< 'unit MiB print' | awk 'FNR==14 {print $3}')
+    startSector=${startSector::-3}
+    startSector=$((startSector + 1))
 
-mkswap "${part_swap}"
-mkfs.ext4 "${part_root}"
+    endSector=$(parted "${device}" <<< 'unit MiB print' | awk 'FNR==15 {print $2}')
+    endSector=${endSector::-3}
+    endSector=$((endSector - 1))
 
-swapon "${part_swap}"
+
+    clear
+    printf "Starting to partition the disk\n"
+    sleep 2
+    swap_size=$(free --mebi | awk '/Mem:/ {print $2}')
+    swap_end=$(( $swap_size + ${startSector} ))MiB
+
+    parted --script "${device}" -- mkpart primary linux-swap ${startSector}MiB ${swap_end} \
+        mkpart primary ext4 ${swap_end} ${endSector}MiB
+
+    if [[ "${device}" == "/dev/nvme"* ]]; then
+        part_boot="${device}p1"
+        part_swap="${device}p5"
+        part_root="${device}p6"
+
+    else
+        part_boot="${device}1"
+        part_swap="${device}5"
+        part_root="${device}6"
+    fi
+
+    mkswap "${part_swap}"
+    mkfs.ext4 "${part_root}"
+
+    swapon "${part_swap}"
 fi
 
 ######################
@@ -289,7 +289,7 @@ arch-chroot /mnt /bin/bash <<EOF
     pacman -S --noconfirm grub efibootmgr dosfstools os-prober mtools
     grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 
-    clear 
+    clear
     printf "setting grub theme...\n"
     curl -sL https://github.com/BennyOe/arch_install/blob/main/xenlism-grub-arch-2k.tar.xz?raw=true > /tmp/grubtheme.tar.xz
     tar xvf /tmp/grubtheme.tar.xz --directory /tmp
@@ -306,25 +306,25 @@ sleep 5
 
 while true
 do
- read -r -p "Would you like to install the window manager? [Y/n] " input < /dev/tty
- 
- case $input in
-     [yY][eE][sS]|[yY])
-     curl -sL https://git.io/JOBJn > /mnt/home/$user/guiscript
-     chmod +x /mnt/home/$user/guiscript
- printf "source ~/guiscript" >> /mnt/home/$user/.bashrc
- clear
- printf "setup the GUI install script\n"
-sleep 2
- break
- ;;
-     [nN][oO]|[nN])
- break
-        ;;
-     *)
- echo "Invalid input..."
- ;;
- esac
+    read -r -p "Would you like to install the window manager? [Y/n] " input < /dev/tty
+
+    case $input in
+        [yY][eE][sS]|[yY])
+            curl -sL https://git.io/JOBJn > /mnt/home/$user/guiscript
+            chmod +x /mnt/home/$user/guiscript
+            printf "source ~/guiscript" >> /mnt/home/$user/.bashrc
+            clear
+            printf "setup the GUI install script\n"
+            sleep 2
+            break
+            ;;
+        [nN][oO]|[nN])
+            break
+            ;;
+        *)
+            echo "Invalid input..."
+            ;;
+    esac
 done
 
 # reboot
