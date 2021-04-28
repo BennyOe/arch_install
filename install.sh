@@ -77,8 +77,8 @@ if [ -d "/sys/firmware/efi/efivars" ]; then
     sleep 2
 else
     if [ $dualboot==1 ]; then
-    printf "Dualboot not supported in bios mode\n"
-    exit 1
+        printf "Dualboot not supported in bios mode\n"
+        exit 1
     fi
     printf "the system is in BIOS Mode\n"
     bootmode="bios"
@@ -148,45 +148,45 @@ part_root=""
 if [ $dualboot -eq 0 ]; then
     swap_size=$(free --mebi | awk '/Mem:/ {print $2}')
     if [ $bootmode == "efi" ]; then
-    swap_end=$(( $swap_size + 512 + 1 ))MiB
+        swap_end=$(( $swap_size + 512 + 1 ))MiB
 
-    parted --script "${device}" -- mklabel gpt \
-        mkpart ESP fat32 1Mib 512MiB \
-        set 1 boot on \
-        mkpart primary linux-swap 512MiB ${swap_end} \
-        mkpart primary ext4 ${swap_end} 100%
+        parted --script "${device}" -- mklabel gpt \
+            mkpart ESP fat32 1Mib 512MiB \
+            set 1 boot on \
+            mkpart primary linux-swap 512MiB ${swap_end} \
+            mkpart primary ext4 ${swap_end} 100%
 
-    if [[ "${device}" == "/dev/nvme"* ]]; then
-        part_boot="${device}p1"
-        part_swap="${device}p2"
-        part_root="${device}p3"
+        if [[ "${device}" == "/dev/nvme"* ]]; then
+            part_boot="${device}p1"
+            part_swap="${device}p2"
+            part_root="${device}p3"
 
+        else
+            part_boot="${device}1"
+            part_swap="${device}2"
+            part_root="${device}3"
+        fi
+
+        mkfs.vfat -F32 "${part_boot}"
     else
-        part_boot="${device}1"
-        part_swap="${device}2"
-        part_root="${device}3"
-    fi
-
-    mkfs.vfat -F32 "${part_boot}"
-    else
-    swap_end=$(( $swap_size + 1 ))MiB
-    parted --script "${device}" -- mklabel msdos \
-      mkpart primary linux-swap 1MiB ${swap_end} \
-      set 1 boot on \
-      mkpart primary ext4 ${swap_end} 100%
-    if [[ "${device}" == "/dev/nvme"* ]]; then
-        part_swap="${device}p1"
-        part_root="${device}p2"
-    else
-        part_swap="${device}1"
-        part_root="${device}2"
-    fi
+        swap_end=$(( $swap_size + 1 ))MiB
+        parted --script "${device}" -- mklabel msdos \
+            mkpart primary linux-swap 1MiB ${swap_end} \
+            set 1 boot on \
+            mkpart primary ext4 ${swap_end} 100%
+        if [[ "${device}" == "/dev/nvme"* ]]; then
+            part_swap="${device}p1"
+            part_root="${device}p2"
+        else
+            part_swap="${device}1"
+            part_root="${device}2"
+        fi
     fi
     mkswap "${part_swap}"
     mkfs.ext4 "${part_root}"
-    
+
     swapon "${part_swap}"
-    
+
 else
     startSector=$(parted "${device}" <<< 'unit MiB print' | awk 'FNR==14 {print $3}')
     startSector=${startSector::-3}
@@ -306,7 +306,7 @@ printf "Installing Grub boot loader\n"
 sleep 5
 
 if [ $bootmode=="efi" ]; then
-arch-chroot /mnt /bin/bash <<EOF
+    arch-chroot /mnt /bin/bash <<EOF
     mkdir /boot/EFI
     mount $part_boot /boot/EFI
     pacman -S --noconfirm grub efibootmgr dosfstools os-prober mtools
@@ -323,7 +323,7 @@ arch-chroot /mnt /bin/bash <<EOF
     grub-mkconfig -o /boot/grub/grub.cfg
 EOF
 else
-arch-chroot /mnt /bin/bash <<EOF
+    arch-chroot /mnt /bin/bash <<EOF
     pacman -S --noconfirm grub dosfstools os-prober mtools
     grub-install --target=i386-pc $device
     grub-mkconfig -o /boot/grub/grub.cfg
