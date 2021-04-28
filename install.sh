@@ -71,14 +71,14 @@ clear
 # check if the system is booted in EFI or BIOS mode
 printf "checking the system for bootmode\n\n"
 sleep 1
+bootmode="efi"
 if [ -d "/sys/firmware/efi/efivars" ]; then
     printf "the system is in EFI Mode\n"
     sleep 2
 else
     printf "the system is in BIOS Mode\n"
-    printf "this script is for EFI install only...\n press a key to exit"
-    read < /dev/tty
-    exit -1
+    bootmode="bios"
+    sleep 2
 fi
 
 clear
@@ -291,7 +291,7 @@ arch-chroot /mnt /bin/bash <<EOF
     clear 
     printf "setting grub theme...\n"
     curl -sL https://github.com/BennyOe/arch_install/blob/main/xenlism-grub-arch-2k.tar.xz?raw=true > /tmp/grubtheme.tar.xz
-    tar xvf /mnt/tmp/grubtheme.tar.xz --directory /tmp
+    tar xvf /tmp/grubtheme.tar.xz --directory /tmp
     chmod +x /tmp/xenlism-grub-arch-2k/install.sh
     source /tmp/xenlism-grub-arch-2k/install.sh
   read < /dev/tty
