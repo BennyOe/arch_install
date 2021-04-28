@@ -294,7 +294,7 @@ arch-chroot /mnt /bin/bash <<EOF
     tar -xf xenlism-grub-arch-2k.tar.xz
     chmod +x xenlism-grub-arch-2k/install.sh
     sudo source xenlism-grub-arch-2k/install.sh
-    sleep 5
+  read < /dev/tty
     rm -rf xenlism-grub-arch-2k
     grub-mkconfig -o /boot/grub/grub.cfg
 EOF
