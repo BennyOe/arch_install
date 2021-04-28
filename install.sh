@@ -76,6 +76,10 @@ if [ -d "/sys/firmware/efi/efivars" ]; then
     printf "the system is in EFI Mode\n"
     sleep 2
 else
+    if [ $dualboot==1 ]; then
+    printf "Dualboot not supported in bios mode\n"
+    exit 1
+    fi
     printf "the system is in BIOS Mode\n"
     bootmode="bios"
     sleep 2
@@ -137,9 +141,13 @@ timedatectl status
 clear
 printf "Starting to partition the disk\n"
 sleep 2
+part_swap=""
+part_boot=""
+part_root=""
 
 if [ $dualboot -eq 0 ]; then
     swap_size=$(free --mebi | awk '/Mem:/ {print $2}')
+    if [ $bootmode == "efi" ]; then
     swap_end=$(( $swap_size + 512 + 1 ))MiB
 
     parted --script "${device}" -- mklabel gpt \
@@ -160,11 +168,25 @@ if [ $dualboot -eq 0 ]; then
     fi
 
     mkfs.vfat -F32 "${part_boot}"
+    else
+    swap_end=$(( $swap_size + 1 ))MiB
+    parted --script "${device}" -- mklabel msdos \
+      mkpart primary linux-swap 1MiB ${swap_end} \
+      set 1 boot on \
+      mkpart primary ext4 ${swap_end} 100%
+    if [[ "${device}" == "/dev/nvme"* ]]; then
+        part_swap="${device}p1"
+        part_root="${device}p2"
+    else
+        part_swap="${device}1"
+        part_root="${device}2"
+    fi
+    fi
     mkswap "${part_swap}"
     mkfs.ext4 "${part_root}"
-
+    
     swapon "${part_swap}"
-
+    
 else
     startSector=$(parted "${device}" <<< 'unit MiB print' | awk 'FNR==14 {print $3}')
     startSector=${startSector::-3}
@@ -283,6 +305,7 @@ clear
 printf "Installing Grub boot loader\n"
 sleep 5
 
+if [ $bootmode=="efi" ]; then
 arch-chroot /mnt /bin/bash <<EOF
     mkdir /boot/EFI
     mount $part_boot /boot/EFI
@@ -299,7 +322,13 @@ arch-chroot /mnt /bin/bash <<EOF
     rm -rf xenlism-grub-arch-2k
     grub-mkconfig -o /boot/grub/grub.cfg
 EOF
-
+else
+arch-chroot /mnt /bin/bash <<EOF
+    pacman -S --noconfirm grub dosfstools os-prober mtools
+    grub-install --target=i386-pc $device
+    grub-mkconfig -o /boot/grub/grub.cfg
+EOF
+fi
 clear
 printf "Installation finished successfully\n\n"
 sleep 5
