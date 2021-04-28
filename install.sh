@@ -61,7 +61,7 @@ clear
 # password
 password=$(dialog --stdout --passwordbox "Enter admin password" 0 0) || exit 1
 clear
-#: ${password:?"password cannot be empty"}
+: ${password:?"password cannot be empty"}
 password2=$(dialog --stdout --passwordbox "Enter admin password again" 0 0) || exit 1
 clear
 [[ "$password" == "$password2" ]] || ( printf "Passwords did not match"; exit 1; )
@@ -200,6 +200,7 @@ mkfs.ext4 "${part_root}"
 
 swapon "${part_swap}"
 fi
+
 ######################
 #### Install Arch ####
 ######################
