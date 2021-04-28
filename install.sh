@@ -318,9 +318,11 @@ if [ $bootmode == "efi" ]; then
     curl -sL https://github.com/BennyOe/arch_install/blob/main/xenlism-grub-arch-2k.tar.xz?raw=true > /tmp/grubtheme.tar.xz
     tar xvf /tmp/grubtheme.tar.xz --directory /tmp
     chmod +x /tmp/xenlism-grub-arch-2k/install.sh
-    source /tmp/xenlism-grub-arch-2k/install.sh
+    cd /tmp/xenlism-grub-arch-2k/
+    source ./install.sh
   read < /dev/tty
-    rm -rf xenlism-grub-arch-2k
+    
+    rm -rf /tmp/xenlism-grub-arch-2k
     grub-mkconfig -o /boot/grub/grub.cfg
 EOF
 else
