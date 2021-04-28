@@ -150,13 +150,13 @@ parted --script "${device}" -- mklabel gpt \
 
 if [[ "${device}" == "/dev/nvme"* ]]; then
 part_boot="${device}p1"
-part_swap="${device}p5"
-part_root="${device}p6"
+part_swap="${device}p2"
+part_root="${device}p3"
 
 else
 part_boot="${device}1"
-part_swap="${device}5"
-part_root="${device}6"
+part_swap="${device}2"
+part_root="${device}3"
 fi
 
 mkfs.vfat -F32 "${part_boot}"
