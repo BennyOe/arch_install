@@ -6,10 +6,6 @@ pacman -Sy --noconfirm dialog
 #### Welcome ####
 #################
 
-# load the german keyboard layout
-printf "loading german keyboard layout...\n"
-sleep 1
-loadkeys de-latin1
 
 bootstrapper_dialog --title "Welcome" --msgbox "Welcome to the Arch installation.\n" 6 60
 dialog --stdout --msgbox "Welcome to the Arch installation.\nThis script will install the base Arch system" 0 0
@@ -18,6 +14,15 @@ dialog --stdout --msgbox "!!!This script deletes the harddrive you select withou
 ####################
 #### User Input ####
 ####################
+
+lang=$(dialog --title 'Keyboard Layout' --stdout --default-item '1' --menu 'Select:' 0 0 0 1 'English' 2 'German')
+
+# load the keyboard layout
+if [ $lang == 2 ]; then 
+printf "loading german keyboard layout...\n"
+sleep 1
+loadkeys de-latin1
+fi
 
 # the harddrive select
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
