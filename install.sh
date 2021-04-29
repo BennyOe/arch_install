@@ -270,7 +270,9 @@ hwclock --systohc
 
 clear
 printf "setting keyboard layout\n"
+if [ $lang == 2 ]; then
 echo "KEYMAP=de-latin1" >> /etc/vconsole.conf
+fi
 echo "Setting hostname"
 echo $hostname > /etc/hostname
 sed -i "/localhost/s/$/ $hostname/" /etc/hosts
