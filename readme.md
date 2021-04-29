@@ -13,9 +13,9 @@ To Install just boot from the latest Arch ISO http://archlinux.org and execute t
 
 ### Install Modes that are supported
 - UEFI
-- Bios (No Dualboot with Windows)
+- Bios (No Dualboot with Windows no nvme)
 - SDA HDD controller
-- Nvme controller
+- Nvme controller (only UEFI)
 
 The patches applied to the Suckless programms can be found in the depending repositories below.
 
