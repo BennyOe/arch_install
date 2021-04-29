@@ -52,6 +52,8 @@ dialog --stdout --msgbox "Welcome to the GUI installation.\nThis script will ins
 ### User Input ###
 ##################
 
+lang=$(dialog --title 'Keyboard Layout' --stdout --default-item '1' --menu 'Select:' 0 0 0 1 'English' 2 'German')
+
 # app folder
 appfolder=$(dialog --stdout --inputbox "Enter application folder" 0 0) || exit 1
 clear
@@ -200,6 +202,7 @@ sleep 2
 printf "[[ \$(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1\n" >> ~/.bash_profile
 
 # keyboard layout for x
+if [ $lang == 2 ]; then
 printf "setting german keyboard layout for X\n"
 sleep 2
 
@@ -210,7 +213,17 @@ printf "Section \"InputClass\"\n
              Option \"XkbModel\" \"pc105\"\n
              Option \"XkbOptions\" \"grp:alt_shift_toggle\"\n
              EndSection" >> ~/00-keyboard.conf
-             
+else
+printf "setting english keyboard layout for X\n"
+sleep 2
+printf "Section \"InputClass\"\n
+             Identifier \"system-keyboard\"\n
+             MatchIsKeyboard \"on\"\n
+             Option \"XkbLayout\" \"en\"\n
+             Option \"XkbModel\" \"pc105\"\n
+             Option \"XkbOptions\" \"grp:alt_shift_toggle\"\n
+             EndSection" >> ~/00-keyboard.conf
+fi             
 sudo mv ~/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
 
 # picom
