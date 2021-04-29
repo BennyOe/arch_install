@@ -86,6 +86,11 @@ else
         exit 1
     fi
     printf "the system is in BIOS Mode\n"
+     if [[ "${device}" == "/dev/nvme"* ]]; then
+        printf "nvme controller not supported with bios\n"
+        sleep 3
+        exit 1
+     fi
     bootmode="bios"
     sleep 2
 fi
