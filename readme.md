@@ -85,6 +85,7 @@ to get java swing or java fx applications working in dwm add this line to your /
     [Seat:*]
     autologin-user=username
     
+
     groupadd -r autologin
     gpasswd -a username autologin
     
