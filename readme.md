@@ -79,12 +79,12 @@ to get java swing or java fx applications working in dwm add this line to your /
      export _JAVA_AWT_WM_NONREPARENTING=1
      
 #### Autologin in lightdm
+uncomment the following line in /etc/lightdm/lightdm.conf and add your user
 
-    /etc/lightdm/lightdm.conf
-    -------------------------
     [Seat:*]
     autologin-user=username
     
+execute the following commands
 
     groupadd -r autologin
     gpasswd -a username autologin
