@@ -93,6 +93,12 @@ execute the following commands
 #### autorandr
 1. Set the desired screen layout with arandr or xrandr
 2. Save the config with `autorandr -s <PROFILENAME>`
+
+#### pulse audio
+disable switching to idle mode if audio is not used
+comment out the following line in /etc/pulse/default.pa and restart 
+
+    # load-module module-suspend-on-idle
     
 ## Surface
 
