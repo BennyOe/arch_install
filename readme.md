@@ -77,6 +77,16 @@ To change that the sudo command promt for a password run the commands
 to get java swing or java fx applications working in dwm add this line to your /etc/profile
 
      export _JAVA_AWT_WM_NONREPARENTING=1
+     
+#### Autologin in lightdm
+
+    /etc/lightdm/lightdm.conf
+    -------------------------
+    [Seat:*]
+    autologin-user=username
+    
+    groupadd -r autologin
+    gpasswd -a username autologin
     
 ## Surface
 
