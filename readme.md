@@ -221,7 +221,7 @@ mod + ctrl + d             |        german keyboard
     viewnior xcape multilockscreen libxft-bgra lsd pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix 
     ranger redshift thunar numlockx zathura htop-vim-git neofetch nodejs npm python-pynvim xarchiver unzip ueberzug
     lightdm lightdm-mini-greeter zsh-theme-powerlevel10k-git neovim-nightly-bin zsh oh-my-zsh zsh-autosuggestions 
-    zsh-syntax-highlighting vim-plug
+    zsh-syntax-highlighting vim-plug gotop
     
 ##### Optional
     signal-desktop discord_arch_electron brave-bin flameshot autorandr mailspring whatsapp-for-linux xidlehook 
