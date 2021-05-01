@@ -8,7 +8,7 @@ This is a install script for Arch Linux with Suckless DWM as window manager.
 
 
 # General
-This script is for my specific fully configured Arch Installation with DWM DWM-Blocks and all the apps I need. During the installation there are several options you can choose to customize the installation to your needs. The color scheme is Onedark.
+This script is for my specific fully configured Arch Installation with a heavily patched DWM, DWM-Blocks and all the apps I need. During the installation there are several options you can choose to customize the installation to your needs. The color scheme is Onedark.
 To Install just boot from the latest Arch ISO http://archlinux.org and execute the first command below. The other scripts will execute automatically.
 
 ### Install Modes that are supported
