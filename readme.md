@@ -13,8 +13,8 @@ To Install just boot from the latest Arch ISO http://archlinux.org and execute t
 
 ### Install Modes that are supported
 
-                | UEFI  | BIOS
--------------------------------
+ Mode           | UEFI  | BIOS
+-------------------------------:
 Linux           |  X    |  X
 Dual-Boot       |  X    |
 SDA Controller  |  X    |  X
