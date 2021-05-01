@@ -12,10 +12,14 @@ This script is for my specific fully configured Arch Installation with a heavily
 To Install just boot from the latest Arch ISO http://archlinux.org and execute the first command below. The other scripts will execute automatically.
 
 ### Install Modes that are supported
-- UEFI
-- Bios (No Dualboot with Windows no nvme)
-- SDA HDD controller
-- Nvme controller (only UEFI)
+
+                | UEFI  | BIOS
+-------------------------------
+Linux           |  X    |  X
+Dual-Boot       |  X    |
+SDA Controller  |  X    |  X
+Nvme Contoller  |  X    |
+
 
 The patches applied to the Suckless programms can be found in the depending repositories below.
 
@@ -51,9 +55,9 @@ https://www.youtube.com/channel/UCylGUf9BvQooEFjgdNudoQg
 if running a device with WLAN run these commands to connect to the internet
 
     iwctl device list
-    iwctl station <device> scan
-    iwctl station <device> get-networks
-    iwctl station <device> connect <SSID>
+    iwctl station <DEVICE> scan
+    iwctl station <DEVICE> get-networks
+    iwctl station <DEVICE> connect <SSID>
 
 #### Run the base install script
 to fetch and execute the script run the command:
@@ -66,7 +70,7 @@ This script gets called automatically after the base install script. If you wish
     curl -sL https://git.io/JOBJn | bash
     
 # Post installation
-To change that the sudo command promt for a password run the commands
+Enable the sudo command promt for a password run the commands
 
     su
     visudo
@@ -82,12 +86,12 @@ to get java swing or java fx applications working in dwm add this line to your /
 uncomment the following line in /etc/lightdm/lightdm.conf and add your user
 
     [Seat:*]
-    autologin-user=username
+    autologin-user=<USERNAME>
     
 execute the following commands
 
     groupadd -r autologin
-    gpasswd -a username autologin
+    gpasswd -a <USENAME> autologin
     
     
 #### autorandr
