@@ -125,6 +125,11 @@ in /etc/fstab create entry
 mount with Label
 
     LABEL=<DEVICENAME>  <MOUNTPOINT>    <FSTYPE>    umask=000,dmask=027,fmask=137,uid=1000,gid=1000,windows_names       0 0
+    
+#### Power button
+set the following line in /etc/systemd/logind.conf
+
+    HandlePowerKey=suspend
 
     
 ## Surface
