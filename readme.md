@@ -122,6 +122,11 @@ in /etc/fstab create entry
     # Network mount
     //192.168.1**.**/<SHARE>              /home/<USER>/<MOUNTPOINT>         cifs            uid=1000,credentials=/home/<CREDENTIAL FILE>,iocharset=utf8,x-systemd.automount    0 0
     
+mount with Label
+
+    LABEL=<DEVICENAME>  <MOUNTPOINT>    <FSTYPE>    umask=000,dmask=027,fmask=137,uid=1000,gid=1000,windows_names       0 0
+
+    
 ## Surface
 
 On Surface devices run this command to install the Surface kernel
