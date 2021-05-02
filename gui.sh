@@ -2,7 +2,7 @@
 ###########################
 #### Array Definitions ####
 ###########################
-systemApps=(nerd-fonts-jetbrains-mono pacman-contrib archlinux-contrib sysstat ttf-font-awesome ttf-symbola dmenu network-manager-applet gnu-free-fonts zsh papirus-icon-theme gtk4 arc-gtk-theme arandr lxappearance timeshift grub-customizer polkit polkit-gnome feh bluez bluez-utils blueman viewnior xcape multilockscreen gotop cifs-utils ntfs-3g)
+systemApps=(nerd-fonts-jetbrains-mono pacman-contrib archlinux-contrib sysstat ttf-font-awesome ttf-symbola dmenu network-manager-applet gnu-free-fonts zsh papirus-icon-theme gtk4 arc-gtk-theme arandr lxappearance timeshift grub-customizer polkit polkit-gnome feh bluez bluez-utils blueman viewnior xcape multilockscreen gotop cifs-utils ntfs-3g xclip)
 essentialApps=(pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix ranger redshift thunar thunar-volman numlockx zathura htop-vim-git neofetch nodejs npm python-pynvim xarchiver unzip ueberzug zathura-pdf-mupdf)
 
 ###########################
