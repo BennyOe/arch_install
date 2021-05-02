@@ -131,6 +131,11 @@ set the following line in /etc/systemd/logind.conf
 
     HandlePowerKey=suspend
 
+#### Keyring authentication at login
+add the following two lines at /etc/pam.d/login
+
+    auth optional pam_gnome_keyring.so
+    session optional pam_gnome_keyring.so auto_start
     
 ## Surface
 
