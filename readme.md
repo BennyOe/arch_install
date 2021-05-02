@@ -93,6 +93,10 @@ execute the following commands
     groupadd -r autologin
     gpasswd -a <USENAME> autologin
     
+to avoid race conditions uncomment the following line
+
+      #logind-check-graphical=false
+    
     
 #### autorandr
 1. Set the desired screen layout with arandr or xrandr
