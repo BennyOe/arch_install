@@ -108,6 +108,20 @@ comment out the following line in /etc/pulse/default.pa and restart
 
     # load-module module-suspend-on-idle
     
+### Auto mount network drives
+create a file where you store your username and password
+
+    username=<USERNAME>
+    password=<PASSWORD>
+    
+in /etc/fstab create entry
+
+    192.168.1**.**/<SHARE> /home/<USER>/<MOUNTPOINT>  cifs  credentials=/home/<USER>/<YOUR CREDENTIALS FILE>,iocharset=utf8  0  0
+
+mount the device or put the following line in the .dwm/autostart.sh
+
+    sudo mount -t cifs //192.168.1**.**<SHARE> /home/<USER>/<MOUNTPOINT> -o credentials=/home/<USER>/<YOUR CREDENTIALS FILE>,iocharset=utf8
+    
 ## Surface
 
 On Surface devices run this command to install the Surface kernel
