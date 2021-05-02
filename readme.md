@@ -120,7 +120,7 @@ in /etc/fstab create entry
      UUID=<UUID>                          /home/<USER>/<MOUNTPOINT>         ntfs-3g         umask=000,dmask=027,fmask=137,uid=1000,gid=1000,windows_names       0 0
 
     # Network mount
-    //192.168.1**.**/<SHARE>              /home/<USER>/<MOUNTPOINT>         cifs            uid=0,credentials=/home/<CREDENTIAL FILE>,iocharset=utf8,x-systemd.automount    0 0
+    //192.168.1**.**/<SHARE>              /home/<USER>/<MOUNTPOINT>         cifs            uid=1000,credentials=/home/<CREDENTIAL FILE>,iocharset=utf8,x-systemd.automount    0 0
     
 ## Surface
 
