@@ -8,6 +8,7 @@ This is a install script for Arch Linux with Suckless DWM as window manager.
 
 
 # General
+---------------------
 This script is for my specific fully configured Arch Installation with a heavily patched DWM, DWM-Blocks and all the apps I need. During the installation there are several options you can choose to customize the installation to your needs. The color scheme is Onedark.
 To Install just boot from the latest Arch ISO http://archlinux.org and execute the first command below. The other scripts will execute automatically.
 
@@ -41,10 +42,10 @@ https://www.youtube.com/channel/UCylGUf9BvQooEFjgdNudoQg
 - Dotfiles https://github.com/BennyOe/.dotfiles
 - Wallpaper https://github.com/BennyOe/wallpaper
 
------------------
+
 
 # Installation
-
+-----------------------
 #### Dual Boot Installation (Optional)
 - Install Windows 
 - Resize Windows partition for the Linux install
@@ -69,7 +70,10 @@ This script gets called automatically after the base install script. If you wish
 
     curl -sL https://git.io/JOBJn | bash
     
+    
+    
 # Post installation
+--------------------------
 Enable the sudo command promt for a password run the commands
 
     su
@@ -136,9 +140,11 @@ add the following two lines at /etc/pam.d/login
 
     auth optional pam_gnome_keyring.so
     session optional pam_gnome_keyring.so auto_start
-    
-## Surface
-
+ 
+ 
+ 
+# Surface
+----------------------------
 On Surface devices run this command to install the Surface kernel
 
     curl -sL https://git.io/JO9G5 | bash
@@ -148,10 +154,11 @@ Set the resolution and scale of the device in the ~/.dwm/autostart.sh
     xrandr -s 2736x1824 
     xrandr --output eDP1 --scale 0.7
     
--------------------
+
+
 
 # Key Bindings
-
+-----------------------
 #### Basic controls
 
  Key                        | Action       
@@ -244,9 +251,9 @@ mod + ctrl + d             |        german keyboard
 
 
 
-------------------
 
 # Installed Applications 
+---------------------
 ### Base install
     iw wpa_supplicant dialog wpa_actiond sudo grub efibootmgr dosfstools os-prober mtools base linux linux-firmware 
     base-devel vim networkmanager git man bash
@@ -264,6 +271,7 @@ mod + ctrl + d             |        german keyboard
     signal-desktop discord_arch_electron brave-bin flameshot autorandr mailspring whatsapp-for-linux xidlehook 
     intellij-idea-ultimate-edition jre-openjdk vlc spotify-tui
 
+-----------------------
 
 ############
 ### TODO ###
