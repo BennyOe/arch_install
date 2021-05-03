@@ -43,9 +43,9 @@ https://www.youtube.com/channel/UCylGUf9BvQooEFjgdNudoQg
 - Wallpaper https://github.com/BennyOe/wallpaper
 
 
-
-# Installation
 -----------------------
+# Installation
+
 #### Dual Boot Installation (Optional)
 - Install Windows 
 - Resize Windows partition for the Linux install
@@ -71,9 +71,9 @@ This script gets called automatically after the base install script. If you wish
     curl -sL https://git.io/JOBJn | bash
     
     
-    
+--------------------------    
 # Post installation
---------------------------
+
 Enable the sudo command promt for a password run the commands
 
     su
@@ -142,9 +142,9 @@ add the following two lines at /etc/pam.d/login
     session optional pam_gnome_keyring.so auto_start
  
  
- 
+---------------------------- 
 # Surface
-----------------------------
+
 On Surface devices run this command to install the Surface kernel
 
     curl -sL https://git.io/JO9G5 | bash
@@ -156,9 +156,9 @@ Set the resolution and scale of the device in the ~/.dwm/autostart.sh
     
 
 
-
-# Key Bindings
 -----------------------
+# Key Bindings
+
 #### Basic controls
 
  Key                        | Action       
@@ -251,9 +251,9 @@ mod + ctrl + d             |        german keyboard
 
 
 
-
-# Installed Applications 
 ---------------------
+# Installed Applications 
+
 ### Base install
     iw wpa_supplicant dialog wpa_actiond sudo grub efibootmgr dosfstools os-prober mtools base linux linux-firmware 
     base-devel vim networkmanager git man bash
