@@ -148,7 +148,7 @@ do
             optionalApps+=(vlc)
             ;;
         11)
-            optionalApps+=(spotifyd-full-git spotify-tui)
+            optionalApps+=(spotifyd-full-git spotify-tui playerctl)
             ;;
     esac
 done
