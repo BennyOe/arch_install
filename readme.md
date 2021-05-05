@@ -274,7 +274,7 @@ mod + ctrl + d             |        german keyboard
     
 ##### Optional
     signal-desktop discord_arch_electron brave-bin flameshot autorandr mailspring whatsapp-for-linux xidlehook 
-    intellij-idea-ultimate-edition jre-openjdk vlc spotify-tui
+    intellij-idea-ultimate-edition jre-openjdk vlc spotify-tui playerctl spotifyd-full-git 
 
 -----------------------
 
