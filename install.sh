@@ -278,6 +278,13 @@ printf "setting keyboard layout\n"
 if [ $lang == 2 ]; then
 echo "KEYMAP=de-latin1" >> /etc/vconsole.conf
 fi
+
+if [ $dualboot == 1 ]; then
+timedatectl set-local-rtc 1 --adjust-system-clock
+else
+timedatectl set-ntp true
+fi
+
 echo "Setting hostname"
 echo $hostname > /etc/hostname
 sed -i "/localhost/s/$/ $hostname/" /etc/hosts
