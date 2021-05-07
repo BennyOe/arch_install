@@ -146,7 +146,7 @@ add the following two lines at /etc/pam.d/login
     auth optional pam_gnome_keyring.so
     session optional pam_gnome_keyring.so auto_start
  
- ### Synchronize the system clock
+ #### Synchronize the system clock
  run the following command
     
     timedatectl set-ntp true
