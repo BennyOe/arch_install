@@ -270,7 +270,7 @@ mod + ctrl + d             |        german keyboard
     ranger redshift thunar numlockx zathura htop-vim-git neofetch nodejs npm python-pynvim xarchiver unzip ueberzug
     lightdm lightdm-mini-greeter zsh-theme-powerlevel10k-git neovim-nightly-bin zsh oh-my-zsh zsh-autosuggestions 
     zsh-syntax-highlighting vim-plug gotop gotop cifs-utils ntfs-3g xclip zathura-pdf-mupdf udisks thunar-volman 
-    pulseaudio-bluetooth lazygit pamixer
+    pulseaudio-bluetooth lazygit pamixer gvfs
     
     
 ##### Optional
