@@ -167,27 +167,31 @@ if [ $dualboot -eq 0 ]; then
             mkpart primary ext4 ${swap_end} 100%
 
         if [[ "${device}" == "/dev/nvme"* ]]; then
+        # no dualboot, efi, nvme
             part_boot="${device}p1"
             part_swap="${device}p2"
             part_root="${device}p3"
 
         else
+        # no dualboot, efi, sda
             part_boot="${device}1"
             part_swap="${device}2"
             part_root="${device}3"
         fi
 
         mkfs.vfat -F32 "${part_boot}"
-    else
+    else #  bios mode
         swap_end=$(( $swap_size + 1 ))MiB
         parted --script "${device}" -- mklabel msdos \
             mkpart primary linux-swap 1MiB ${swap_end} \
             set 1 boot on \
             mkpart primary ext4 ${swap_end} 100%
         if [[ "${device}" == "/dev/nvme"* ]]; then
+        # no dualboot, bios, nvme
             part_swap="${device}p1"
             part_root="${device}p2"
         else
+        # no dualboot, bios, sda
             part_swap="${device}1"
             part_root="${device}2"
         fi
@@ -197,7 +201,7 @@ if [ $dualboot -eq 0 ]; then
 
     swapon "${part_swap}"
 
-else
+else # dualboot, efi
     startSector=$(parted "${device}" <<< 'unit MiB print' | awk 'FNR==14 {print $3}')
     startSector=${startSector::-3}
     startSector=$((startSector + 1))
@@ -217,11 +221,12 @@ else
         mkpart primary ext4 ${swap_end} ${endSector}MiB
 
     if [[ "${device}" == "/dev/nvme"* ]]; then
+    # dualboot, efi, nvme
         part_boot="${device}p1"
         part_swap="${device}p5"
         part_root="${device}p6"
-
     else
+    # dualboot, efi, sda
         part_boot="${device}1"
         part_swap="${device}5"
         part_root="${device}6"
