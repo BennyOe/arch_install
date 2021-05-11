@@ -283,7 +283,6 @@ mod + ctrl + d             |        german keyboard
 ### TODO ###
 ############
 - dwm fake fullscreen fix
-- nvme with bios
-- dual with bios
+- test nvme with bios
+- test dual with bios
 - ctags dwm
-- @ in password
