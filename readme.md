@@ -117,6 +117,10 @@ to set the password in your keyring execute the following command
 
     secret-tool store --label='name you choose' application rust-keyring service spotifyd username <your-username>
     
+#### Sync the systemclock
+
+    systemctl enable systemd-timesyncd.service
+    
 #### Auto mount network drives
 create a file where you store your username and password
 
