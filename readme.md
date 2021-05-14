@@ -149,6 +149,8 @@ add the following two lines at /etc/pam.d/login
 
     auth optional pam_gnome_keyring.so
     session optional pam_gnome_keyring.so auto_start
+
+Login keyring needs to be the default keyring. Can be set via seahorse.
  
 ---------------------------- 
 # Surface
