@@ -16,7 +16,7 @@ To Install just boot from the latest Arch ISO http://archlinux.org and execute t
 
  Mode           | UEFI  | BIOS
 ----------------|-------|------:
-Linux           |  X    |  X
+Linux only      |  X    |  X
 Dual-Boot       |  X    |
 SDA Controller  |  X    |  X
 Nvme Contoller  |  X    |
