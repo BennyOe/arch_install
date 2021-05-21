@@ -153,13 +153,14 @@ add the following two lines at /etc/pam.d/login
 Login keyring needs to be the default keyring. Can be set via seahorse.
 
 #### setting standard applications with thunar
-- opem settings manager
-- set default apps
-- set terminal emulator to /usr/local/bin/st
-- on "others" filter "plain"
-- for text/plain choose application
-- use a custom command
-- st -e nvim
+
+    opem settings manager
+    set default apps
+    set terminal emulator to /usr/local/bin/st
+    on "others" filter "plain"
+    for text/plain choose application
+    use a custom command
+    st -e nvim
  
 ---------------------------- 
 # Surface
