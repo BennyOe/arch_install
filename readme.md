@@ -154,7 +154,7 @@ Login keyring needs to be the default keyring. Can be set via seahorse.
 
 #### setting standard applications with thunar
 
-    opem settings manager
+    open settings manager
     set default apps
     set terminal emulator to /usr/local/bin/st
     on "others" filter "plain"
