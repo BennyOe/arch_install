@@ -151,6 +151,15 @@ add the following two lines at /etc/pam.d/login
     session optional pam_gnome_keyring.so auto_start
 
 Login keyring needs to be the default keyring. Can be set via seahorse.
+
+#### setting standard applications with thunar
+- opem settings manager
+- set default apps
+- set terminal emulator to /usr/local/bin/st
+- on "others" filter "plain"
+- for text/plain choose application
+- use a custom command
+- st -e nvim
  
 ---------------------------- 
 # Surface
@@ -276,7 +285,7 @@ mod + ctrl + d             |        german keyboard
     ranger redshift thunar numlockx zathura htop-vim-git neofetch nodejs npm python-pynvim xarchiver unzip ueberzug
     lightdm lightdm-mini-greeter zsh-theme-powerlevel10k-git neovim-nightly-bin zsh oh-my-zsh zsh-autosuggestions 
     zsh-syntax-highlighting vim-plug gotop gotop cifs-utils ntfs-3g xclip zathura-pdf-mupdf udisks thunar-volman 
-    pulseaudio-bluetooth lazygit pamixer gvfs
+    pulseaudio-bluetooth lazygit pamixer gvfs xfce4-settings
     
     
 ##### Optional
