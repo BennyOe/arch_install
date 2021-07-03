@@ -284,7 +284,7 @@ mod + ctrl + d             |        german keyboard
     gtk4 arc-gtk-theme lxappearance timeshift grub-customizer polkit polkit-gnome feh bluez bluez-utils blueman
     viewnior xcape multilockscreen libxft-bgra lsd pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix 
     ranger redshift thunar numlockx zathura htop-vim-git neofetch nodejs npm python-pynvim xarchiver unzip ueberzug
-    lightdm lightdm-mini-greeter zsh-theme-powerlevel10k-git neovim-nightly-bin zsh oh-my-zsh zsh-autosuggestions 
+    lightdm lightdm-mini-greeter zsh-theme-powerlevel10k-git neovim zsh oh-my-zsh zsh-autosuggestions 
     zsh-syntax-highlighting vim-plug gotop gotop cifs-utils ntfs-3g xclip zathura-pdf-mupdf udisks thunar-volman 
     pulseaudio-bluetooth lazygit pamixer gvfs xfce4-settings zip-3.0-9 bat ripgrep fd networkmanager-openconnect
     
