@@ -252,6 +252,13 @@ mod + backspace            |        shutdown menu
 mod + shift + backspace    |        quit dwm
 mod + shift + r            |        reload dwm
 
+#### Keyboard Layout
+
+Key                        | Action       
+ ------------------------- | -------------:
+mod + ctrl + e             |        switch to US layout
+mod + ctrl + d             |        switch to german layout
+
 #### Apps
 
 Key                        | Action       
