@@ -92,7 +92,6 @@ to get java swing or java fx applications working in dwm add this line to your /
 
      export _JAVA_AWT_WM_NONREPARENTING=1
 
-
 #### Autologin in lightdm
 
 uncomment the following line in /etc/lightdm/lightdm.conf and add your user
@@ -177,6 +176,8 @@ Login keyring needs to be the default keyring. Can be set via seahorse.
 
 #### setting up docker
 
+    systemctl enable docker
+    systemctl start docker
     sudo groupadd docker
     sudo usermod -aG docker $USER
 
