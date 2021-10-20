@@ -3,7 +3,7 @@
 #### Array Definitions ####
 ###########################
 systemApps=(nerd-fonts-jetbrains-mono pacman-contrib archlinux-contrib sysstat ttf-font-awesome ttf-symbola dmenu network-manager-applet networkmanager-openconnect gnu-free-fonts zsh papirus-icon-theme gtk4 arc-gtk-theme arandr lxappearance timeshift grub-customizer polkit polkit-gnome feh bluez bluez-utils blueman viewnior xcape multilockscreen gotop cifs-utils ntfs-3g xclip udisks thunar-volman pulseaudio-bluetooth pamixer gvfs xfce4-settings bat ripgrep fd)
-essentialApps=(pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix ranger redshift thunar thunar-volman numlockx zathura htop-vim-git neofetch nodejs npm python-pynvim xarchiver unzip ueberzug zathura-pdf-mupdf lazygit  zip-3.0-9)
+essentialApps=(pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix ranger redshift thunar thunar-volman numlockx zathura htop-vim-git neofetch nodejs npm python-pynvim xarchiver unzip ueberzug zathura-pdf-mupdf lazygit zip-3.0-9)
 
 ###########################
 ### Internet Connection ###
@@ -111,6 +111,7 @@ options=(1 "signal-desktop" on    # any option can be set to default to "on"
          9 "intellij-idea-ultimate-edition" on
          10 "vlc" on  
          11 "spotify-tui" on
+         12 "docker" on
          )
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
@@ -149,6 +150,9 @@ do
             ;;
         11)
             optionalApps+=(spotifyd-full-git spotify-tui playerctl)
+            ;;
+        12)
+            optionalApps+=(docker docker-compose)
             ;;
     esac
 done
