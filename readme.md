@@ -317,7 +317,7 @@ Set the resolution and scale of the device in the ~/.dwm/autostart.sh
 ##### Optional
 
     signal-desktop discord_arch_electron brave-bin flameshot autorandr mailspring whatsapp-for-linux xidlehook
-    intellij-idea-ultimate-edition jre-openjdk vlc spotify-tui playerctl spotifyd-full-git
+    intellij-idea-ultimate-edition jre-openjdk vlc spotify-tui playerctl spotifyd-full-git docker docker-compose
 
 ---
 
