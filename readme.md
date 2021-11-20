@@ -14,9 +14,7 @@
     <img src="https://img.shields.io/github/last-commit/BennyOe/arch_install?color=blueviolet&style=flat-square" alt="Last commit">
   </a>
 </div>
-# General
 
-This is a install script for Arch Linux with Suckless DWM as window manager.
 
 ![image](https://user-images.githubusercontent.com/45036971/115892305-52037380-a457-11eb-8ccf-3f60da59f79b.png)
 
