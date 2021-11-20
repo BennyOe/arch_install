@@ -377,16 +377,6 @@ sudo chsh -s $(which zsh) $(users)
 # setting zsh profile
 cp ~/.bash_profile ~/.zprofile
 
-##################
-###### VIM #######
-##################
-clear
-printf "Installing vim\n"
-sleep 2
-
-git clone https://github.com/papitz/nvim.git
-cd nvim
-python install.py
 
 ##################
 #### Dot Files ###
@@ -402,6 +392,17 @@ sleep 1
 ##################
 chmod +x ~/.dotfiles/setsymlinks.sh
 source ~/.dotfiles/setsymlinks.sh
+
+##################
+###### VIM #######
+##################
+clear
+printf "Installing vim\n"
+sleep 2
+
+git clone https://github.com/papitz/nvim.git
+cd nvim
+python install.py
 
 clear
 printf "Installation finished successfully\n"
