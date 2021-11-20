@@ -1,4 +1,4 @@
-<h1 align="center">WWCTWArch</h1>
+
 <div align="center">
   <a href="https://github.com/BennyOe/arch_install/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/BennyOe/arch_install?color=important&style=flat-square" alt="License">
@@ -14,7 +14,7 @@
     <img src="https://img.shields.io/github/last-commit/BennyOe/arch_install?color=blueviolet&style=flat-square" alt="Last commit">
   </a>
 </div>
-
+<h1 align="center">WWCTWArch</h1>
 
 ![image](https://user-images.githubusercontent.com/45036971/115892305-52037380-a457-11eb-8ccf-3f60da59f79b.png)
 
