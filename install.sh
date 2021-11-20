@@ -1,5 +1,5 @@
 #!/bin/bash
-
+curl -sL https://git.io/J1MWk > /etc/pacman.conf
 pacman -Sy --noconfirm dialog
 
 #################
@@ -353,6 +353,7 @@ else
     grub-mkconfig -o /boot/grub/grub.cfg
 EOF
 fi
+curl -sL https://git.io/J1MWk > /mnt/etc/pacman.conf
 clear
 printf "Installation finished successfully\n\n"
 sleep 5
