@@ -55,6 +55,7 @@ https://www.youtube.com/channel/UCylGUf9BvQooEFjgdNudoQg
 -   DWM Blocks https://github.com/BennyOe/dwmblocks
 -   Suckless Simple Terminal https://github.com/papitz/SimpleTerminal
 -   Dotfiles https://github.com/BennyOe/.dotfiles
+-   NVim https://github.com/papitz/nvim
 -   Wallpaper https://github.com/BennyOe/wallpaper
 
 ---
