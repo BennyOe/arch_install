@@ -213,11 +213,11 @@ Set the resolution and scale of the device in the ~/.dwm/autostart.sh
 get the UUID from the EFI partition with ```lsblk -o +UUID```
 edit the ```/etc/grub.d/40_custom```
 
-``` menuentry "Windows 10" --class windows --class os {
-   insmod ntfs
-   search --no-floppy --set=root --fs-uuid $your_uuid_here$
-   chainloader /EFI/Microsoft/Boot/bootmgfw.efi
-} ```
+    menuentry "Windows 10" --class windows --class os {
+    insmod ntfs
+    search --no-floppy --set=root --fs-uuid $your_uuid_here$
+    chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+    }
 
 run ```sudo update-grub```
 
