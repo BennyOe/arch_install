@@ -210,6 +210,7 @@ Set the resolution and scale of the device in the ~/.dwm/autostart.sh
     xrandr --output eDP1 --scale 0.7
     
 #### adding Windows to grub if needed
+
 get the UUID from the EFI partition with ```lsblk -o +UUID```
 edit the ```/etc/grub.d/40_custom```
 
@@ -220,6 +221,10 @@ edit the ```/etc/grub.d/40_custom```
     }
 
 run ```sudo update-grub```
+
+#### when booting takes over 1 minute
+
+edit ```/etc/fstab``` and comment out the swap partition line
 
 ---
 
