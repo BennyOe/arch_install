@@ -208,6 +208,18 @@ Set the resolution and scale of the device in the ~/.dwm/autostart.sh
 
     xrandr -s 2736x1824
     xrandr --output eDP1 --scale 0.7
+    
+#### adding Windows to grub if needed
+get the UUID from the EFI partition with ```lsblk -o +UUID```
+edit the ```/etc/grub.d/40_custom```
+
+``` menuentry "Windows 10" --class windows --class os {
+   insmod ntfs
+   search --no-floppy --set=root --fs-uuid $your_uuid_here$
+   chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+} ```
+
+run ```sudo update-grub```
 
 ---
 
