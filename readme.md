@@ -199,6 +199,7 @@ Login keyring needs to be the default keyring. Can be set via seahorse.
 #### Neo-Vim
 
 run ```:PackerSync```to intall all Vim plugins etc
+
 ---
 
 # Surface
