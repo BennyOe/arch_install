@@ -103,13 +103,13 @@ Enable the sudo command promt for a password run the commands
 
 #### Intellij and java applications
 
-to get java swing or java fx applications working in dwm add this line to your /etc/profile
+to get java swing or java fx applications working in dwm add this line to your ```/etc/profile```
 
      export _JAVA_AWT_WM_NONREPARENTING=1
 
 #### Autologin in lightdm
 
-uncomment the following line in /etc/lightdm/lightdm.conf and add your user
+uncomment the following line in ```/etc/lightdm/lightdm.conf``` and add your user
 
     [Seat:*]
     autologin-user=<USERNAME>
@@ -131,7 +131,7 @@ to avoid race conditions uncomment the following line
 #### pulse audio
 
 disable switching to idle mode if audio is not used
-comment out the following line in /etc/pulse/default.pa and restart
+comment out the following line in ```/etc/pulse/default.pa``` and restart
 
     # load-module module-suspend-on-idle
 
@@ -166,13 +166,13 @@ mount with Label
 
 #### Power button
 
-set the following line in /etc/systemd/logind.conf
+set the following line in ```/etc/systemd/logind.conf```
 
     HandlePowerKey=suspend
 
 #### Keyring authentication at login
 
-add the following two lines at /etc/pam.d/login
+add the following two lines at ```/etc/pam.d/login```
 
     auth optional pam_gnome_keyring.so
     session optional pam_gnome_keyring.so auto_start
@@ -196,6 +196,9 @@ Login keyring needs to be the default keyring. Can be set via seahorse.
     sudo groupadd docker
     sudo usermod -aG docker $USER
 
+#### Neo-Vim
+
+run ```:PackerSync```to intall all Vim plugins etc
 ---
 
 # Surface
@@ -204,7 +207,7 @@ On Surface devices run this command to install the Surface kernel
 
     curl -sL https://git.io/JO9G5 | bash
 
-Set the resolution and scale of the device in the ~/.dwm/autostart.sh
+Set the resolution and scale of the device in the ```~/.dwm/autostart.sh```
 
     xrandr -s 2736x1824
     xrandr --output eDP1 --scale 0.7
