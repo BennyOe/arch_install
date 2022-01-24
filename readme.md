@@ -141,10 +141,10 @@ comment out the following line in ```/etc/pulse/default.pa``` and restart
 #### spotifyd
 
 to set the password in your keyring execute the following command
-![image](https://user-images.githubusercontent.com/45036971/150825941-e5fb33b9-31a7-41fe-be41-59d1f6d9c7cd.png)
-
 
     secret-tool store --label='name you choose' application rust-keyring service spotifyd username <your-username>
+    
+![image](https://user-images.githubusercontent.com/45036971/150825941-e5fb33b9-31a7-41fe-be41-59d1f6d9c7cd.png)
     
 to setup the spotifyd daemon create ```~/.config/spotifyd/spotifyd.conf``` and add this config [config file](https://spotifyd.github.io/spotifyd/config/File.html)
 
