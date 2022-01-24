@@ -149,7 +149,7 @@ do
             optionalApps+=(vlc)
             ;;
         11)
-            optionalApps+=(spotifyd-full-git spotify-tui playerctl)
+            optionalApps+=(spotifyd spotify-tui playerctl)
             ;;
         12)
             optionalApps+=(docker docker-compose)
