@@ -355,7 +355,7 @@ edit ```/etc/fstab``` and comment out the swap partition line
     ranger redshift thunar numlockx zathura htop-vim-git neofetch nodejs npm python-pynvim xarchiver unzip ueberzug
     lightdm lightdm-mini-greeter zsh-theme-powerlevel10k-git neovim zsh oh-my-zsh zsh-autosuggestions
     zsh-syntax-highlighting vim-plug gotop gotop cifs-utils ntfs-3g xclip zathura-pdf-mupdf udisks thunar-volman
-    pulseaudio-bluetooth lazygit pamixer gvfs xfce4-settings zip-3.0-9 bat ripgrep fd networkmanager-openconnect xdotool
+    pulseaudio-bluetooth lazygit pamixer gvfs xfce4-settings zip-3.0-9 bat ripgrep fd networkmanager-openconnect xdotool seahorse
 
 ##### Optional
 
