@@ -16,9 +16,12 @@
 </div>
 <h1 align="center">WWCTWArch</h1>
 
-![image](https://user-images.githubusercontent.com/45036971/115892305-52037380-a457-11eb-8ccf-3f60da59f79b.png)
 
-![image](https://user-images.githubusercontent.com/45036971/115956284-4322cc80-a4fc-11eb-8642-418093973a5b.png)
+![arch1-min](https://user-images.githubusercontent.com/45036971/150820690-b1ea7ee4-14ff-41cb-8db6-429251fe3e83.png)
+
+![arch2-min](https://user-images.githubusercontent.com/45036971/150820747-bfd0a2cf-b778-4e5a-883e-af6fbc6bf19f.png)
+
+
 
 ---
 
