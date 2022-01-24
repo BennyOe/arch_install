@@ -358,7 +358,7 @@ edit ```/etc/fstab``` and comment out the swap partition line
 ##### Optional
 
     signal-desktop discord_arch_electron brave-bin flameshot autorandr mailspring whatsapp-for-linux xidlehook
-    intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre jre-openjdk vlc spotify-tui playerctl spotifyd-full-git docker docker-compose
+    intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre jre-openjdk vlc spotify-tui playerctl spotifyd docker docker-compose
 
 ---
 
