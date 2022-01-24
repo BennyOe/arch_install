@@ -234,7 +234,7 @@ Set the resolution and scale of the device in the ```~/.dwm/autostart.sh```
     xrandr -s 2736x1824
     xrandr --output eDP1 --scale 0.7
     
-# Known Problems Fixes
+# Known Problem Fixes
 
 #### when booting takes over 1 minute
 
