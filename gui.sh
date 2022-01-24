@@ -400,9 +400,10 @@ clear
 printf "Installing vim\n"
 sleep 2
 
+cd ~/$appfolder
 git clone https://github.com/papitz/nvim.git
 cd nvim
-python install.py
+sudo python install.py
 
 clear
 printf "Installation finished successfully\n"
