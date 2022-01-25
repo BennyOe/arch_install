@@ -243,6 +243,16 @@ Set the resolution and scale of the device in the ```~/.dwm/autostart.sh```
 
 edit ```/etc/fstab``` and comment out the swap partition line
 
+#### bluetooth not starting
+
+check if the Bluetooth service is running
+
+    systemctl status bluetooth.service
+
+if not enable it
+
+    systemctl enable --now bluetooth.service
+
 ---
 
 # Key Bindings
