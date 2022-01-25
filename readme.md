@@ -75,7 +75,8 @@ https://www.youtube.com/channel/UCylGUf9BvQooEFjgdNudoQg
 #### adding Windows to grub manually if needed
 
 get the UUID from the EFI partition with ```lsblk -o +UUID```
-edit the ```/etc/grub.d/40_custom```
+
+edit the ```/etc/grub.d/40_custom``` and add the following code
 
     menuentry "Windows 10" --class windows --class os {
     insmod ntfs
