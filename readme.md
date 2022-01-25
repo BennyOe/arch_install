@@ -159,6 +159,8 @@ to set the password in your keyring execute the following command
 
     secret-tool store --label='name you choose' application rust-keyring service spotifyd username <your-username>
     
+it should look something like this
+    
 ![image](https://user-images.githubusercontent.com/45036971/150825941-e5fb33b9-31a7-41fe-be41-59d1f6d9c7cd.png)
     
 to setup the spotifyd daemon create ```~/.config/spotifyd/spotifyd.conf``` and add this config [config file](https://spotifyd.github.io/spotifyd/config/File.html) or take the one from the ```~/.dotfiles``` folder
