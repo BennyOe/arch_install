@@ -6,7 +6,7 @@ curl -s https://raw.githubusercontent.com/linux-surface/linux-surface/master/pkg
 sudo pacman-key --finger 56C464BAAC421453
 sudo pacman-key --lsign-key 56C464BAAC421453
 
-sudo curl https://raw.githubusercontent.com/BennyOe/arch_install/main/pacman.conf -o /etc/pacman.conf
+sudo curl https://raw.githubusercontent.com/BennyOe/arch_install/main/surfacePacman.conf -o /etc/pacman.conf
 
 sudo pacman -Syu
 sudo pacman -S linux-surface linux-surface-headers iptsd
