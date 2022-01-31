@@ -1,6 +1,6 @@
 #!/bin/bash
 curl -sL https://git.io/J1M42 > /etc/pacman.conf
-pacman -Syu && pacman-key --refresh-keys --noconfirm dialog
+pacman -Sy && pacman-key --refresh-keys --noconfirm dialog
 
 #################
 #### Welcome ####
