@@ -1,4 +1,5 @@
 #!/bin/bash
+script
 ###########################
 #### Array Definitions ####
 ###########################
@@ -408,6 +409,7 @@ sudo python install.py
 clear
 printf "Installation finished successfully\n"
 printf "rebooting the system.\n"
+exit
 printf "press a key to continue...\n"
 read < /dev/tty
 reboot
