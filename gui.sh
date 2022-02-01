@@ -312,7 +312,7 @@ nitrogen --set-centered $HOME/Pictures/Wallpaper/0257.jpg
 ############################
 
 clear
-printf "Installation finished successfully\n\n"
+printf "Basic installation finished successfully\n\n"
 sleep 5
 
 ##################
@@ -405,6 +405,8 @@ yay -S --noconfirm neovim-git nvim-packer-git
 rm -rf ~/.config/nvim
 cd ~/.config
 git clone https://github.com/papitz/nvim.git
+
+# installing nerd fonts at the end because otherwise it gets overwritten somehow
 yay -S --noconfirm nerd-fonts-jetbrains-mono
 
 
