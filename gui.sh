@@ -401,10 +401,11 @@ clear
 printf "Installing vim\n"
 sleep 2
 
-cd ~/$appfolder
+yay -S --noconfirm neovim-git nvim-packer-git
+rm ~/.config/nvim
+cd ~/.config
 git clone https://github.com/papitz/nvim.git
-cd nvim
-sudo python install.py
+
 
 clear
 printf "Installation finished successfully\n"
