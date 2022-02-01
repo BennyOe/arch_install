@@ -402,7 +402,7 @@ printf "Installing vim\n"
 sleep 2
 
 yay -S --noconfirm neovim-git nvim-packer-git
-rm ~/.config/nvim
+rm -rf ~/.config/nvim
 cd ~/.config
 git clone https://github.com/papitz/nvim.git
 
