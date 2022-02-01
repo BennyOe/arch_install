@@ -4,7 +4,7 @@ sleep 5
 #### Array Definitions ####
 ###########################
 systemApps=(pacman-contrib archlinux-contrib sysstat ttf-font-awesome ttf-symbola dmenu network-manager-applet networkmanager-openconnect gnu-free-fonts zsh papirus-icon-theme gtk4 arc-gtk-theme arandr lxappearance timeshift grub-customizer polkit polkit-gnome feh bluez bluez-utils blueman viewnior xcape multilockscreen gotop cifs-utils ntfs-3g xclip udisks thunar-volman pulseaudio-bluetooth pamixer gvfs xfce4-settings bat ripgrep fd seahorse)
-essentialApps=(pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix ranger redshift thunar thunar-volman numlockx zathura htop-vim-git neofetch nodejs npm python-pynvim xarchiver unzip ueberzug zathura-pdf-mupdf lazygit zip-3.0-9 xdotool nerd-fonts-jetbrains-mono)
+essentialApps=(pulseaudio pulseaudio-alsa pavucontrol pa-applet-git ponymix ranger redshift thunar thunar-volman numlockx zathura htop-vim-git neofetch nodejs npm python-pynvim xarchiver unzip ueberzug zathura-pdf-mupdf lazygit zip-3.0-9 xdotool)
 
 ###########################
 ### Internet Connection ###
@@ -405,6 +405,7 @@ yay -S --noconfirm neovim-git nvim-packer-git
 rm -rf ~/.config/nvim
 cd ~/.config
 git clone https://github.com/papitz/nvim.git
+yay -S --noconfirm nerd-fonts-jetbrains-mono
 
 
 clear
