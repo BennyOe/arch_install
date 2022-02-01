@@ -318,7 +318,8 @@ arch-chroot /mnt useradd -m -G wheel,uucp,video,audio,storage,games,input "$user
 echo "$user:$password" | chpasswd --root /mnt
 echo "root:$password" | chpasswd --root /mnt
 arch-chroot /mnt visudo << EOF
-:%s/^# %wheel ALL=(ALL) NO/%wheel ALL=(ALL) NO/g
+# :%s/^# %wheel ALL=(ALL) NO/%wheel ALL=(ALL) NO/g
+:%s/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g
 :wq
 EOF
 
