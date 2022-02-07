@@ -80,10 +80,10 @@ edit the ```/etc/grub.d/40_custom``` and add the following code
 
     menuentry "Windows 10" --class windows --class os {
     insmod ntfs
-    search --no-floppy --set=root --fs-uuid $your_uuid_here$
+    search --no-floppy --set=root --fs-uuid YOUR_UUID_HERE
     chainloader /EFI/Microsoft/Boot/bootmgfw.efi
     }
-install update-grub ```yay -S update-grub```
+install update-grub ```yay -S update-grub``` \
 run ```sudo update-grub```
 
 
