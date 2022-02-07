@@ -83,7 +83,7 @@ edit the ```/etc/grub.d/40_custom``` and add the following code
     search --no-floppy --set=root --fs-uuid $your_uuid_here$
     chainloader /EFI/Microsoft/Boot/bootmgfw.efi
     }
-
+install update-grub ```yay -S update-grub```
 run ```sudo update-grub```
 
 
