@@ -1,5 +1,5 @@
 #!/bin/bash
-mount /dev/nvme0n1p1 /boot/EFI
+sudo mount /dev/nvme0n1p1 /boot/EFI
 
 curl -s https://raw.githubusercontent.com/linux-surface/linux-surface/master/pkg/keys/surface.asc | sudo pacman-key --add -
     
