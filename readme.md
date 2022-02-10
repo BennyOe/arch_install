@@ -99,7 +99,7 @@ if running a device with WLAN run these commands to connect to the internet
     
 ---
 
-### Run the base install script
+## Run the base install script
 
 to fetch and execute the script run the command:
 
