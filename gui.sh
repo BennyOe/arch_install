@@ -1,19 +1,19 @@
 #!/bin/bash
-printf "Do you want to install the GUI-Script?"
+printf "Do you want to install the GUI-Script? [y]/n\n"
     read install
 
     if [ $install=="n" ]; then
         clear
-        printf "Do you want to execute the GUI-Script at the next login?"
+        printf "Do you want to execute the GUI-Script at the next login? [y]/n\n"
         read nextLogin
         if [ $nextLogin=="n" ]; then
         clear
+        printf "removing GUI-Script"
         sed -i '$d' ~/.bashrc
         exit 0
         else
         exit 0
         fi
-    else
     fi
 
 
