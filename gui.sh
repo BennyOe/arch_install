@@ -21,11 +21,11 @@ else
 
     if [ $wlan=="y" ]; then
         clear
-        nmtui
+        sudo nmtui
         while ! ping -c 1 archlinux.org &>/dev/null; 
         do 
             printf "connection unsuccessful...\n"
-            nmtui
+            sudo nmtui
         done
             printf "Internet connection working...\n"
     else
