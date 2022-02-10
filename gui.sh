@@ -6,7 +6,7 @@ printf "Do you want to install the GUI-Script? [y]/n\n"
         clear
         printf "Do you want to execute the GUI-Script at the next login? [y]/n\n"
         read nextLogin
-        if [[ $nextLogin == "Y" || $nextLogin == "y" ]]; then
+        if [[ $nextLogin == "N" || $nextLogin == "n" ]]; then
         clear
         printf "removing GUI-Script"
         sed -i '$d' ~/.bashrc
