@@ -86,6 +86,7 @@ edit the ```/etc/grub.d/40_custom``` and add the following code
 install update-grub ```yay -S update-grub``` \
 run ```sudo update-grub```
 
+---
 
 #### WLAN
 
@@ -95,8 +96,10 @@ if running a device with WLAN run these commands to connect to the internet
     iwctl station <DEVICE> scan
     iwctl station <DEVICE> get-networks
     iwctl station <DEVICE> connect <SSID>
+    
+---
 
-#### Run the base install script
+### Run the base install script
 
 to fetch and execute the script run the command:
 
