@@ -1,20 +1,20 @@
 #!/bin/bash
-#printf "Do you want to install the GUI-Script? [y]/n\n"
- #   read install
+printf "Do you want to install the GUI-Script? [y]/n\n"
+    read install
 
-   # if [ $install=="n" ]; then
-    #    clear
-     #   printf "Do you want to execute the GUI-Script at the next login? [y]/n\n"
-      #  read nextLogin
-       # if [ $nextLogin=="n" ]; then
-        #clear
-        #printf "removing GUI-Script"
-        #sed -i '$d' ~/.bashrc
-        #exit 0
-        #else
-        #exit 0
-        #fi
-    #fi
+    if [[ $install == "N" || $install == "n" ]]; then
+        clear
+        printf "Do you want to execute the GUI-Script at the next login? [y]/n\n"
+        read nextLogin
+        if [[ $nextLogin == "Y" || $nextLogin == "y" ]]; then
+        clear
+        printf "removing GUI-Script"
+        sed -i '$d' ~/.bashrc
+        exit 0
+        else
+        exit 0
+        fi
+    fi
 
 
 ###########################
@@ -37,9 +37,9 @@ else
     printf "Internet connection not working\n"
      # Wlan or Ethernet
     printf "Do you use Wlan for the installation? [y]/n\n"
-    read wlan
+    wlan
 
-    if [ $wlan=="y" ]; then
+    if [[ $wlan == "Y" || $wlan == "y" ]]; then
         clear
         sudo nmtui
         while ! ping -c 1 archlinux.org &>/dev/null; 
