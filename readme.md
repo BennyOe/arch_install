@@ -231,14 +231,26 @@ run ```:PackerSync```to intall all Vim plugins etc
 
 # Surface
 
-On Surface devices run this command to install the Surface kernel
+On Surface devices run the following commands to install the Surface kernel
 
-    curl -sL https://git.io/JO9G5 | bash
+    sudo mount /dev/nvme0n1p1 /boot/EFI
 
-Set the resolution and scale of the device in the ```~/.dwm/autostart.sh```
+    curl -s https://raw.githubusercontent.com/linux-surface/linux-surface/master/pkg/keys/surface.asc | sudo pacman-key --add -
+    
+    sudo pacman-key --finger 56C464BAAC421453
+    sudo pacman-key --lsign-key 56C464BAAC421453
 
-    xrandr -s 2736x1824
-    xrandr --output eDP1 --scale 0.7
+    sudo curl https://raw.githubusercontent.com/BennyOe/arch_install/main/surfacePacman.conf -o /etc/pacman.conf
+
+    sudo pacman -Syu
+    sudo pacman -S linux-surface linux-surface-headers iptsd
+    sudo systemctl enable iptsd
+
+    sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+    Set the resolution and scale of the device in the ```~/.dwm/autostart.sh```
+
+In  ```~/.dotfiles``` change the branch to ```surface``` and run ```./setsymlinks.sh``` then reboot the surface. 
     
 # Known Problem Fixes
 
