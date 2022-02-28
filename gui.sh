@@ -37,7 +37,7 @@ else
     printf "Internet connection not working\n"
      # Wlan or Ethernet
     printf "Do you use Wlan for the installation? [y]/n\n"
-    wlan
+    read wlan
 
     if [[ $wlan == "Y" || $wlan == "y" ]]; then
         clear
