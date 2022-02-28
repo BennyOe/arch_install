@@ -390,7 +390,7 @@ if not enable it
 
 ##### Optional
 
-    signal-desktop discord_arch_electron brave-bin flameshot autorandr mailspring whatsapp-for-linux xidlehook
+    signal-desktop discord brave-bin flameshot autorandr mailspring whatsapp-for-linux xidlehook
     intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre jre-openjdk vlc spotify-tui playerctl spotifyd docker docker-compose
 
 ---
