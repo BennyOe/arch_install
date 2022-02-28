@@ -121,7 +121,7 @@ exec 3>&1
 optionalApps=()
 cmd=(dialog --separate-output --checklist "Select apps to install:" 22 76 16)
 options=(1 "signal-desktop" on    # any option can be set to default to "on"
-         2 "discord_arch_electron" on
+         2 "discord" on
          3 "brave-bin" on
          4 "flameshot" on
          5 "autorandr" on
@@ -142,7 +142,7 @@ do
             optionalApps+=(signal-desktop)
             ;;
         2)
-            optionalApps+=(discord_arch_electron)
+            optionalApps+=(discord)
             ;;
         3)
             optionalApps+=(brave-bin)
