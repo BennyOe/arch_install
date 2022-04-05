@@ -126,7 +126,7 @@ options=(1 "signal-desktop" on    # any option can be set to default to "on"
          4 "flameshot" on
          5 "autorandr" on
          6 "mailspring" on
-         7 "whatsapp-for-linux" on
+         7 "whatsapp-nativefier" on
          8 "xidlehook" on
          9 "intellij-idea-ultimate-edition" on
          10 "vlc" on  
@@ -157,7 +157,7 @@ do
             optionalApps+=(mailspring libsecret gnome-keyring)
             ;;
         7)
-            optionalApps+=(whatsapp-for-linux)
+            optionalApps+=(whatsapp-nativefier)
             ;;
         8)
             optionalApps+=(xidlehook)
