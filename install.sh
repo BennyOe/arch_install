@@ -256,14 +256,14 @@ pacstrap /mnt base linux linux-firmware base-devel vim networkmanager git man ba
 printf "setting fstab\n"
 genfstab -U /mnt >> /mnt/etc/fstab
 
-clear
+#clear
 printf "\n Arch is installed.\n\n"
 sleep 5
 
 ###############################
 #### Configure base system ####
 ###############################
-clear
+#clear
 printf "Configure base system \n\n"
 sleep 5
 
