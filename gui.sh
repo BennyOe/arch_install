@@ -19,7 +19,7 @@ fi
 ###########################
 #### Array Definitions ####
 ###########################
-systemApps=(pacman-contrib archlinux-contrib sysstat ttf-font-awesome ttf-symbola dmenu network-manager-applet networkmanager-openconnect gnu-free-fonts zsh papirus-icon-theme gtk4 arc-gtk-theme arandr lxappearance grub-customizer polkit polkit-gnome xcape multilockscreen cifs-utils ntfs-3g xclip udisks gvfs xfce4-settings)
+systemApps=(pacman-contrib archlinux-contrib sysstat ttf-font-awesome ttf-symbola dmenu network-manager-applet networkmanager-openconnect gnu-free-fonts zsh papirus-icon-theme gtk4 arc-gtk-theme arandr lxappearance grub-customizer polkit polkit-gnome xcape multilockscreen cifs-utils ntfs-3g xclip udisks gvfs xfce4-settings xvkbd xbindkeys)
 
 utilityApps=(flameshot timeshift feh viewnior gotop bat ripgrep fd seahorse ranger yazi redshift thunar thunar-volman numlockx zathura htop neofetch xarchiver unzip ueberzugpp zathura-pdf-mupdf lazygit zip xdotool mupdf poppler dragon-drop)
 
